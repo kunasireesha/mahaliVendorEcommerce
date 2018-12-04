@@ -1,0 +1,218 @@
+<div class="container products">
+  <div class="row">
+    <div class="col-md-3">
+      <h5>Category</h5>
+      <br/>
+      <div class="categories">
+        <p (click)="collapse()">
+          <a>
+            <i class="fa fa-plus" aria-hidden="true" *ngIf="!showCategories"></i>
+            <i class="fa fa-minus" aria-hidden="true" *ngIf="showCategories"></i>
+          </a> &nbsp;&nbsp;Electronics</p>
+        <hr>
+        <p *ngIf="showCategories" class="subCat">Mobiles & Tablets
+        </p>
+        <hr *ngIf="showCategories">
+        <p *ngIf="showCategories" class="subCat">Desktops & Laptops
+        </p>
+        <hr *ngIf="showCategories">
+        <p>
+          <a>
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </a> &nbsp;&nbsp;clothing</p>
+        <hr>
+        <p>
+          <a>
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </a> &nbsp;&nbsp;Fasion & Accessories</p>
+        <hr>
+        <p>
+          <a>
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </a> &nbsp;&nbsp;Jewellery</p>
+        <hr>
+        <p>
+          <a>
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </a> &nbsp;&nbsp;Furniture</p>
+        <hr>
+
+      </div>
+
+      <h5>Brand</h5>
+      <div class="brands">
+        <input type="text" placeholder="Search by Brand">
+        <br/>
+        <div class="brand-names">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+            <label class="custom-control-label" for="defaultUnchecked">Apple</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked1">
+            <label class="custom-control-label" for="defaultUnchecked1">Asus</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked2">
+            <label class="custom-control-label" for="defaultUnchecked2">Celkon</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked3">
+            <label class="custom-control-label" for="defaultUnchecked3">HTC</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked4">
+            <label class="custom-control-label" for="defaultUnchecked4">Intex</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked5">
+            <label class="custom-control-label" for="defaultUnchecked5">Lenovo</label>
+          </div>
+        </div>
+      </div>
+
+      <h5>Sort</h5>
+      <div class="sort">
+        <select>
+          <option>Sort</option>
+        </select>
+      </div>
+      <br/>
+      <h5>Price</h5>
+      <div class="price">
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="defaultUnchecked6">
+          <label class="custom-control-label" for="defaultUnchecked6">Less than 5000</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="defaultUnchecked7">
+          <label class="custom-control-label" for="defaultUnchecked7">Less than 10000</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="defaultUnchecked8">
+          <label class="custom-control-label" for="defaultUnchecked8">Less than 15000</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="defaultUnchecked9">
+          <label class="custom-control-label" for="defaultUnchecked9">Less than 20000</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="defaultUnchecked10">
+          <label class="custom-control-label" for="defaultUnchecked10">Less than 25000</label>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-9 items">
+      <p>
+        <a routerLink="/">Home</a>&nbsp;&nbsp;>&nbsp;
+        <a>Electronics</a>
+      </p>
+      <div class="row">
+        <div class="col-md-3 item">
+          <div class="card" (click)="showProduxtDetails()">
+            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
+            <div class="card-block">
+              <h5 class="text-center">Vivo V9 plus </h5>
+              <p class="text-center">
+                BD 7.500
+                <strike>BD 8.000</strike>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 item">
+          <div class="card" (click)="showProduxtDetails()">
+            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
+            <div class="card-block">
+              <h5 class="text-center">Vivo V9 plus </h5>
+              <p class="text-center">
+                BD 7.500
+                <strike>BD 8.000</strike>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 item">
+          <div class="card" (click)="showProduxtDetails()">
+            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
+            <div class="card-block">
+              <h5 class="text-center">Vivo V9 plus </h5>
+              <p class="text-center">
+                BD 7.500
+                <strike>BD 8.000</strike>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 item">
+          <div class="card" (click)="showProduxtDetails()">
+            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
+            <div class="card-block">
+              <h5 class="text-center">Vivo V9 plus </h5>
+              <p class="text-center">
+                BD 7.500
+                <strike>BD 8.000</strike>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 item">
+          <div class="card" (click)="showProduxtDetails()">
+            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
+            <div class="card-block">
+              <h5 class="text-center">Vivo V9 plus </h5>
+              <p class="text-center">
+                BD 7.500
+                <strike>BD 8.000</strike>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 item">
+          <div class="card" (click)="showProduxtDetails()">
+            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
+            <div class="card-block">
+              <h5 class="text-center">Vivo V9 plus </h5>
+              <p class="text-center">
+                BD 7.500
+                <strike>BD 8.000</strike>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 item">
+          <div class="card" (click)="showProduxtDetails()">
+            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
+            <div class="card-block">
+              <h5 class="text-center">Vivo V9 plus </h5>
+              <p class="text-center">
+                BD 7.500
+                <strike>BD 8.000</strike>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 item">
+          <div class="card" (click)="showProduxtDetails()">
+            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
+            <div class="card-block">
+              <h5 class="text-center">Vivo V9 plus </h5>
+              <p class="text-center">
+                BD 7.500
+                <strike>BD 8.000</strike>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

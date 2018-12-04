@@ -1,0 +1,155 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+body {
+  min-height: 75rem;
+  /* padding-top: 4.5rem; */
+}
+
+a {
+  cursor: pointer;
+}
+
+body {
+  font-family: roboto;
+}
+
+.carousel-multi-item .controls-top {
+  text-align: right !important;
+}
+
+a {
+  cursor: pointer;
+}
+
+h4 {
+  font-weight: bold !important;
+  color: #454545 !important;
+}
+
+h4 a {
+  font-size: 14px;
+  font-weight: normal;
+  color: #4a84c3 !important;
+}
+
+.btn-maroon {
+  background-color: #801323;
+  border-radius: 9px !important;
+}
+
+.carousel-inner {
+  height: 315px;
+}
+
+.fa-chevron-right {
+  background-color: #801323;
+}
+
+.fa-chevron-left {
+  background-color: #801323;
+}
+
+.mat-dialog-container {
+  padding: 60px !important;
+  border-radius: 11px !important;
+}
+
+.slider-btn-left {
+  box-shadow: none;
+  width: 47px;
+  height: 47px;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  margin: -8px;
+  border-top-left-radius: 30px !important;
+  border-bottom-left-radius: 30px !important;
+  border-radius: 0px;
+  padding: 0;
+  border: 1px solid #b7b7b7;
+}
+
+.slider-btn-right {
+  box-shadow: none;
+  width: 47px;
+  height: 47px;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  margin: 7px;
+  border-top-right-radius: 30px !important;
+  border-bottom-right-radius: 30px !important;
+  border-radius: 0px;
+  padding: 0;
+  border: 1px solid #b7b7b7;
+}
+
+.slider-btn-left i,
+.slider-btn-right i {
+  background: #ffffff;
+  color: #000000;
+  font-size: 14px;
+}
+
+/* media queries */
+
+@media screen and (max-width:768px) {
+  .card {
+    width: 160px;
+  }
+}
+
+@media screen and (max-width:760px) {
+  .card {
+    width: 220px;
+  }
+}
+
+@media screen and (max-width:520px) {
+  .card {
+    width: 210px;
+  }
+}
+
+@media screen and (max-width:490px) {
+  .card {
+    width: 420px;
+  }
+}
+
+@media screen and (max-width:460px) {
+  .card {
+    width: 390px;
+  }
+}
+
+@media screen and (max-width:430px) {
+  .card {
+    width: 368px;
+  }
+}
+
+@media screen and (max-width:360px) {
+  .card {
+    width: 300px;
+  }
+  .carousel-inner {
+    height: auto;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .card {
+    width: 300px;
+  }
+  .carousel-inner {
+    height: auto;
+  }
+}
