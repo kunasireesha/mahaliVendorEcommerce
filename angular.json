@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mahalivendorecommerce": {
+    "mahali": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",

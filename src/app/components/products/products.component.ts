@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductService } from '../../services/productservice';
 
 @Component({
   selector: 'app-products',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, public productService: ProductService) { }
 
   ngOnInit() {
   }
@@ -16,5 +18,8 @@ export class ProductsComponent implements OnInit {
   collapse() {
     this.showCategories = !this.showCategories;
 
+  }
+  showProduxtDetails() {
+    this.router.navigate(['/productdetails'], { queryParams: { order: 'popular' } });
   }
 }
