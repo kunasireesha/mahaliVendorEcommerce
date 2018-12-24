@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
     loginSubmitted = false;
     category: any;
     product: any;
+    forgotForm: FormGroup;
     loginDetails: any;
     myAccount: boolean = false;
     phone: boolean = false;
@@ -28,6 +29,7 @@ export class HeaderComponent implements OnInit {
     showLoginScreen = true;
     showRegistration = true;
     showOpacity = false;
+    forgotSubmitted = false;
 
     constructor(public dialog: MatDialog, private router: Router, public appService: appService, private formBuilder: FormBuilder) { }
     item = {
@@ -62,12 +64,12 @@ export class HeaderComponent implements OnInit {
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(6)]]
         });
+        this.forgotForm = this.formBuilder.group({
+            mob_number: ['', [Validators.required]],
+        });
         this.getCategories();
         this.getProduct();
         this.login();
-    }
-    showSubCat() {
-        this.showSubCats = true;
     }
     hideSubCats() {
         this.showSubCats = false;
@@ -133,15 +135,9 @@ export class HeaderComponent implements OnInit {
             if (resp.json().status === 200) {
                 swal(resp.json().message, "", "success");
                 jQuery("#signupmodal").modal("hide");
-                // this.showRegistration = false;
-
-                // this.myAccount = true
-                // this.showOpacity = false;
-                // this.onCloseCancel();
             }
             else if (resp.json().status === 400) {
                 swal(resp.json().message, "", "error");
-                // jQuery("#signupmodal").modal("hide");
             }
         })
 
@@ -163,6 +159,7 @@ export class HeaderComponent implements OnInit {
                 this.myAccount = true;
                 this.appService.loginDetailsbyEmail(this.loginForm.value).subscribe(response => {
                     localStorage.setItem('phone', JSON.stringify(response.json().data[0].mobile_number));
+                    localStorage.setItem('email', (response.json().data[0].email));
                     this.loginDetails = response.json().data[0];
                     this.phone = true;
 
@@ -171,11 +168,30 @@ export class HeaderComponent implements OnInit {
             else if (resp.json().status === 404 || resp.json().status === 400) {
                 swal(resp.json().message, "", "error");
             }
+        },err=> {
+            
         })
     }
-    getCategories() {
-        this.appService.getCategories().subscribe(resp => {
-            this.category = resp.json().categories;
+    get f2() { return this.forgotForm.controls; }
+    forgot() {
+        this.forgotSubmitted = true;
+        if (this.forgotForm.invalid) {
+            return;
+        }
+        var inData = {
+            mobile_number: this.forgotForm.value.mob_number
+        }
+        this.appService.forgotPassword(inData).subscribe(resp => {
+            if (resp.json().status === 200) {
+                jQuery("#myModal").modal("hide");
+                swal(resp.json().message, "", "success");
+            } else {
+                swal(resp.json().message, "", "error");
+            }
+
+
+        }, err => {
+            swal(err.json().message, "", "error");
         })
     }
     getProduct() {
@@ -184,5 +200,27 @@ export class HeaderComponent implements OnInit {
             console.log(this.product);
         });
     }
+    getCategories() {
+        this.appService.getCategories().subscribe(resp => {
+            this.category = resp.json().categories;
+            // this.showSubCat(this.subId);
+        })
+    }
+    subCatData =[];
+    subId;
+    showSubCat(Id) {
+        this.subId = Id;
+        this.subCatData=[];
+        this.showSubCats = true;
+        for(var i=0;i<this.category.length;i++){
+        for(var j=0;j<this.category[i].subcategory.length;j++){
+            if(Id===this.category[i].subcategory[j].category_id){
+              this.subCatData.push(this.category[i].subcategory[j]);
+              console.log(this.subCatData);
+              
+            }
+        }
+    }
+}
 
 }

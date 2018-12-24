@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { appService } from './../../services/mahaliServices/mahali.service';
 @Component({
     selector: 'app-useraccount',
     templateUrl: './useraccount.component.html',
@@ -9,10 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 export class UseraccountComponent implements OnInit {
 
     constructor(
-        private route: ActivatedRoute) {
+        private route: ActivatedRoute,public appService: appService) {
         this.page = this.route.snapshot.data[0]['page'];
         if (this.page === 'profile') {
             this.showProfile = true;
+            this.getProfile();
         } else if (this.page === 'wishlist') {
             this.showWishlist = true;
         } else if (this.page === 'orders') {
@@ -143,5 +144,34 @@ export class UseraccountComponent implements OnInit {
         this.editUserProfile = false;
         this.showProfile = false;
     }
+    email;
+    profileData;
+    getProfile() {
+        this.email = (localStorage.email);
+        this.appService.loginDetailsbyEmail(this.email).subscribe(response => {
+            this.profileData = response.json().data[0];
+            localStorage.removeItem('userName');
+            localStorage.setItem('userName', (response.json().data[0].first_name) + " " + (response.json().data[0].last_name));
+        })
+    }
+    updateProfile() {
+        var inDate = {
+            first_name: this.profileData.first_name,
+            email: this.profileData.email,
+            mobile_number: this.profileData.mobile_number,
+            bussiness_area:this.profileData.bussiness_area,
+            bussiness_city:this.profileData.bussiness_city
 
+        }
+        this.appService.updateProfile(inDate).subscribe(response => {
+            console.log(response.json());
+            swal(response.json().message, "", "success");
+            this.ngOnInit();
+            this.getProfile();
+        })
+    }
+    cancel() {
+        this.showProfile = true;
+        this.editUserProfile = false;
+    }
 }

@@ -21,28 +21,28 @@
         <!-- profile -->
         <div class="col-lg-9" *ngIf="showProfile">
             <h3 class="profile-header">Profile Details</h3>
-            <img src="assets/images/user.png" class="image-user">
+            <!-- <img src="assets/images/user.png" class="image-user"> -->
             <br />
             <br />
             <div class="details">
                 <p>
                     <i class="fa fa-user" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;
-                    <span>N. Tarun Kumar </span>
+                    <span>{{profileData.first_name}} </span>
                 </p>
                 <p>
                     <i class="fa fa-at" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;
                     <span>
-                        tarunkumar321@gmail.com</span>
+                        {{profileData.email}}</span>
                 </p>
                 <p>
                     <i class="fa fa-phone" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;
-                    <span>8586854500</span>
+                    <span>{{profileData.mobile_number}}</span>
                 </p>
                 <p>
                     <i class="fa fa-map-marker" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;Unispace
-                    Bussiness Center, Modern TechPark,
-                    <br /> majestic Street Banglore
-                    <br /> 500038
+                    {{profileData.bussiness_area}}, {{profileData.bussiness_address}},
+                    <br /> {{profileData.bussiness_city}}
+                    <br /> {{profileData.bussiness_country}}
                 </p>
             </div>
             <div class="row">
@@ -55,75 +55,87 @@
 
 
         <!-- edit Profile -->
-        <div class="col-lg-9" *ngIf="editUserProfile">
+        <div class="col-lg-7" *ngIf="editUserProfile">
             <h3 class="profile-header">Edit Profile</h3>
-            <img src="assets/images/user.png" class="edit-image-user">
-            <br />
             <br />
             <form class="form-details">
                 <div class="form-group row">
-                    <label for="inputname1" class="col-sm-2 col-form-label">Name
+                    <label for="inputname1" class="col-sm-3 col-form-label">Name
                         <span class="float-right">:</span>
                     </label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control input-feild" id="inputname1" placeholder="N.Tarun Kumar">
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control input-feild" id="inputname1" name="first_name"
+                            [(ngModel)]="profileData.first_name">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email ID
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Email ID
                         <span class="float-right">:</span>
                     </label>
-                    <div class="col-sm-10">
-                        <input type="email" class="form-control input-feild" id="inputEmail3" placeholder="tarunkumar321@gmail.com">
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control input-feild" id="inputEmail3" placeholder="tarunkumar321@gmail.com"
+                            name="email" [(ngModel)]="profileData.email">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputphoneno" class="col-sm-2 col-form-label">Phone No
+                    <label for="inputphoneno" class="col-sm-3 col-form-label">Phone No
                         <span class="float-right">:</span>
                     </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control input-feild" id="inputphoneno" placeholder="8586854500"
+                            [(ngModel)]="profileData.mobile_number" name="mobile_number">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputphoneno" class="col-sm-3 col-form-label">Business Name
+                        <span class="float-right">:</span>
+                    </label>
+                    <div class="col-sm-9">
                         <input type="text" class="form-control input-feild" id="inputphoneno" placeholder="8586854500">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputhouseno" class="col-sm-2 col-form-label">House No
+                    <label for="inputhouseno" class="col-sm-3 col-form-label">House No
                         <span class="float-right">:</span>
                     </label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control input-feild" id="inputhouseno" placeholder="Unispace Bussiness Center #143">
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control input-feild" id="inputhouseno" placeholder="Unispace Bussiness Center #143" [(ngModel)]="profileData.bussiness_area" name="bussiness_area">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputstate" class="col-sm-2 col-form-label">State
+                    <label for="inputstate" class="col-sm-3 col-form-label">State
                         <span class="float-right">:</span>
                     </label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3 pad-rt">
                         <input type="text" class="form-control input-feild" id="inputstate" placeholder="Karnataka">
                     </div>
-                    <label for="inputcity" class="col-sm-2 col-form-label">City
+                    <label for="inputcity" class="col-sm-3 col-form-label city-ltpad">City
                         <span class="float-right">:</span>
                     </label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control input-feild" id="inputcity" placeholder="Bangalore">
+                    <div class="col-sm-3 pad-lt">
+                        <input type="text" class="form-control input-feild" id="inputcity" placeholder="Bangalore" [(ngModel)]="profileData.bussiness_city" name="bussiness_city">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputpincode" class="col-sm-2 col-form-label">Pin-code
+                    <label for="inputpincode" class="col-sm-3 col-form-label">Pin-code
                         <span class="float-right">:</span>
                     </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                         <input type="text" class="form-control input-feild" id="inputpincode" placeholder="500038">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-5 col-lg-5">
+                                <button type="button" class="btn save-btn" (click)="updateProfile()">Save</button>
+                            </div>
+                            <div class="col-sm-2 col-lg-2"></div>
+                            <div class="col-sm-5 col-lg-5">
+                                <button type="button" class="btn save-btn" (click)="cancel()">Cancel</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+
             </form>
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <button type="button" class="btn save-btn">Save</button>
-                </div>
-                <div class="col-lg-6">
-                    <button type="button" class="btn save-btn">Cancel</button>
-                </div>
-            </div>
         </div>
 
 

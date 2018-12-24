@@ -24,17 +24,31 @@ export class appService {
         });
         return this.http.post(AppSettings.changePwdUrl, params, { headers: headers });
     }
-    getCategories() {
-        const headers = new Headers({ 'Content-Type': "application/x-www-form-urlencoded" });
-        return this.http.get(AppSettings.categoriesUrl, { headers: headers });
-    }
     getProduct() {
         const headers = new Headers({ 'Content-Type': "application/x-www-form-urlencoded" });
         return this.http.get(AppSettings.productUrl, { headers: headers })
     }
     loginDetailsbyEmail(formValaues) {
         const headers = new Headers({ 'Content-Type': "application/x-www-form-urlencoded" });
-        return this.http.get(AppSettings.loginDetailsUrl + formValaues.email, { headers: headers })
+        return this.http.get(AppSettings.loginDetailsbyEmail + formValaues, { headers: headers })
+    }
+    updateProfile(params) {
+        const headers = new Headers({
+            'Content-Type': "application/JSON",
+            'x-access-token': (localStorage.token),
+        });
+        return this.http.put(AppSettings.updateProfile, params, { headers: headers })
+    }
+    forgotPassword(params) {
+        const headers = new Headers({
+            'Content-Type': "application/JSON",
+            'x-access-token': (localStorage.token),
+        });
+        return this.http.post(AppSettings.forgotPw, params, { headers: headers });
+    }
+    getCategories() {
+        const headers = new Headers({ 'Content-Type': "application/x-www-form-urlencoded" });
+        return this.http.get(AppSettings.categoriesUrl, { headers: headers });
     }
     getWholeSellers() {
         const headers = new Headers({ 'Content-Type': "application/x-www-form-urlencoded" });
