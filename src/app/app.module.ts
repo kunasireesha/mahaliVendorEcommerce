@@ -111,7 +111,7 @@ export function HttpLoaderFactory(http: HttpClient) {
             { path: 'myaccount', component: UseraccountComponent, data: [{ page: 'profile' }] },
             { path: 'wishlistAccount', component: UseraccountComponent, data: [{ page: 'wishlist' }] },
             { path: 'myorders', component: UseraccountComponent, data: [{ page: 'orders' }] },
-            { path: 'notifications', component: UseraccountComponent, data: [{ page: 'notifications' }] },
+            { path: 'changePw', component: UseraccountComponent, data: [{ page: 'changePw' }] },
             { path: 'mysavedlist', component: MysavedlistComponent, data: [{ page: 'Mysavedlist' }] },
             { path: 'aboutus', component: AboutusComponent, data: [{ page: 'Aboutus' }] },
             { path: 'addProduct', component: UseraccountComponent, data: [{ page: 'profiles' }] },

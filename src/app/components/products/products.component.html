@@ -4,40 +4,22 @@
 			<h5>Category</h5>
 			<br />
 			<div class="categories">
-				<p (click)="collapse()">
-					<a>
-						<i class="fa fa-plus" aria-hidden="true" *ngIf="!showCategories"></i>
-						<i class="fa fa-minus" aria-hidden="true" *ngIf="showCategories"></i>
-					</a> &nbsp;&nbsp;Electronics</p>
-				<hr>
-				<p *ngIf="showCategories" class="subCat">Mobiles & Tablets
-				</p>
-				<hr *ngIf="showCategories">
-				<p *ngIf="showCategories" class="subCat">Desktops & Laptops
-				</p>
-				<hr *ngIf="showCategories">
-				<p>
-					<a>
-						<i class="fa fa-plus" aria-hidden="true"></i>
-					</a> &nbsp;&nbsp;clothing</p>
-				<hr>
-				<p>
-					<a>
-						<i class="fa fa-plus" aria-hidden="true"></i>
-					</a> &nbsp;&nbsp;Fasion & Accessories</p>
-				<hr>
-				<p>
-					<a>
-						<i class="fa fa-plus" aria-hidden="true"></i>
-					</a> &nbsp;&nbsp;Jewellery</p>
-				<hr>
-				<p>
-					<a>
-						<i class="fa fa-plus" aria-hidden="true"></i>
-					</a> &nbsp;&nbsp;Furniture</p>
-				<hr>
-
-			</div>
+				<div id="panel-group">
+				  <div class="panel panel-default" *ngFor="let item of category; let i = index">
+					<div class="panel-heading" (click) = "current = i;item.id">
+					<p class="panel-title">
+						<i class="fa fa-plus" aria-hidden="true" *ngIf="i != current"></i>
+						<i class="fa fa-minus" aria-hidden="true" *ngIf="i == current"></i>
+					   {{item.category_name}}
+					</p>
+					   <hr>
+					</div>
+					 <div id="collapse1" class="panel-collapse"  [class.collapse]='current != i' *ngFor="let subCat of subCatData">
+					<div class="panel-body subcat" *ngIf="item.id===subCat.category_id"><p class="subCat">{{subCat.sub_category_name}}</p> </div>
+					</div>
+				  </div>
+				  </div> 
+			  </div>
 
 			<h5>Brand</h5>
 			<div class="brands">

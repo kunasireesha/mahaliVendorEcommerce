@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
         quantity: 1
     }
     userMobile;
+    userName;
     ngOnInit() {
         if (localStorage.token === undefined) {
             this.showRegistration = true;
@@ -47,6 +48,7 @@ export class HeaderComponent implements OnInit {
             this.myAccount = true;
             this.phone = true;
             this.userMobile = JSON.parse(localStorage.getItem('phone'));
+            this.userName = (localStorage.getItem('userName'));
         }
         // if ((localStorage.token)! === undefined) {
         //     this.showRegistration = false;
@@ -69,7 +71,7 @@ export class HeaderComponent implements OnInit {
         });
         this.getCategories();
         this.getProduct();
-        this.login();
+        this.getCart();
     }
     hideSubCats() {
         this.showSubCats = false;
@@ -119,6 +121,9 @@ export class HeaderComponent implements OnInit {
     }
     signOut() {
         localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        localStorage.removeItem('phone');
+        localStorage.removeItem('userName');
         this.showRegistration = true;
         this.showLoginScreen = true;
         this.myAccount = false;
@@ -135,9 +140,16 @@ export class HeaderComponent implements OnInit {
             if (resp.json().status === 200) {
                 swal(resp.json().message, "", "success");
                 jQuery("#signupmodal").modal("hide");
+                // this.showRegistration = false;
+                localStorage.setItem('userId', (resp.json().id));
+                // this.myAccount = true
+                // this.showOpacity = false;
+                // this.onCloseCancel();
+                this.router.navigate(['/address']);
             }
             else if (resp.json().status === 400) {
                 swal(resp.json().message, "", "error");
+                // jQuery("#signupmodal").modal("hide");
             }
         })
 
@@ -157,9 +169,12 @@ export class HeaderComponent implements OnInit {
                 this.showRegistration = false;
                 this.showLoginScreen = false;
                 this.myAccount = true;
-                this.appService.loginDetailsbyEmail(this.loginForm.value).subscribe(response => {
-                    localStorage.setItem('phone', JSON.stringify(response.json().data[0].mobile_number));
+                this.appService.loginDetailsbyEmail(this.loginForm.value.email).subscribe(response => {
+                    console.log(response.json());
+                    localStorage.setItem('phone', (response.json().data[0].mobile_number));
                     localStorage.setItem('email', (response.json().data[0].email));
+                    localStorage.setItem('userId', (response.json().data[0].id));
+                    localStorage.setItem('userName', (response.json().data[0].first_name) + " " + (response.json().data[0].last_name));
                     this.loginDetails = response.json().data[0];
                     this.phone = true;
 
@@ -183,7 +198,7 @@ export class HeaderComponent implements OnInit {
         }
         this.appService.forgotPassword(inData).subscribe(resp => {
             if (resp.json().status === 200) {
-                jQuery("#myModal").modal("hide");
+                jQuery("#forgotpass").modal("hide");
                 swal(resp.json().message, "", "success");
             } else {
                 swal(resp.json().message, "", "error");
@@ -215,6 +230,7 @@ export class HeaderComponent implements OnInit {
         for(var i=0;i<this.category.length;i++){
         for(var j=0;j<this.category[i].subcategory.length;j++){
             if(Id===this.category[i].subcategory[j].category_id){
+              this.category[i].subcategory[j].cat_name = this.category[i].category_name;
               this.subCatData.push(this.category[i].subcategory[j]);
               console.log(this.subCatData);
               
@@ -222,5 +238,40 @@ export class HeaderComponent implements OnInit {
         }
     }
 }
+search(product, action) {
+    // this.appService.searchProducts(product).subscribe(res=> {
+    this.router.navigate(['/products'], { queryParams: { product: product, action: action } });
+    // },err=> {
 
+    // })    
+}
+showProbyCat(catId, action,catName) {
+    this.showSubCats = false;
+    this.router.navigate(['/freshvegetables'], { queryParams: { catId: catId, action: action,catName:catName } });
+}
+showProbySubCat(SubCatId, action,catName,subCat) {
+    this.showSubCats = false;
+    this.router.navigate(['/freshvegetables'], { queryParams: { subId: SubCatId, action: action,catName:catName,subCat:subCat } });
+}
+cartDetails=[];
+cartCount;
+cartData=[];
+billing;
+getCart() {
+    var inData = localStorage.getItem('userId');
+    this.appService.getCart(inData).subscribe(res => {
+        this.cartData = res.json().cart_details;
+        for (var i = 0; i < this.cartData.length; i++) {
+            this.cartData[i].products.skuValue = this.cartData[i].products.sku_details[0].size;
+            this.cartData[i].products.skid = this.cartData[i].products.sku_details[0].skid;
+            this.cartData[i].products.selling_price = this.cartData[i].products.sku_details[0].selling_price;
+            this.cartData[i].prodName = this.cartData[i].products.product_name;
+            this.cartData[i].products.img = this.cartData[i].products.sku_details[0].image;
+        }
+        this.cartCount = res.json().count;
+        this.billing = res.json().selling_Price_bill;
+    }, err => {
+
+    })
+}
 }

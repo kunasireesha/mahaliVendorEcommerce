@@ -173,6 +173,9 @@ h4 a {
   background-color: #801323;
   border-radius: 9px !important;
 }
+body.modal-open {
+  overflow-x: hidden !important;
+}
 
 /* media queries */
 

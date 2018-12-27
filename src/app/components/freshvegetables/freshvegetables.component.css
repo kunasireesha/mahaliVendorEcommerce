@@ -71,7 +71,7 @@
     overflow-x:hidden;
 }
 .cart-btn{
-    background-color: #76b600;
+    background-color:#801424;
     border-radius: 10px;
 }
 .carrot-price{
@@ -161,6 +161,11 @@
     }
     .slider-buttons{
         float: right;
+    }
+    .subcat {
+        background: #f7f6f2;
+        padding: 15px;
+        border-bottom: 1px solid;
     }
         
 @media only screen and (max-width:1199px){

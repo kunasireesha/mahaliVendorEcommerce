@@ -66,6 +66,7 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         this.productService.product = this.product;
         this.getWholeSellers();
+        this.getBanners();
 
     }
     starList: boolean[] = [true, true, true, true, true];       // create a list which contains status of 5 stars
@@ -95,6 +96,13 @@ export class HomeComponent implements OnInit {
     getWholeSellers() {
         this.appService.getWholeSellers().subscribe(resp => {
 
+        })
+    }
+    bannerData=[];
+    getBanners(){
+        this.appService.getBanners().subscribe(res=> {
+            this.bannerData =res.json().result[0].banner_details; 
+            console.log(this.bannerData )
         })
     }
 
