@@ -21,12 +21,17 @@ export const AppSettings = {
     productBySubCatId:baseUrl+"products/sub_category_id",
     searchProducts:baseUrl+'products/search',
     addToCart: baseUrl + "vendor/cart_details",
-    getCart: baseUrl + 'vendor/cart_details',
+    getCart: baseUrl + 'vendor/cart_details/ecommerce',
     delCart:baseUrl+'vendor/cart_details',
     paymentType:baseUrl+"payment_options",
     palceOrder:baseUrl+"place_order",
     orderSummary:baseUrl+"place_order/order_summary", 
     getAccDetails:baseUrl+"vendors/account_details",
     updateAcc:baseUrl+"vendors/update_profile",
+    dealOfDay:baseUrl+"products/e_commerce/dashboard",
+    getJewel:baseUrl+"products/jewellery",
+    getCloth:baseUrl+"products/cloths",
+    ProductById:baseUrl+"products/product_id",
+    ecomProducts:baseUrl+"products/e_commerce"
 }
 

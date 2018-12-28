@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsData } from '../../services/productsdata';
 import { ProductService } from '../../services/productservice';
+import { appService } from './../../services/mahaliServices/mahali.service';
 
 @Component({
     selector: 'app-productdetails',
@@ -9,20 +10,26 @@ import { ProductService } from '../../services/productservice';
     styleUrls: ['./productdetails.component.less']
 
 })
+
 export class ProductdetailsComponent implements OnInit {
     product: ProductsData;
-    constructor(private route: ActivatedRoute, public productService: ProductService) {
+    constructor(private route: ActivatedRoute, public productService: ProductService, private appService: appService) {
+        this.route.queryParams.subscribe(params => {
+            this.prodId = params.prodId;
+        });
     }
     item = {
         quantity: 1
     }
     sub;
+    prodId;
     ngOnInit() {
         this.product = this.productService.product;
         console.log(this.product);
         this.sub = this.route
             .data
             .subscribe(v => console.log(v));
+            this.getProductById();
 
     }
     itemIncrease() {
@@ -54,5 +61,53 @@ export class ProductdetailsComponent implements OnInit {
                 this.starList[i] = true;
             }
         }
+    }
+    prodData = [];
+    prodsData = [];
+    skid;
+    prodName;
+    description;
+    offer_price;
+    actual_price;
+    product_image;
+    getProductById() {
+        this.appService.getProductById(this.prodId).subscribe(res => {
+            this.prodsData = res.json().products;
+            this.prodData = res.json().products.sku_details;
+            this.offer_price = this.prodData[0].offer_price;
+            this.actual_price = this.prodData[0].actual_price;
+            this.product_image = this.prodData[0].image;
+            this.skid = this.prodData[0].skid;
+            this.prodName = res.json().products.product_name;
+            this.description = this.prodData[0].description;
+        }, err => {
+
+        })
+    }
+    addtoCart(id) {
+        var inData = {
+            "products": [{
+                product_id: id,
+                sku_id: this.skid
+            }],
+            "vendor_id": JSON.parse(localStorage.getItem('userId'))
+        }
+        this.appService.addtoCart(inData).subscribe(res => {
+            this.getCart();
+            swal(res.json().message, "", "success");
+        }, err => {
+
+        })
+    }
+    cartDetails=[];
+    cartCount=[];
+    getCart() {
+        var inData = localStorage.getItem('userId');
+        this.appService.getCart(inData).subscribe(res => {
+            this.cartDetails = res.json().cart_details;
+            this.cartCount = res.json().count;
+        }, err => {
+
+        })
     }
 }

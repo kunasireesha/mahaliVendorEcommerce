@@ -214,7 +214,7 @@ export class UseraccountComponent implements OnInit {
     }
     editAccountDetails() {
         this.showNotifications = false;
-        this.showOrderDetails = true;
+        // this.showOrderDetails = true;
         this.showMyOrders = false;
         this.showChangePassword = false;
         this.showWishlist = false;
@@ -223,7 +223,7 @@ export class UseraccountComponent implements OnInit {
         this.editUserProfile = false;
         this.showProfile = false;
         this.showAccountDetails=false;
-        this.editAccount = false;
+        this.editAccount = true;
         this.showAddProducts=false;
     }
     cancelAdd(){

@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { RegistrationComponent } from '../../components/registration/registration.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var jQuery: any;
+import { } from 'googlemaps';
+declare var google: any;
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
@@ -37,6 +39,7 @@ export class HeaderComponent implements OnInit {
     }
     userMobile;
     userName;
+    location
     ngOnInit() {
         if (localStorage.token === undefined) {
             this.showRegistration = true;
@@ -69,10 +72,13 @@ export class HeaderComponent implements OnInit {
         this.forgotForm = this.formBuilder.group({
             mob_number: ['', [Validators.required]],
         });
+        
         this.getCategories();
         this.getProduct();
         this.getCart();
+        this.geoLocation();
     }
+ 
     hideSubCats() {
         this.showSubCats = false;
     }
@@ -238,9 +244,12 @@ export class HeaderComponent implements OnInit {
         }
     }
 }
+productTy;
 search(product, action) {
     // this.appService.searchProducts(product).subscribe(res=> {
-    this.router.navigate(['/products'], { queryParams: { product: product, action: action } });
+    this.productTy = product;
+    this.router.navigate(['/products'], { queryParams: { product: this.productTy, action: action } });
+    this.productTy = "";
     // },err=> {
 
     // })    
@@ -273,5 +282,33 @@ getCart() {
     }, err => {
 
     })
+}
+latlocation;
+lanLocation;
+getPin;
+geoLocation() {
+if (navigator.geolocation) {
+navigator.geolocation.getCurrentPosition(position => {
+this.latlocation = position.coords.latitude;
+this.lanLocation = position.coords.longitude;
+var latlng = { lat: this.latlocation, lng: this.lanLocation };
+let geocoder = new google.maps.Geocoder();
+geocoder.geocode({ 'location': latlng }, (results, status) => {
+if (status == google.maps.GeocoderStatus.OK) {
+let result = results[0];
+this.getPin = JSON.parse(results[0].address_components[5].long_name);
+localStorage.setItem('wh_pincode', this.getPin);
+// this.postVillageName(this.getPin);
+let rsltAdrComponent = result.address_components;
+let resultLength = rsltAdrComponent.length;
+if (result != null) {
+console.log(rsltAdrComponent[resultLength - 5].short_name);
+} else {
+window.alert('Geocoder failed due to: ' + status);
+}
+}
+});
+});
+}
 }
 }

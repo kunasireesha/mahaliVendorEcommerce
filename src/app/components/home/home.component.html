@@ -48,31 +48,32 @@
 
 	<h4 class="text-center">Deals of the Day
 		<span>
-			<a routerLink="/products">See all</a>
+			<a (click)="seeAll('deals')">See all</a>
 		</span>
 	</h4>
 
 	<br />
 	<!--Slides-->
-	<div class="carousel-inner" role="listbox">
+	<div class="carousel-inner deals" role="listbox">
 
 		<!--First slide-->
-		<div class="carousel-item active">
+		<div class="carousel-item active dealsAct">
 
-			<div class="col-md-3">
-				<div class="card" (click)="showProduxtDetails()">
-					<img class="img-fluid" src="assets/images/1.jpg" alt="Card image cap">
+			<div class="col-md-3" *ngFor="let data of skuArr">
+				<div class="card">
+					<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
 					<div class="card-block">
-						<h5 class="text-center">Electric Kettle </h5>
+						<h5 class="text-center">{{data.product_name}}</h5>
 						<p class="text-center">
-							BD 7.500
-							<strike>BD 8.000</strike>
+							BD {{data.selling_price}}
+							
+							<strike>BD {{data.actual_price}}</strike>
 						</p>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-md-3 hidden-sm-down">
+			<!-- <div class="col-md-3 hidden-sm-down">
 				<div class="card">
 					<img class="img-fluid" src="assets/images/2.jpg" alt="Card image cap">
 					<div class="card-block">
@@ -83,9 +84,9 @@
 						</p>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
-			<div class="col-md-3 hidden-sm-down">
+			<!-- <div class="col-md-3 hidden-sm-down">
 				<div class="card">
 					<img class="img-fluid" src="assets/images/3.jpg" alt="Card image cap">
 					<div class="card-block">
@@ -96,8 +97,8 @@
 						</p>
 					</div>
 				</div>
-			</div>
-
+			</div> -->
+<!-- 
 			<div class="col-md-3 hidden-sm-down">
 				<div class="card">
 					<img class="img-fluid" src="assets/images/4.jpg" alt="Card image cap">
@@ -109,12 +110,12 @@
 						</p>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<!--/.First slide-->
 
 		<!--Second slide-->
-		<div class="carousel-item ">
+		<!-- <div class="carousel-item ">
 			<div class="col-md-3">
 				<div class="card">
 					<img class="img-fluid" src="assets/images/1.jpg" alt="Card image cap">
@@ -170,11 +171,11 @@
 			</div>
 
 
-		</div>
+		</div> -->
 		<!--/.Second slide-->
 
 		<!--Third slide-->
-		<div class="carousel-item ">
+		<!-- <div class="carousel-item ">
 
 			<div class="col-md-3">
 				<div class="card">
@@ -230,21 +231,21 @@
 			</div>
 
 
-		</div>
+		</div> -->
 		<!--/.Third slide-->
 
 	</div>
 	<!--/.Slides-->
 
 	<!--Controls-->
-	<div class="controls-top">
+	<!-- <div class="controls-top">
 		<a class="btn-floating btn-small slider-btn-left" href="#multi-item-example" data-slide="prev">
 			<i class="fa fa-chevron-left"></i>
 		</a>
 		<a class="btn-floating btn-small slider-btn-right" href="#multi-item-example" data-slide="next">
 			<i class="fa fa-chevron-right"></i>
 		</a>
-	</div>
+	</div> -->
 	<!--/.Controls-->
 
 </div>
@@ -257,14 +258,8 @@
 	<br />
 	<div class="row">
 
-		<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-			<img src="assets/images/feature-1.jpg">
-		</div>
-		<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-			<img src="assets/images/feature-2.jpg">
-		</div>
-		<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-			<img src="assets/images/feature-3.jpg">
+		<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12" *ngFor="let feature of offerBan">
+			<img [src]="feature.website_banner">
 		</div>
 	</div>
 </div>
@@ -279,30 +274,29 @@
 
 	<h4 class="text-center">Top offers
 		<span>
-			<a>See all</a>
+			<a (click)="seeAll('typeProd')">See all</a>
 		</span>
 	</h4>
 
 	<br />
 	<!--Slides-->
-	<div class="carousel-inner" role="listbox">
+	<div class="carousel-inner deals" role="listbox">
 
 		<!--First slide-->
-		<div class="carousel-item active">
-
-			<div class="col-md-3">
+		<div class="carousel-item active dealsAct">
+			<div class="col-md-3" *ngFor="let data of topArr">
 				<div class="card">
-					<img class="img-fluid" src="assets/images/5.jpg" alt="Card image cap">
+					<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
 					<div class="card-block">
-						<h5 class="text-center">Wrist Watches</h5>
+						<h5 class="text-center">{{data.product_name}}</h5>
 						<p class="text-center">
-							BD 7.500
-							<strike>BD 8.000</strike>
+							BD {{data.selling_price}}
+							<strike>BD {{data.actual_price}}</strike>
 						</p>
 					</div>
 				</div>
 			</div>
-
+<!-- 
 			<div class="col-md-3 hidden-sm-down">
 				<div class="card">
 					<img class="img-fluid" src="assets/images/6.jpg" alt="Card image cap">
@@ -340,14 +334,14 @@
 						</p>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 
 		</div>
 		<!--/.First slide-->
 
 		<!--Second slide-->
-		<div class="carousel-item">
+		<!-- <div class="carousel-item">
 
 			<div class="col-md-3">
 				<div class="card">
@@ -402,11 +396,11 @@
 			</div>
 
 
-		</div>
+		</div> -->
 		<!--/.Second slide-->
 
 		<!--Third slide-->
-		<div class="carousel-item">
+		<!-- <div class="carousel-item">
 
 			<div class="col-md-3">
 				<div class="card">
@@ -461,28 +455,28 @@
 			</div>
 
 
-		</div>
+		</div> -->
 		<!--/.Third slide-->
 
 	</div>
 	<!--/.Slides-->
 
 	<!--Controls-->
-	<div class="controls-top">
+	<!-- <div class="controls-top">
 		<a class="btn-floating btn-small slider-btn-left" href="#multi-item-example1" data-slide="prev">
 			<i class="fa fa-chevron-left"></i>
 		</a>
 		<a class="btn-floating btn-small slider-btn-right" href="#multi-item-example1" data-slide="next">
 			<i class="fa fa-chevron-right"></i>
 		</a>
-	</div>
+	</div> -->
 	<!--/.Controls-->
 
 </div>
 <!-- offers end -->
 
 <div class="container">
-	<img src="assets/images/banner2.png" class="m-auto" style="display: block;width: 100%">
+	<img [src]="dummyBan" class="m-auto dummy" style="display: block;width: 100%">
 </div>
 <br />
 <br />
@@ -493,28 +487,28 @@
 
 	<h4 class="text-center">Clothing & Accessories
 		<span>
-			<a>See all</a>
+			<a (click)="seeAll('cloth')">See all</a>
 		</span>
 	</h4>
 
 	<br />
 	<!--Slides-->
-	<div class="carousel-inner" role="listbox">
+	<div class="carousel-inner deals" role="listbox">
 
 		<!--First slide-->
-		<div class="carousel-item active">
+		<div class="carousel-item active dealsAct">
 
-			<div class="col-md-3">
+			<div class="col-md-3" *ngFor="let cloth of clothArr">
 				<div class="card">
-					<img class="img-fluid" src="assets/images/9.jpg" alt="Card image cap">
+					<img class="img-fluid" [src]="cloth.image" alt="Card image cap" (click)="showProduxtDetails(cloth.product_id)">
 					<div class="card-block">
-						<h5 class="text-center">Electric Kettle
+						<h5 class="text-center">{{cloth.product_name}}
 
 						</h5>
 						<p class="text-center">
-							BD 7.500
+							BD {{cloth.selling_price}}
 
-							<strike>BD 8.000</strike>
+							<strike>BD {{cloth.actual_price}}</strike>
 
 						</p>
 
@@ -522,7 +516,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-3 hidden-sm-down">
+			<!-- <div class="col-md-3 hidden-sm-down">
 				<div class="card">
 					<img class="img-fluid" src="assets/images/10.jpg" alt="Card image cap">
 					<div class="card-block">
@@ -534,9 +528,9 @@
 
 					</div>
 				</div>
-			</div>
+			</div> -->
 
-			<div class="col-md-3 hidden-sm-down">
+			<!-- <div class="col-md-3 hidden-sm-down">
 				<div class="card">
 					<img class="img-fluid" src="assets/images/11.jpg" alt="Card image cap">
 					<div class="card-block">
@@ -550,9 +544,9 @@
 
 					</div>
 				</div>
-			</div>
+			</div> -->
 
-			<div class="col-md-3 hidden-sm-down">
+			<!-- <div class="col-md-3 hidden-sm-down">
 				<div class="card">
 					<img class="img-fluid" src="assets/images/12.jpg" alt="Card image cap">
 					<div class="card-block">
@@ -566,168 +560,26 @@
 
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 
 
 
 		</div>
-		<!--/.First slide-->
-
-		<!--Second slide-->
-		<div class="carousel-item ">
-
-			<div class="col-md-3">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/9.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Electric Kettle
-
-						</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/10.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Lenovo Core i3 Laptop</h5>
-						<p class="text-center">
-							BD 7.500
-							<strike>BD 8.000</strike>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/11.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Personal Care Essentials</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/12.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">School Bags</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-		</div>
-		<!--/.Second slide-->
-
-		<!--Third slide-->
-		<div class="carousel-item ">
-
-			<div class="col-md-3">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/9.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Electric Kettle
-
-						</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/10.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Lenovo Core i3 Laptop</h5>
-						<p class="text-center">
-							BD 7.500
-							<strike>BD 8.000</strike>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/11.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Personal Care Essentials</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/12.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">School Bags</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-		</div>
-		<!--/.Third slide-->
+		
 
 	</div>
 	<!--/.Slides-->
 
 	<!--Controls-->
-	<div class="controls-top">
+	<!-- <div class="controls-top">
 		<a class="btn-floating btn-small slider-btn-left " href="#multi-item-example3" data-slide="prev">
 			<i class="fa fa-chevron-left"></i>
 		</a>
 		<a class="btn-floating btn-small slider-btn-right" href="#multi-item-example3" data-slide="next">
 			<i class="fa fa-chevron-right"></i>
 		</a>
-	</div>
+	</div> -->
 	<!--/.Controls-->
 
 </div>
@@ -739,79 +591,34 @@
 
 	<h4 class="text-center">Jewellery
 		<span>
-			<a>See all</a>
+			<a (click)="seeAll('jewel')">See all</a>
 		</span>
 	</h4>
 
 	<br />
 	<!--Slides-->
-	<div class="carousel-inner" role="listbox">
+	<div class="carousel-inner deals" role="listbox">
 
 		<!--First slide-->
-		<div class="carousel-item active">
+		<div class="carousel-item active dealsAct">
 
-			<div class="col-md-3">
+			<div class="col-md-3" *ngFor="let jewel of jewelArr">
 				<div class="card">
-					<img class="img-fluid" src="assets/images/13.jpg" alt="Card image cap">
+					<img class="img-fluid" [src]="jewel.image" alt="Card image cap" (click)="showProduxtDetails(jewel.product_id)">
 					<div class="card-block">
-						<h5 class="text-center">Earrings
+						<h5 class="text-center">{{jewel.product_name}}
 						</h5>
 						<p class="text-center">
-							BD 7.500
+							BD {{jewel.selling_price}}
 
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/14.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Ring</h5>
-						<p class="text-center">
-							BD 7.500
-							<strike>BD 8.000</strike>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/15.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Necklace</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
+							<strike>BD {{jewel.actual_price}}</strike>
 
 						</p>
 
 					</div>
 				</div>
 			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/16.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Necklace</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
+			
 
 
 
@@ -820,7 +627,7 @@
 		<!--/.First slide-->
 
 		<!--Second slide-->
-		<div class="carousel-item">
+		<!-- <div class="carousel-item">
 
 			<div class="col-md-3">
 				<div class="card">
@@ -888,11 +695,11 @@
 
 
 
-		</div>
+		</div> -->
 		<!--/.Second slide-->
 
 		<!--Third slide-->
-		<div class="carousel-item">
+		<!-- <div class="carousel-item">
 
 			<div class="col-md-3">
 				<div class="card">
@@ -960,21 +767,21 @@
 
 
 
-		</div>
+		</div> -->
 		<!--/.Third slide-->
 
 	</div>
 	<!--/.Slides-->
 
 	<!--Controls-->
-	<div class="controls-top">
+	<!-- <div class="controls-top">
 		<a class="btn-floating btn-small slider-btn-left" href="#multi-item-example4" data-slide="prev">
 			<i class="fa fa-chevron-left"></i>
 		</a>
 		<a class="btn-floating btn-small slider-btn-right" href="#multi-item-example4" data-slide="next">
 			<i class="fa fa-chevron-right"></i>
 		</a>
-	</div>
+	</div> -->
 	<!--/.Controls-->
 
 </div>
@@ -1006,27 +813,28 @@
 
 	<h4 class="text-center">Recently Viewed
 		<span>
-			<a>See all</a>
+			<a (click)="seeAll('recent')">See all</a>
 		</span>
 	</h4>
 
 	<br />
 	<!--Slides-->
-	<div class="carousel-inner" role="listbox">
+	<div class="carousel-inner deals" role="listbox">
 
 		<!--First slide-->
-		<div class="carousel-item active">
+		<div class="carousel-item active dealsAct">
 
-			<div class="col-md-3">
+			<div class="col-md-3" *ngFor="let data of ecomArr">
 				<div class="card">
-					<img class="img-fluid" src="assets/images/17.jpg" alt="Card image cap">
+					<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
 					<div class="card-block">
-						<h5 class="text-center">Scerw guns
+						<h5 class="text-center">{{data.product_name}}
 						</h5>
 						<p class="text-center">
-							BD 7.500
+							BD {{data.selling_price}}
 
-							<strike>BD 8.000</strike>
+							<strike>BD {{data.actual_price}}
+							</strike>
 
 						</p>
 
@@ -1034,7 +842,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-3 hidden-sm-down">
+			<!-- <div class="col-md-3 hidden-sm-down">
 				<div class="card">
 					<img class="img-fluid" src="assets/images/18.jpg" alt="Card image cap">
 					<div class="card-block">
@@ -1078,170 +886,26 @@
 
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 
 
 
 		</div>
 		<!--/.First slide-->
-
-		<!--Second slide-->
-		<div class="carousel-item">
-
-			<div class="col-md-3">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/17.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Scerw guns
-						</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/18.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Home Utilities</h5>
-						<p class="text-center">
-							BD 7.500
-							<strike>BD 8.000</strike>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/19.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Parking Sensors</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/20.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">fire Safety Products</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-
-
-		</div>
-		<!--/.Second slide-->
-
-		<!--Third slide-->
-		<div class="carousel-item">
-
-			<div class="col-md-3">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/17.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Scerw guns
-						</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/18.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Home Utilities</h5>
-						<p class="text-center">
-							BD 7.500
-							<strike>BD 8.000</strike>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/19.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">Parking Sensors</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 hidden-sm-down">
-				<div class="card">
-					<img class="img-fluid" src="assets/images/20.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h5 class="text-center">fire Safety Products</h5>
-						<p class="text-center">
-							BD 7.500
-
-							<strike>BD 8.000</strike>
-
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-
-
-		</div>
-		<!--/.Third slide-->
-
+		
 	</div>
 	<!--/.Slides-->
 
 	<!--Controls-->
-	<div class="controls-top">
+	<!-- <div class="controls-top">
 		<a class="btn-floating btn-small slider-btn-left" href="#multi-item-example5" data-slide="prev">
 			<i class="fa fa-chevron-left"></i>
 		</a>
 		<a class="btn-floating btn-small slider-btn-right" href="#multi-item-example5" data-slide="next">
 			<i class="fa fa-chevron-right"></i>
 		</a>
-	</div>
+	</div> -->
 	<!--/.Controls-->
 
 </div>
@@ -1262,7 +926,10 @@
 
 		<!--First slide-->
 		<div class="carousel-item active">
-
+				<div class="noData">
+						No records Found
+					  </div>
+<!-- 
 			<div class="col-md-6">
 				<div class="card">
 					<div class="row">
@@ -1273,11 +940,11 @@
 							<h5 class="">Silver Ring
 							</h5>
 							<p class="">
-								Jewellery</p>
+								Jewellery</p> -->
 							<!-- <a *ngFor="let item of starList; let i=index " (click)="setStar(i)">
 					<i class="fa" [ngClass]="{'fa-star-o':item,'fa-star':!item}"></i>
 				  </a> -->
-							<i *ngFor="let item of starList; let i=index " class="fa fa-star"></i>
+							<!-- <i *ngFor="let item of starList; let i=index " class="fa fa-star"></i>
 							<br />
 							<a href>View Product&nbsp;
 								<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -1286,9 +953,9 @@
 					</div>
 
 				</div>
-			</div>
+			</div> -->
 
-			<div class="col-md-6 hidden-sm-down">
+			<!-- <div class="col-md-6 hidden-sm-down">
 				<div class="card">
 					<div class="row">
 						<div class="col-md-6">
@@ -1309,7 +976,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 
 
@@ -1320,7 +987,7 @@
 		<!--/.First slide-->
 
 		<!--Second slide-->
-		<div class="carousel-item">
+		<!-- <div class="carousel-item">
 
 			<div class="col-md-6">
 				<div class="card">
@@ -1372,11 +1039,11 @@
 
 
 
-		</div>
+		</div> -->
 		<!--/.Second slide-->
 
 		<!--Third slide-->
-		<div class="carousel-item">
+		<!-- <div class="carousel-item">
 
 			<div class="col-md-6">
 				<div class="card">
@@ -1428,7 +1095,7 @@
 
 
 
-		</div>
+		</div> -->
 		<!--/.Third slide-->
 
 	</div>

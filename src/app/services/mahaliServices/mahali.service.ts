@@ -135,5 +135,25 @@ export class appService {
         const headers = new Headers({ 'Content-Type': "application/JSON" });
         return this.http.put(AppSettings.updateAcc + "/" + this.vendor_id, params, { headers: headers });
     }
+    dealOfDay(){
+        const headers = new Headers({ 'Content-Type': "application/JSON" });
+        return this.http.get(AppSettings.dealOfDay, { headers: headers });
+    }
+    getJewel(){
+        const headers = new Headers({ 'Content-Type': "application/JSON" });
+        return this.http.get(AppSettings.getJewel, { headers: headers });
+    }
+    getCloth(){
+        const headers = new Headers({ 'Content-Type': "application/JSON" });
+        return this.http.get(AppSettings.getCloth, { headers: headers });
+    }
+    getProductById(params) {
+        const headers = new Headers({ 'Content-Type': "application/JSON" });
+        return this.http.get(AppSettings.ProductById + "/" + params, { headers: headers });
+    }
+    ecomProducts(){
+        const headers = new Headers({ 'Content-Type': "application/JSON" });
+        return this.http.get(AppSettings.ecomProducts,  { headers: headers });
+    }
 }
 
