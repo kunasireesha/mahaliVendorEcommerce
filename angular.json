@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mahali": {
+    "mahalivendorecommerce": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mahali",
+            "outputPath": "dist/mahalivendorecommerce",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -70,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "mahali:build"
+            "browserTarget": "mahalivendorecommerce:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "mahali:build:production"
+              "browserTarget": "mahalivendorecommerce:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mahali:build"
+            "browserTarget": "mahalivendorecommerce:build"
           }
         },
         "test": {
@@ -115,7 +115,7 @@
         }
       }
     },
-    "mahali-e2e": {
+    "mahalivendorecommerce-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -123,7 +123,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "mahali:serve"
+            "devServerTarget": "mahalivendorecommerce:serve"
           }
         },
         "lint": {
@@ -138,5 +138,5 @@
       }
     }
   },
-  "defaultProject": "mahali"
+  "defaultProject": "mahalivendorecommerce"
 }

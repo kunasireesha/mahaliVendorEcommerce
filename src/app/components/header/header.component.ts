@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { RegistrationComponent } from '../../components/registration/registration.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var jQuery: any;
-import { } from 'googlemaps';
+// import { } from 'googlemaps';
 declare var google: any;
 @Component({
     selector: 'app-header',
@@ -72,13 +72,13 @@ export class HeaderComponent implements OnInit {
         this.forgotForm = this.formBuilder.group({
             mob_number: ['', [Validators.required]],
         });
-        
+
         this.getCategories();
         this.getProduct();
         this.getCart();
-        this.geoLocation();
+        // this.geoLocation();
     }
- 
+
     hideSubCats() {
         this.showSubCats = false;
     }
@@ -189,8 +189,8 @@ export class HeaderComponent implements OnInit {
             else if (resp.json().status === 404 || resp.json().status === 400) {
                 swal(resp.json().message, "", "error");
             }
-        },err=> {
-            
+        }, err => {
+
         })
     }
     get f2() { return this.forgotForm.controls; }
@@ -227,88 +227,88 @@ export class HeaderComponent implements OnInit {
             // this.showSubCat(this.subId);
         })
     }
-    subCatData =[];
+    subCatData = [];
     subId;
     showSubCat(Id) {
         this.subId = Id;
-        this.subCatData=[];
+        this.subCatData = [];
         this.showSubCats = true;
-        for(var i=0;i<this.category.length;i++){
-        for(var j=0;j<this.category[i].subcategory.length;j++){
-            if(Id===this.category[i].subcategory[j].category_id){
-              this.category[i].subcategory[j].cat_name = this.category[i].category_name;
-              this.subCatData.push(this.category[i].subcategory[j]);
-              console.log(this.subCatData);
-              
+        for (var i = 0; i < this.category.length; i++) {
+            for (var j = 0; j < this.category[i].subcategory.length; j++) {
+                if (Id === this.category[i].subcategory[j].category_id) {
+                    this.category[i].subcategory[j].cat_name = this.category[i].category_name;
+                    this.subCatData.push(this.category[i].subcategory[j]);
+                    console.log(this.subCatData);
+
+                }
             }
         }
     }
-}
-productTy;
-search(product, action) {
-    // this.appService.searchProducts(product).subscribe(res=> {
-    this.productTy = product;
-    this.router.navigate(['/products'], { queryParams: { product: this.productTy, action: action } });
-    this.productTy = "";
-    // },err=> {
+    productTy;
+    search(product, action) {
+        // this.appService.searchProducts(product).subscribe(res=> {
+        this.productTy = product;
+        this.router.navigate(['/products'], { queryParams: { product: this.productTy, action: action } });
+        this.productTy = "";
+        // },err=> {
 
-    // })    
-}
-showProbyCat(catId, action,catName) {
-    this.showSubCats = false;
-    this.router.navigate(['/freshvegetables'], { queryParams: { catId: catId, action: action,catName:catName } });
-}
-showProbySubCat(SubCatId, action,catName,subCat) {
-    this.showSubCats = false;
-    this.router.navigate(['/freshvegetables'], { queryParams: { subId: SubCatId, action: action,catName:catName,subCat:subCat } });
-}
-cartDetails=[];
-cartCount;
-cartData=[];
-billing;
-getCart() {
-    var inData = localStorage.getItem('userId');
-    this.appService.getCart(inData).subscribe(res => {
-        this.cartData = res.json().cart_details;
-        for (var i = 0; i < this.cartData.length; i++) {
-            this.cartData[i].products.skuValue = this.cartData[i].products.sku_details[0].size;
-            this.cartData[i].products.skid = this.cartData[i].products.sku_details[0].skid;
-            this.cartData[i].products.selling_price = this.cartData[i].products.sku_details[0].selling_price;
-            this.cartData[i].prodName = this.cartData[i].products.product_name;
-            this.cartData[i].products.img = this.cartData[i].products.sku_details[0].image;
-        }
-        this.cartCount = res.json().count;
-        this.billing = res.json().selling_Price_bill;
-    }, err => {
+        // })    
+    }
+    showProbyCat(catId, action, catName) {
+        this.showSubCats = false;
+        this.router.navigate(['/freshvegetables'], { queryParams: { catId: catId, action: action, catName: catName } });
+    }
+    showProbySubCat(SubCatId, action, catName, subCat) {
+        this.showSubCats = false;
+        this.router.navigate(['/freshvegetables'], { queryParams: { subId: SubCatId, action: action, catName: catName, subCat: subCat } });
+    }
+    cartDetails = [];
+    cartCount;
+    cartData = [];
+    billing;
+    getCart() {
+        var inData = localStorage.getItem('userId');
+        this.appService.getCart(inData).subscribe(res => {
+            this.cartData = res.json().cart_details;
+            for (var i = 0; i < this.cartData.length; i++) {
+                this.cartData[i].products.skuValue = this.cartData[i].products.sku_details[0].size;
+                this.cartData[i].products.skid = this.cartData[i].products.sku_details[0].skid;
+                this.cartData[i].products.selling_price = this.cartData[i].products.sku_details[0].selling_price;
+                this.cartData[i].prodName = this.cartData[i].products.product_name;
+                this.cartData[i].products.img = this.cartData[i].products.sku_details[0].image;
+            }
+            this.cartCount = res.json().count;
+            this.billing = res.json().selling_Price_bill;
+        }, err => {
 
-    })
-}
-latlocation;
-lanLocation;
-getPin;
-geoLocation() {
-if (navigator.geolocation) {
-navigator.geolocation.getCurrentPosition(position => {
-this.latlocation = position.coords.latitude;
-this.lanLocation = position.coords.longitude;
-var latlng = { lat: this.latlocation, lng: this.lanLocation };
-let geocoder = new google.maps.Geocoder();
-geocoder.geocode({ 'location': latlng }, (results, status) => {
-if (status == google.maps.GeocoderStatus.OK) {
-let result = results[0];
-this.getPin = JSON.parse(results[0].address_components[5].long_name);
-localStorage.setItem('wh_pincode', this.getPin);
-// this.postVillageName(this.getPin);
-let rsltAdrComponent = result.address_components;
-let resultLength = rsltAdrComponent.length;
-if (result != null) {
-console.log(rsltAdrComponent[resultLength - 5].short_name);
-} else {
-window.alert('Geocoder failed due to: ' + status);
-}
-}
-});
-});
-}
-}
+        })
+    }
+    latlocation;
+    lanLocation;
+    getPin;
+    // geoLocation() {
+    // if (navigator.geolocation) {
+    // navigator.geolocation.getCurrentPosition(position => {
+    // this.latlocation = position.coords.latitude;
+    // this.lanLocation = position.coords.longitude;
+    // var latlng = { lat: this.latlocation, lng: this.lanLocation };
+    // let geocoder = new google.maps.Geocoder();
+    // geocoder.geocode({ 'location': latlng }, (results, status) => {
+    // if (status == google.maps.GeocoderStatus.OK) {
+    // let result = results[0];
+    // this.getPin = JSON.parse(results[0].address_components[5].long_name);
+    // localStorage.setItem('wh_pincode', this.getPin);
+    // // this.postVillageName(this.getPin);
+    // let rsltAdrComponent = result.address_components;
+    // let resultLength = rsltAdrComponent.length;
+    // if (result != null) {
+    // console.log(rsltAdrComponent[resultLength - 5].short_name);
+    // } else {
+    // window.alert('Geocoder failed due to: ' + status);
+    // }
+    // }
+    // });
+    // });
+    // }
+    // }
 }
