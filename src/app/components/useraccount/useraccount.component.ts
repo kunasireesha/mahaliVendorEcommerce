@@ -408,7 +408,6 @@ export class UseraccountComponent implements OnInit {
         this.appService.getPlaceOrder().subscribe(res => {
             this.orders = res.json().Orders;
             console.log(this.orders);
-            debugger;
           
         }, err => {
 
