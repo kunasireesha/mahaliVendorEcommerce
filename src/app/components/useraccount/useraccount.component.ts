@@ -59,6 +59,7 @@ export class UseraccountComponent implements OnInit {
     showAccountDetails=false;
     editAccount=false;
     showAddProducts=false;
+    showAddProducts5=false;
     profile() {
         this.showNotifications = false;
         this.showOrderDetails = false;
@@ -72,6 +73,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails=false;
         this.editAccount = false;
         this.showAddProducts=false;
+        this.showAddProducts5=false;
         this.getProfile();
     }
 
@@ -88,6 +90,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails=false;
         this.editAccount = false;
         this.showAddProducts=false;
+        this.showAddProducts5=false;
     }
 
     deliveryAddress() {
@@ -103,6 +106,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails=false;
         this.editAccount = false;
         this.showAddProducts=false;
+        this.showAddProducts5=false;
         this.getAdd();
     }
     addAddress() {
@@ -118,6 +122,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails=false;
         this.editAccount = false;
         this.showAddProducts=false;
+        this.showAddProducts5=false;
     }
 
     wishList() {
@@ -133,6 +138,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails=false;
         this.editAccount = false;
         this.showAddProducts=false;
+        this.showAddProducts5=false;
     }
 
     changePassword() {
@@ -148,6 +154,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails=false;
         this.editAccount = false;
         this.showAddProducts=false;
+        this.showAddProducts5=false;
     }
 
     myOrder() {
@@ -163,6 +170,8 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails=false;
         this.editAccount = false;
         this.showAddProducts=false;
+        this.showAddProducts5=false;
+        this.getOrders();
     }
 
     notifications() {
@@ -178,6 +187,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails=false;
         this.editAccount = false;
         this.showAddProducts=false;
+        this.showAddProducts5=false;
     }
 
     showBukedOrderDetails() {
@@ -193,6 +203,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails=false;
         this.editAccount = false;
         this.showAddProducts=false;
+        this.showAddProducts5=false;
     }
     accountDetails() {
         this.showNotifications = false;
@@ -226,6 +237,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails=false;
         this.editAccount = true;
         this.showAddProducts=false;
+        this.showAddProducts5=false;
     }
     cancelAdd(){
         this.showDeliveryAddress = true;   
@@ -246,7 +258,28 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails = false;
         this.editAccount = false;
         this.showAddProducts=true;
+        this.showAddProducts5=false;
         this.getCategories();
+    }
+    showAddProducts2(Id) {
+        this.showNotifications = false;
+        this.showOrderDetails = false;
+        this.showMyOrders = false;
+        // this.showMyProducts = false;
+        this.showWishlist = false;
+        this.showAddAddress = false;
+        this.showDeliveryAddress = false;
+        this.editUserProfile = false;
+        this.showProfile = false;
+        // this.showOfferZone = false;
+        this.showAddProducts = false;
+        // this.showAddProducts5 = true;
+        // this.showManageUserOrders = false;
+        this.showAccountDetails = false;
+        this.editAccount = false;
+        this.showAddProducts5=true;
+        // this.showRequestAdmin = false;
+        this.getProducts(Id);
     }
     email;
     profileData;
@@ -375,8 +408,16 @@ export class UseraccountComponent implements OnInit {
         this.appService.getPlaceOrder().subscribe(res => {
             this.orders = res.json().Orders;
             console.log(this.orders);
+            debugger;
           
         }, err => {
+
+        })
+    }
+    getProducts(Id) {
+        this.prodId = Id;
+        this.appService.reqOrder(Id).subscribe(resp => {
+            this.reqProds = resp.json().Order;
 
         })
     }
