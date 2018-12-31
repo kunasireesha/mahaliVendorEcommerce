@@ -1,3 +1,101 @@
+/* new styles */
+.cust-circle{
+    color:#801424;
+    font-size: 26px;
+}
+.cust-ltrt p{
+    float: right;
+}
+.sub-total p{
+    font-weight: unset !important;
+    text-align: center;
+    font-size: 16px !important;
+}
+.cust-form form{
+    width: 100%;
+}
+.cust-btn {
+    text-align: center;
+}
+.cust-btn button{
+    background-color: #7eba00;
+    padding: 7px 50px;
+}
+/* ./new styles */
+.shippipng {
+    background: #ffffff;
+    padding: 13px;
+select{
+    border: none!important;
+    background: #e6e6e6;
+    height: 36px!important;
+    border-bottom: 2px solid #a5a4a4 !important;
+    border-right: 2px solid #a5a4a4 !important;
+}
+}
+.shippipng a{
+text-decoration: underline;
+}
+.shippipng img{
+    vertical-align: text-top;
+}
+.mahali-radio {
+    margin-top: 7%;
+}
+.del-address{
+    button{
+        background: #801424;
+    }
+}
+.addaddress{
+    button{
+        background: #7eba00;
+    }
+}
+.sub-total{
+    td{
+        padding:0px;
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+.mahali-radio .mahali-input:checked~.mahali-label::before {
+    background-color: #7eba00;
+}
+.cart-1{
+    button{
+        background:#801424;
+    }
+}
+.btn-plus {
+    border-radius: 1px !important;
+    border-bottom-right-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    margin-top: 2px;
+    height: 30px;
+    background: #7eba00;
+    box-shadow:none;
+    margin-left: -1%;
+}
+.btn-minus {
+    border-radius: 1px !important;
+    border-bottom-left-radius: 6px !important;
+    border-top-left-radius: 6px !important;
+    margin-top: 2px;
+    background: #7eba00;
+    height: 30px;
+    box-shadow:none;
+}
+.mahali-label{
+    font-size:14px;
+}
+.sort {
+    select {
+        width: 100%;
+        padding: 6px;
+        cursor:pointer;
+    }
+}
 .cart-payment {
     margin-top: 100px;
     margin-bottom: 10px;
@@ -9,15 +107,13 @@
         cursor: pointer;
         width: 100%;
         span {
-            color: #801424;
+            color:#801424;
         }
     }
 }
-
 .margin {
     margin-bottom: 100px;
 }
-
 .mycart {
     background-color: #f1f0f0;
     padding: 20px;
@@ -46,8 +142,8 @@
             color: #007bff;
         }
         .close-btn {
-            border: 1px solid #801323;
-            background-color: #801323;
+            border: 1px solid #7eba00;
+            background-color: #7eba00;
             color: white;
             border-radius: 24px;
             font-size: 16px;
@@ -72,14 +168,14 @@
         margin-left: -7%;
         height: 30px;
         margin-top: 3px;
-        border: 1px solid #801424;
+        border: 1px solid #7eba00;
         text-align: center;
     }
     .btn-plus {
         border-radius: 1px !important;
         border-bottom-right-radius: 6px !important;
         border-top-right-radius: 6px !important;
-        margin-top: 4px;
+        margin-top: 3px;
         height: 30px;
         margin-left: -1%;
     }
@@ -87,7 +183,7 @@
         border-radius: 1px !important;
         border-bottom-left-radius: 6px !important;
         border-top-left-radius: 6px !important;
-        margin-top: 4px;
+        margin-top: 3px;
         height: 30px;
     }
     .price {
@@ -106,7 +202,7 @@
             margin-left: -21%;
         }
         button {
-            margin-left: -9%;
+       float:right;
         }
     }
     .cart-2 {
@@ -131,18 +227,21 @@
             width: 100%;
             margin-left: -7%;
             height: 30px;
-            border: 1px solid #801323;
+            cursor:pointer;
+            border: 1px solid #7eba00;
+            outline:none!important;
+            box-shadow:none!important;
         }
         .addresses {
             a {
-                border: 1px solid #801323;
-                color: #801323;
+                border: 1px solid #7eba00;
+                color: #7eba00;
                 padding: 5px;
                 border-radius: 10px;
                 margin-right: 1%;
             }
             a:active {
-                background-color: #801323;
+                background-color: #7eba00;
                 color: white;
             }
         }
@@ -150,7 +249,39 @@
             float: left;
         }
     }
-    .paymentMethode {}
+}
+.payment{
+    padding:20px;
+    border:1px solid #000000;
+    background:#f7f6f2;
+  span{
+    color: #717171;
+    font-weight: 400;
+  }  
+  .mahali-radio{
+      margin-top:0px;
+      background: #fff;
+  }
+  .mahali-radio .mahali-label::before {
+    border: 1px solid #7eba00!important;
+}
+}
+.place-order{
+    button{
+        background:#801424;
+    }
+}
+.cart-1{
+    img{
+        width: 82px;
+        height: auto;
+        text-align: center;
+    }
+}
+.cartData {
+    border-bottom: 1px solid gray !important;
+    background: #f7f6f2;
+    padding: 4%;
 }
 
 @media screen and (max-width:1680px) {

@@ -2,47 +2,50 @@
   <div class="row">
     <div class="col-md-3">
       <h5>Category</h5>
-      <br/>
-      <div class="categories">
-        <p (click)="collapse()">
-          <a>
-            <i class="fa fa-plus" aria-hidden="true" *ngIf="!showCategories"></i>
-            <i class="fa fa-minus" aria-hidden="true" *ngIf="showCategories"></i>
-          </a> &nbsp;&nbsp;Electronics</p>
-        <hr>
-        <p *ngIf="showCategories" class="subCat">Mobiles & Tablets
-        </p>
-        <hr *ngIf="showCategories">
-        <p *ngIf="showCategories" class="subCat">Desktops & Laptops
-        </p>
-        <hr *ngIf="showCategories">
-        <p>
-          <a>
-            <i class="fa fa-plus" aria-hidden="true"></i>
-          </a> &nbsp;&nbsp;clothing</p>
-        <hr>
-        <p>
-          <a>
-            <i class="fa fa-plus" aria-hidden="true"></i>
-          </a> &nbsp;&nbsp;Fasion & Accessories</p>
-        <hr>
-        <p>
-          <a>
-            <i class="fa fa-plus" aria-hidden="true"></i>
-          </a> &nbsp;&nbsp;Jewellery</p>
-        <hr>
-        <p>
-          <a>
-            <i class="fa fa-plus" aria-hidden="true"></i>
-          </a> &nbsp;&nbsp;Furniture</p>
-        <hr>
+      <br />
+      <!-- <div class="categories">
+				<div id="panel-group">
+				  <div class="panel panel-default" *ngFor="let item of category; let i = index">
+					<div class="panel-heading" (click) = "current = i;item.id">
+					<p class="panel-title">
+						<i class="fa fa-plus" aria-hidden="true" *ngIf="i != current"></i>
+						<i class="fa fa-minus" aria-hidden="true" *ngIf="i == current"></i>
+					   {{item.category_name}}
+					</p>
+					   <hr>
+					</div>
+					 <div id="collapse1" class="panel-collapse"  [class.collapse]='current != i' *ngFor="let subCat of subCatData">
+					<div class="panel-body subcat" *ngIf="item.id===subCat.category_id"><p class="subCat">{{subCat.sub_category_name}}</p> </div>
+					</div>
+				  </div>
+				  </div> 
+			  </div> -->
 
+      <div class="categories" *ngFor="let cat of category; let i = index">
+        <p [ngClass]="{'active':showCategories && i==selectedCat}">
+          <a>
+            <i class="fa fa-plus" aria-hidden="true" *ngIf="!showCategories" (click)="showsubCat(i,cat.id)"></i>
+            <i class="fa fa-plus" aria-hidden="true" *ngIf="showCategories && i!==selectedCat" (click)="showsubSubCat(i,cat.id)"></i>
+
+            <i class="fa fa-minus" aria-hidden="true" *ngIf="showCategories && i==selectedCat" (click)="closesubSubCat()"></i>
+          </a> &nbsp;&nbsp;<span (click)="showCateProd(cat.id,cat.name)">{{cat.category_name}}</span>
+        </p>
+        <!-- categories -->
+
+        <div class="subCates">
+          <div *ngFor="let subCat of subCategory;let ii = index">
+            <p *ngIf="selectedCat==i && showCategories" [ngClass]="{'active':showSubCategories }">
+
+              <span (click)="getSubcatProd(subCat.id,subCat.sub_category_name)">{{subCat.sub_category_name}}</span>
+            </p>
+          </div>
+        </div>
       </div>
 
       <h5>Brand</h5>
       <div class="brands">
         <input type="text" placeholder="Search by Brand">
-        <br/>
+        <br />
         <div class="brand-names">
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
@@ -77,7 +80,7 @@
           <option>Sort</option>
         </select>
       </div>
-      <br/>
+      <br />
       <h5>Price</h5>
       <div class="price">
         <div class="custom-control custom-checkbox">
@@ -108,110 +111,54 @@
         <a routerLink="/">Home</a>&nbsp;&nbsp;>&nbsp;
         <a>Electronics</a>
       </p>
-      <div class="row">
-        <div class="col-md-3 item">
-          <div class="card" (click)="showProduxtDetails()">
-            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
-            <div class="card-block">
-              <h5 class="text-center">Vivo V9 plus </h5>
-              <p class="text-center">
-                BD 7.500
-                <strike>BD 8.000</strike>
-              </p>
-            </div>
-          </div>
+      <div class="row" *ngIf="searchProd">
+        <!-- <div class="col-md-3 item" *ngFor="let data of serProducts">
+					<div class="card" (click)="showProduxtDetails()">
+						<img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
+						<div class="card-block">
+							<h5 class="text-center">Vivo V9 plus </h5>
+							<p class="text-center">
+								BD 7.500
+								<strike>BD 8.000</strike>
+							</p>
+						</div>
+					</div>
+				</div> -->
+        <!-- <div class="quantity-price text-center">
+					<select (change)="changeSize($event.target.value)">
+						<option  [value]="sku.skid">{{sku.size}}</option>
+					</select>
+				</div>
+				<button type="text" class="btn waves-effect waves-light" (click)="addtoCart(item.product_id)">Add To Cart</button> -->
+        <div class="noData">
+          No records Found
         </div>
 
-        <div class="col-md-3 item">
-          <div class="card" (click)="showProduxtDetails()">
-            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
+      </div>
+      <div class="row" *ngIf="seeAll">
+        <div class="col-md-3 item" *ngFor="let data of skuArr">
+          <div class="card">
+            <img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails()">
             <div class="card-block">
-              <h5 class="text-center">Vivo V9 plus </h5>
+              <h5 class="text-center">{{data.product_name}} </h5>
               <p class="text-center">
-                BD 7.500
-                <strike>BD 8.000</strike>
+                BD {{data.selling_price}}
+                <strike>BD {{data.actual_price}}</strike>
               </p>
+              <div class="quantity-price text-center">
+                <select (change)="changeSize($event.target.value)">
+                  <option [value]="data.skid">{{data.size}}</option>
+                </select>
+              </div>
+              <button type="text" class="btn waves-effect waves-light" (click)="addtoCart(data.product_id,data.skid)">Add
+                To Cart</button>
             </div>
           </div>
+        </div>
+        <div *ngIf="noData&&!serProducts">
+          No records Found
         </div>
 
-        <div class="col-md-3 item">
-          <div class="card" (click)="showProduxtDetails()">
-            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
-            <div class="card-block">
-              <h5 class="text-center">Vivo V9 plus </h5>
-              <p class="text-center">
-                BD 7.500
-                <strike>BD 8.000</strike>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3 item">
-          <div class="card" (click)="showProduxtDetails()">
-            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
-            <div class="card-block">
-              <h5 class="text-center">Vivo V9 plus </h5>
-              <p class="text-center">
-                BD 7.500
-                <strike>BD 8.000</strike>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3 item">
-          <div class="card" (click)="showProduxtDetails()">
-            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
-            <div class="card-block">
-              <h5 class="text-center">Vivo V9 plus </h5>
-              <p class="text-center">
-                BD 7.500
-                <strike>BD 8.000</strike>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3 item">
-          <div class="card" (click)="showProduxtDetails()">
-            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
-            <div class="card-block">
-              <h5 class="text-center">Vivo V9 plus </h5>
-              <p class="text-center">
-                BD 7.500
-                <strike>BD 8.000</strike>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3 item">
-          <div class="card" (click)="showProduxtDetails()">
-            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
-            <div class="card-block">
-              <h5 class="text-center">Vivo V9 plus </h5>
-              <p class="text-center">
-                BD 7.500
-                <strike>BD 8.000</strike>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3 item">
-          <div class="card" (click)="showProduxtDetails()">
-            <img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
-            <div class="card-block">
-              <h5 class="text-center">Vivo V9 plus </h5>
-              <p class="text-center">
-                BD 7.500
-                <strike>BD 8.000</strike>
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>

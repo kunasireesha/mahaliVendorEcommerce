@@ -1,8 +1,9 @@
+
 .close {
     position: relative;
     top: -95px;
     font-size: 14px;
-    background-color: #73111f;
+    background-color: #7eba00;
     color: white;
     width: 27px;
     border-radius: 47px;
@@ -12,7 +13,7 @@
 }
 
 .login {
-    color: #73111f;
+    color: #000000;
     font-weight: 600;
     h5 {
         font-weight: 600;
@@ -21,17 +22,19 @@
         top: -34px;
     }
     input {
-        border: 1px solid #73111f;
+        border: 1px solid #7eba00;
+        outline: none!important;
+        box-shadow:none!important;
     }
     button {
-        background-color: #73111f !important;
+        background-color: #7eba00 !important;
         width: 62%;
         height: 41px;
         border-radius: 6px;
         margin-right: 3%;
     }
     .btn-danger:active {
-        background-color: #73111f !important;
+        background-color: #7eba00 !important;
     }
     .frgtPasswrd {
         float: right;
@@ -52,14 +55,14 @@
         display: flex;
         flex-basis: 100%;
         align-items: center;
-        color: #73111f;
+        color: #7eba00;
         margin: 8px 0px;
     }
     .hr-sect::before,
     .hr-sect::after {
         content: "";
         flex-grow: 1;
-        background: #73111f;
+        background: #7eba00;
         height: 1px;
         font-size: 0px;
         line-height: 0px;
@@ -75,7 +78,7 @@
         margin-top: 23px;
     }
     .frgt-btn {
-        background-color: #73111f !important;
+        background-color: #7eba00!important;
         width: 50%;
         height: 41px;
         border-radius: 6px;
@@ -95,6 +98,11 @@
 @media screen and (max-width:768px) {
     input {
         width: 345px;
+    }
+    .login{ 
+        .frgt-btn{
+            width: 70%;
+        }
     }
 }
 
@@ -118,6 +126,11 @@
         button {
             width: auto;
             border-radius: 6px;
+        }
+    }
+    .login{ 
+        .frgt-btn{
+            width: 78%;
         }
     }
 }
