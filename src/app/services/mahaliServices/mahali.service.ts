@@ -155,5 +155,10 @@ export class appService {
         const headers = new Headers({ 'Content-Type': "application/JSON" });
         return this.http.get(AppSettings.ecomProducts,  { headers: headers });
     }
+    getPlaceOrder() {
+        const headers = new Headers({ 'Content-Type': "application/JSON" });
+        this.vendor_id = localStorage.getItem('userId');
+        return this.http.get(AppSettings.getPlaceOrd + "/" + this.vendor_id, { headers: headers });
+    }
 }
 

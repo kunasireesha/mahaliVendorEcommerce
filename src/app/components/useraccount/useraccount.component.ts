@@ -20,6 +20,7 @@ export class UseraccountComponent implements OnInit {
             this.showWishlist = true;
         } else if (this.page === 'orders') {
             this.showMyOrders = true;
+            this.getOrders();
         } else if (this.page === 'changePw') {
             this.showChangePassword = true;
         }
@@ -365,6 +366,18 @@ export class UseraccountComponent implements OnInit {
     getCategories() {
         this.appService.getCategories().subscribe(resp => {
             this.category = resp.json().categories;
+        })
+    }
+    prodId;
+    reqProds = [];
+    orders=[];
+    getOrders() {
+        this.appService.getPlaceOrder().subscribe(res => {
+            this.orders = res.json().Orders;
+            console.log(this.orders);
+          
+        }, err => {
+
         })
     }
 

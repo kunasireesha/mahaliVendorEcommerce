@@ -146,9 +146,7 @@ cartDetails=[];
   }
   getCart() {
     var inData = localStorage.getItem('userId');
-    this.appService.getCart(inData).subscribe(res => {
-      console.log(res.json());
-      debugger;
+    this.appService.getCart(inData).subscribe(res => {      
       this.cartDetails = res.json().cart_details;
       this.cartCount = res.json().count;
     }, err => {
