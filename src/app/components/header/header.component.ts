@@ -50,6 +50,7 @@ export class HeaderComponent implements OnInit {
     item = {
         quantity: 1
     }
+    
     userMobile;
     userName;
     location
