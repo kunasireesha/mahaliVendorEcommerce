@@ -20,11 +20,11 @@
                 <li class="nav-item" data-toggle="modal" data-target="#myaccountmdl" *ngIf="myAccount">
                     <a dropdownToggle mdbRippleRadius type="button" class="nav-link dropdown-toggle waves-light"
                         mdbRippleRadius>
-                        <i class="fa fa-user" aria-hidden="true"></i> &nbsp;{{"common.myAccount"|translate}}
+                        <i class="fa fa-user" aria-hidden="true"></i> &nbsp;{{userName}}
                         <span class="caret"></span>
                     </a>
                     <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary cust-menu" role="menu">
-                        <a class="dropdown-item waves-light" mdbRippleRadius href="http://fansadda.mobi/mahalivendorecom/#/">{{"common.eCommerce"|translate}}
+                        <a class="dropdown-item waves-light" mdbRippleRadius href="http://fansadda.mobi/mahaliVendorGrocery/#/">{{"common.grocery"|translate}}
                         </a>
                         <hr />
                         <a class="dropdown-item waves-light" mdbRippleRadius routerLink="/myaccount">{{"common.myProfile"|translate}}
@@ -87,7 +87,7 @@
 </div>
 
 <nav class="navbar cust-navbar navbar-expand-md sticky-top navbar-dark">
-    <a href="/" class="navbar-brand">
+    <a href="#/" routerlink="/" class="navbar-brand">
         <img src="assets/images/logo.png" class="img-fluid cust-logo" alt="Responsive image">
     </a>
     <button class="navbar-toggler togl-btn" type="button" data-toggle="collapse" data-target="#navbar5">
@@ -136,7 +136,7 @@
             <div class="modal-body">
                 <div id="triangle-up"></div>
                 <div>
-                    <a class="waves-light" mdbRippleRadius href="http://fansadda.mobi/mahalivendorecom/#/">{{"common.eCommerce"|translate}}
+                    <a class="waves-light" mdbRippleRadius href="http://fansadda.mobi/mahaliVendorGrocery/#/">{{"common.grocery"|translate}}
                     </a>
                     <hr class="cust-hr" />
                     <a class="waves-light" data-dismiss="modal" mdbRippleRadius routerLink="/myaccount">{{"common.myProfile"|translate}}

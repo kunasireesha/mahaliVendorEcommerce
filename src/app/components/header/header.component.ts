@@ -33,7 +33,20 @@ export class HeaderComponent implements OnInit {
     showOpacity = false;
     forgotSubmitted = false;
 
-    constructor(public dialog: MatDialog, private router: Router, public appService: appService, private formBuilder: FormBuilder) { }
+    constructor(public dialog: MatDialog, private router: Router, public appService: appService, private formBuilder: FormBuilder) { 
+        if (localStorage.token === undefined) {
+            this.showRegistration = true;
+            this.showLoginScreen = true;
+            this.myAccount = false;
+        } else {
+            this.showRegistration = false;
+            this.showLoginScreen = false;
+            this.myAccount = true;
+            this.phone = true;
+            this.userMobile = JSON.parse(localStorage.getItem('phone'));
+            this.userName = (localStorage.getItem('userName'));
+        }
+    }
     item = {
         quantity: 1
     }
@@ -279,6 +292,15 @@ export class HeaderComponent implements OnInit {
             }
             this.cartCount = res.json().count;
             this.billing = res.json().selling_Price_bill;
+        }, err => {
+
+        })
+    }
+    delCart(cartId) {
+        var inData = cartId;
+        this.appService.delCart(inData).subscribe(res => {
+            swal(res.json().message, "", "success");
+            this.getCart();
         }, err => {
 
         })

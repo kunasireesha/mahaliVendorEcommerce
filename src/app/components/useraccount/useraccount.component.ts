@@ -16,8 +16,8 @@ export class UseraccountComponent implements OnInit {
         if (this.page === 'profile') {
             this.showProfile = true;
             this.getProfile();
-        } else if (this.page === 'wishlist') {
-            this.showWishlist = true;
+        } else if (this.page === 'myproduct') {
+            this.showMyProducts = true;
         } else if (this.page === 'orders') {
             this.showMyOrders = true;
             this.getOrders();
@@ -60,6 +60,8 @@ export class UseraccountComponent implements OnInit {
     editAccount=false;
     showAddProducts=false;
     showAddProducts5=false;
+    showOfferZone = false;
+    showMyProducts = false;
     profile() {
         this.showNotifications = false;
         this.showOrderDetails = false;
@@ -74,6 +76,8 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showAddProducts=false;
         this.showAddProducts5=false;
+        this.showOfferZone = false;
+        this.showMyProducts = false;
         this.getProfile();
     }
 
@@ -91,6 +95,8 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showAddProducts=false;
         this.showAddProducts5=false;
+        this.showOfferZone = false;
+        this.showMyProducts = false;
     }
 
     deliveryAddress() {
@@ -107,6 +113,8 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showAddProducts=false;
         this.showAddProducts5=false;
+        this.showOfferZone = false;
+        this.showMyProducts = false;
         this.getAdd();
     }
     addAddress() {
@@ -123,23 +131,25 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showAddProducts=false;
         this.showAddProducts5=false;
+        this.showOfferZone = false;
+        this.showMyProducts = false;
     }
 
-    wishList() {
-        this.showNotifications = false;
-        this.showOrderDetails = false;
-        this.showMyOrders = false;
-        this.showChangePassword = false;
-        this.showWishlist = true;
-        this.showAddAddress = false;
-        this.showDeliveryAddress = false;
-        this.editUserProfile = false;
-        this.showProfile = false;
-        this.showAccountDetails=false;
-        this.editAccount = false;
-        this.showAddProducts=false;
-        this.showAddProducts5=false;
-    }
+    // wishList() {
+    //     this.showNotifications = false;
+    //     this.showOrderDetails = false;
+    //     this.showMyOrders = false;
+    //     this.showChangePassword = false;
+    //     this.showWishlist = true;
+    //     this.showAddAddress = false;
+    //     this.showDeliveryAddress = false;
+    //     this.editUserProfile = false;
+    //     this.showProfile = false;
+    //     this.showAccountDetails=false;
+    //     this.editAccount = false;
+    //     this.showAddProducts=false;
+    //     this.showAddProducts5=false;
+    // }
 
     changePassword() {
         this.showNotifications = false;
@@ -155,6 +165,8 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showAddProducts=false;
         this.showAddProducts5=false;
+        this.showOfferZone = false;
+        this.showMyProducts = false;
     }
 
     myOrder() {
@@ -171,24 +183,27 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showAddProducts=false;
         this.showAddProducts5=false;
-        this.getOrders();
+        this.showOfferZone = false;
+        this.showMyProducts = false;
+        // this.getOrders();
     }
 
-    notifications() {
-        this.showNotifications = true;
-        this.showOrderDetails = false;
-        this.showMyOrders = false;
-        this.showChangePassword = false;
-        this.showWishlist = false;
-        this.showAddAddress = false;
-        this.showDeliveryAddress = false;
-        this.editUserProfile = false;
-        this.showProfile = false;
-        this.showAccountDetails=false;
-        this.editAccount = false;
-        this.showAddProducts=false;
-        this.showAddProducts5=false;
-    }
+    // notifications() {
+    //     this.showNotifications = true;
+    //     this.showOrderDetails = false;
+    //     this.showMyOrders = false;
+    //     this.showChangePassword = false;
+    //     this.showWishlist = false;
+    //     this.showAddAddress = false;
+    //     this.showDeliveryAddress = false;
+    //     this.editUserProfile = false;
+    //     this.showProfile = false;
+    //     this.showAccountDetails=false;
+    //     this.editAccount = false;
+    //     this.showAddProducts=false;
+    //     this.showAddProducts5=false;
+    //     this.showOfferZone = false;
+    // }
 
     showBukedOrderDetails() {
         this.showNotifications = false;
@@ -204,6 +219,8 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showAddProducts=false;
         this.showAddProducts5=false;
+        this.showOfferZone = false;
+        this.showMyProducts = false;
     }
     accountDetails() {
         this.showNotifications = false;
@@ -222,6 +239,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails = true;
         this.editAccount = false;
         this.showAddProducts=false;
+        this.showOfferZone = false;
         this.getAccDet();
     }
     editAccountDetails() {
@@ -238,6 +256,7 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = true;
         this.showAddProducts=false;
         this.showAddProducts5=false;
+        this.showOfferZone = false;
     }
     cancelAdd(){
         this.showDeliveryAddress = true;   
@@ -259,6 +278,8 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showAddProducts=true;
         this.showAddProducts5=false;
+        this.showOfferZone = false;
+        this.showMyProducts = false;
         this.getCategories();
     }
     showAddProducts2(Id) {
@@ -278,9 +299,49 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails = false;
         this.editAccount = false;
         this.showAddProducts5=true;
+        this.showOfferZone = false;
+        this.showMyProducts = false;
         // this.showRequestAdmin = false;
         this.getProducts(Id);
     }
+    offerZone() {
+        this.showNotifications = false;
+        this.showOrderDetails = false;
+        this.showMyOrders = false;
+        // this.showMyProducts = false;
+        this.showWishlist = false;
+        this.showAddAddress = false;
+        this.showDeliveryAddress = false;
+        this.editUserProfile = false;
+        this.showProfile = false;
+        this.showOfferZone = true;
+        this.showAddProducts = false;
+        // this.showAddProducts5 = false;
+        // this.showManageUserOrders = false;
+        this.showAccountDetails = false;
+        this.editAccount = false;
+        // this.showRequestAdmin = false;
+        this.showMyProducts = false;
+    }
+    myProducts() {
+        this.showNotifications = false;
+        this.showOrderDetails = false;
+        this.showMyOrders = false;
+        this.showMyProducts = true;
+        this.showWishlist = false;
+        this.showAddAddress = false;
+        this.showDeliveryAddress = false;
+        this.editUserProfile = false;
+        this.showProfile = false;
+        this.showOfferZone = false;
+        this.showAddProducts = false;
+        this.showAddProducts5 = false;
+        // this.showManageUserOrders = false;
+        this.showAccountDetails = false;
+        this.editAccount = false;
+        // this.showRequestAdmin = false;
+    }
+
     email;
     profileData;
     getProfile() {
