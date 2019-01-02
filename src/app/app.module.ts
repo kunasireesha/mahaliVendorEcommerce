@@ -114,7 +114,7 @@ export function HttpLoaderFactory(http: HttpClient) {
             { path: 'changePw', component: UseraccountComponent, data: [{ page: 'changePw' }] },
             { path: 'mysavedlist', component: MysavedlistComponent, data: [{ page: 'Mysavedlist' }] },
             { path: 'aboutus', component: AboutusComponent, data: [{ page: 'Aboutus' }] },
-            { path: 'addProduct', component: UseraccountComponent, data: [{ page: 'profiles' }] },
+            { path: 'addProduct', component: UseraccountComponent, data: [{ page: 'addProduct' }] },
             { path: 'myProduct', component: UseraccountComponent, data: [{ page: 'myproduct' }] },
         ], { useHash: true })
     ],

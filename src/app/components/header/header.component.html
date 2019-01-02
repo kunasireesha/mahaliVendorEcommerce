@@ -32,7 +32,7 @@
                         <hr />
                         <a class="dropdown-item waves-light" mdbRippleRadius routerLink="/myProduct">{{"common.myProducts"|translate}}</a>
                         <hr />
-                        <a class="dropdown-item waves-light" mdbRippleRadius routerLink="/address">{{"common.addProducts"|translate}}
+                        <a class="dropdown-item waves-light" mdbRippleRadius routerLink="/addProduct">{{"common.addProducts"|translate}}
                         </a>
                         <hr />
                         <a class="dropdown-item waves-light" mdbRippleRadius routerLink="/myorders">{{"common.vendorOrder"|translate}}
@@ -144,7 +144,7 @@
                     <hr class="cust-hr" />
                     <a class="waves-light" data-dismiss="modal" mdbRippleRadius routerLink="/myProduct">{{"common.myProducts"|translate}}</a>
                     <hr class="cust-hr" />
-                    <a class="waves-light" data-dismiss="modal" mdbRippleRadius routerLink="/address">{{"common.addProducts"|translate}}
+                    <a class="waves-light" data-dismiss="modal" mdbRippleRadius routerLink="/addProduct">{{"common.addProducts"|translate}}
                     </a>
                     <hr class="cust-hr" />
                     <a class="waves-light" data-dismiss="modal" mdbRippleRadius routerLink="/myorders">{{"common.vendorOrder"|translate}}
@@ -674,7 +674,7 @@
                                             <!-- <h6>ladies finger</h6> -->
                                             <li>
                                                 <i class="fas fa-angle-left sub-cat"></i>
-                                                <a (click)="showProbySubCat(sub.id,'subCategory',sub.cat_name)">{{sub.sub_category_name}}</a>
+                                                <a (click)="showProbySubCat(sub.id,'subCategory',sub.cat_name,sub.sub_category_name)">{{sub.sub_category_name}}</a>
                                             </li>
                                         </ul>
                                     </div>

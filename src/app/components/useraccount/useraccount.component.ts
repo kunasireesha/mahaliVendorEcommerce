@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { appService } from './../../services/mahaliServices/mahali.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 @Component({
     selector: 'app-useraccount',
     templateUrl: './useraccount.component.html',
@@ -18,7 +19,11 @@ export class UseraccountComponent implements OnInit {
             this.getProfile();
         } else if (this.page === 'myproduct') {
             this.showMyProducts = true;
-        } else if (this.page === 'orders') {
+        }else if(this.page === 'addProduct'){
+            this.showAddProducts = true;
+            this.addProducts();
+        }
+         else if (this.page === 'orders') {
             this.showMyOrders = true;
             this.getOrders();
         } else if (this.page === 'changePw') {
@@ -28,6 +33,8 @@ export class UseraccountComponent implements OnInit {
     }
     addressForm: FormGroup;
     resetForm: FormGroup;
+    productForm: FormGroup
+    submitted = false;
     editDel=false;
     ngOnInit() {
         this.addressForm = this.formBuilder.group({
@@ -43,6 +50,13 @@ export class UseraccountComponent implements OnInit {
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(6)]],
             new_password: ['', [Validators.required, Validators.minLength(6)]],
+        });
+        this.productForm = this.formBuilder.group({
+            deal_price: ['', Validators.required],
+            status: ['', Validators.required],
+            discount: ['', Validators.required],
+            vendor_id: localStorage.userId,
+            product_id: this.productId
         });
     }
 
@@ -390,7 +404,6 @@ export class UseraccountComponent implements OnInit {
         this.showProfile = true;
         this.editUserProfile = false;
     }
-    submitted;
     get f1() { return this.addressForm.controls; }
 
     saveAddress() {
@@ -496,6 +509,23 @@ export class UseraccountComponent implements OnInit {
             this.reqProds = resp.json().Order;
 
         })
+    }
+    get f2() { return this.productForm.controls; }
+    productId;
+    save(prodId) {
+        alert(prodId);
+        this.productId = prodId;
+        this.submitted = true;
+        // stop here if form is invalid
+        if (this.productForm.invalid) {
+            return;
+        }
+        this.appService.update(this.productForm.value).subscribe(resp => {
+            swal("Your order under process for Approvel", "", "success");
+            debugger;
+
+        })
+
     }
 
 }

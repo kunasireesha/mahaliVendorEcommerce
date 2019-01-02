@@ -17,8 +17,6 @@ export class ProductsComponent implements OnInit {
       if (params.action === "search") {
         this.product = params.product;
         this.search(this.product);
-        // this.wholeProd = false;
-        // this.serProd = true;
         this.seeAll = false;
         this.searchProd = true;
       }
@@ -47,10 +45,26 @@ export class ProductsComponent implements OnInit {
         this.getEcom();
         this.seeAll = true;
         this.searchProd = false;
+      }else if (params.action === 'category') {
+        this.catId = params.catId;
+        this.catName = params.catName;
+        this.seeAll = true;
+        this.searchProd = false;
+        this.getCatProducts();
+      } else if (params.action === 'subCategory') {
+        this.subId = params.subId;
+        this.catName = params.catName;
+        this.subCatName =params.subCat;
+        this.seeAll = true;
+        this.searchProd = false;
+        this.getSubProducts();
       }
+      
     })
   }
-
+  catId;
+  catName;
+  subCatName;
   ngOnInit() {
     this.getCategories();
   }
@@ -60,22 +74,10 @@ export class ProductsComponent implements OnInit {
     this.showCategories = !this.showCategories;
 
   }
-  showProduxtDetails() {
-    this.router.navigate(['/productdetails'], { queryParams: { order: 'popular' } });
+  showProduxtDetails(prodId) {
+    this.router.navigate(['/productdetails'], { queryParams: { prodId: prodId } });
   }
   category = [];
-  getCategories() {
-    this.appService.getCategories().subscribe(resp => {
-      this.category = resp.json().categories;
-      // this.showSubCat(this.subId);
-      for (var i = 0; i < this.category.length; i++) {
-        for (var j = 0; j < this.category[i].subcategory.length; j++) {
-          this.subCatData.push(this.category[i].subcategory[j]);
-          console.log(this.subCatData);
-        }
-      }
-    })
-  }
   subCatData = [];
   subId;
   serProducts = [];
@@ -95,6 +97,15 @@ export class ProductsComponent implements OnInit {
   skuArr = [];
   topsku = [];
   topArr = [];
+  ecomProds = [];
+  ecomsku = [];
+  ecomArr = [];
+  jewelData = [];
+  jewelArr = [];
+  jewlsku = [];
+  cartDetails = [];
+  cartCount;
+  noData;
   dealOfDay() {
     this.appService.dealOfDay().subscribe(res => {
       this.dealData = res.json().data.deals_of_the_day;
@@ -124,8 +135,7 @@ export class ProductsComponent implements OnInit {
 
     })
   }
-  cartDetails = [];
-  cartCount;
+
   addtoCart(Id, skId) {
     var inData = {
       "products": [{
@@ -153,9 +163,7 @@ export class ProductsComponent implements OnInit {
 
     })
   }
-  jewelData = [];
-  jewelArr = [];
-  jewlsku = [];
+
   getJewel() {
     this.appService.getJewel().subscribe(res => {
       this.jewelData = res.json().data;
@@ -187,10 +195,9 @@ export class ProductsComponent implements OnInit {
       }
     })
   }
-  ecomProds = [];
-  ecomsku = [];
-  ecomArr = [];
+ 
   getEcom() {
+    this.skuArr=[];
     this.appService.ecomProducts().subscribe(res => {
       this.ecomProds = res.json().products;
       for (var i = 0; i < this.ecomProds.length; i++) {
@@ -222,5 +229,59 @@ export class ProductsComponent implements OnInit {
   closesubSubCat() {
     this.showCategories = false;
     // this.showSubCategories = false;
+  }
+  
+  prodData=[];
+  
+  getCategories() {
+    this.subCatData=[];
+    this.appService.getCategories().subscribe(resp => {
+      this.category = resp.json().categories;
+      // this.showSubCat(this.subId);
+      for (var i = 0; i < this.category.length; i++) {
+        for (var j = 0; j < this.category[i].subcategory.length; j++) {
+          this.subCatData.push(this.category[i].subcategory[j]);
+          console.log(this.subCatData);
+        }
+      }
+    })
+  }
+  
+  getSubProducts() {
+    this.skuArr=[];
+    this.appService.productBySubCatId(this.subId).subscribe(res => {
+      this.prodData = res.json().products;
+      this.skuData = [];
+      for (var i = 0; i < this.prodData.length; i++) {
+        for (var j = 0; j < this.prodData[i].sku_details.length; j++) {
+          this.prodData[i].sku_details[j].product_name = this.prodData[i].product_name;
+          this.skuArr.push(this.prodData[i].sku_details[j]);
+        }
+      }
+      if (res.json().message === "No records Found") {
+        this.noData = true;
+      }
+    }, err => {
+
+    })
+  }
+  getCatProducts() {
+    this.skuArr=[];
+    this.appService.productByCatId(this.catId).subscribe(res => {
+      this.prodData = res.json().products;
+      for (var i = 0; i < this.prodData.length; i++) {
+        for (var j = 0; j < this.prodData[i].sku_details.length; j++) {
+          this.prodData[i].sku_details[j].product_name = this.prodData[i].product_name;
+          this.skuArr.push(this.prodData[i].sku_details[j]);
+        }
+      }
+      if (res.json().message === "No records Found") {
+        this.noData = true;
+      }
+
+
+    }, err => {
+
+    })
   }
 }

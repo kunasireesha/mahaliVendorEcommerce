@@ -6,7 +6,7 @@
     <div class="col-lg-3 col-md-4 col-sm-12 col-12">
       <h5>Category</h5>
       <br />
-      <div class="categories">
+      <!-- <div class="categories">
           <div id="panel-group">
             <div class="panel panel-default" *ngFor="let item of category; let i = index">
               <div class="panel-heading" (click) = "current = i;item.id">
@@ -22,8 +22,27 @@
               </div>
             </div>
             </div> 
+        </div> -->
+        <div class="categories" *ngFor="let cat of category; let i = index">
+          <p [ngClass]="{'active':showCategories && i==selectedCat}">
+            <a>
+              <i class="fa fa-plus" aria-hidden="true" *ngIf="!showCategories" (click)="showsubCat(i,cat.id)"></i>
+              <i class="fa fa-plus" aria-hidden="true" *ngIf="showCategories && i!==selectedCat" (click)="showsubCat(i,cat.id)"></i>
+  
+              <i class="fa fa-minus" aria-hidden="true" *ngIf="showCategories && i==selectedCat" (click)="closesubSubCat()"></i>
+            </a> &nbsp;&nbsp;<span (click)="showCateProd(cat.id,cat.name)">{{cat.category_name}}</span>
+          </p>
+          <hr>
+          <!-- categories -->
+  
+          <div class="subCates">
+            <div *ngFor="let subCat of subCategory;let ii = index">
+              <p *ngIf="selectedCat==i && showCategories" id="subCat" [ngClass]="{'active':showSubCategories }">
+                <span (click)="getSubcatProd(subCat.id,subCat.sub_category_name)">{{subCat.sub_category_name}}</span>
+              </p>
+            </div>
+          </div>
         </div>
-
       <h5>Country</h5>
       <div class="sort">
         <select>
@@ -87,14 +106,14 @@
       <p>
         <a routerLink="/">Home</a>&nbsp;&nbsp;>&nbsp;
         <a>{{catName}}</a>&nbsp;&nbsp;>&nbsp;
-        <a>{{sunCatName}}</a>
+        <a>{{subCatName}}</a>
       </p>
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6 col-12 item" *ngFor="let data of skuData | slice:0:10;let i=index">
           <div class="card">
             <img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
             <div class="card-block">
-              <h5 class="text-center">ghjgj </h5>
+              <h5 class="text-center">{{data.product_name}} </h5>
               <p class="text-center">
                 BD {{data.selling_price}}
                 <strike>BD {{data.actual_price}}</strike>

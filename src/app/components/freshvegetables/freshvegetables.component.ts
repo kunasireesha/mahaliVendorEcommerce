@@ -11,7 +11,7 @@ export class FreshvegetablesComponent implements OnInit {
   catId;
   catName;
   subId;
-  sunCatName;
+  subCatName;
   constructor(private appService: appService,private route: ActivatedRoute,private router: Router) { 
     this.route.queryParams.subscribe(params => {
       if (params.action === 'category') {
@@ -21,7 +21,7 @@ export class FreshvegetablesComponent implements OnInit {
       } else if (params.action === 'subCategory') {
         this.subId = params.subId;
         this.catName = params.catName;
-        this.sunCatName =params.subCat || "";
+        this.subCatName =params.subCat;
         this.getSubProducts();
       }
     })
@@ -56,6 +56,7 @@ export class FreshvegetablesComponent implements OnInit {
       this.skuData = [];
       for (var i = 0; i < this.prodData.length; i++) {
         for (var j = 0; j < this.prodData[i].sku_details.length; j++) {
+          this.prodData[i].sku_details[j].product_name = this.prodData[i].product_name;
           this.skuData.push(this.prodData[i].sku_details[j]);
         }
       }
@@ -71,6 +72,7 @@ export class FreshvegetablesComponent implements OnInit {
       this.prodData = res.json().products;
       for (var i = 0; i < this.prodData.length; i++) {
         for (var j = 0; j < this.prodData[i].sku_details.length; j++) {
+          this.prodData[i].sku_details[j].product_name = this.prodData[i].product_name;
           this.skuData.push(this.prodData[i].sku_details[j]);
         }
       }
@@ -114,4 +116,22 @@ export class FreshvegetablesComponent implements OnInit {
   }
   skuData = [];
   subCatData =[];
+  subCategory=[];
+  selectedCat=[];
+  showsubCat(index, id) {
+    this.subCategory = [];
+    this.selectedCat = index;
+    this.showCategories = true;
+
+    for (var i = 0; i < this.subCatData.length; i++) {
+      if (id === this.subCatData[i].category_id) {
+        this.subCategory.push(this.subCatData[i]);
+      }
+    }
+  }
+
+  closesubSubCat() {
+    this.showCategories = false;
+    // this.showSubCategories = false;
+  }
 }

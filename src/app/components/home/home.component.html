@@ -12,7 +12,7 @@
 		<!--Slides-->
 		<div class="carousel-inner" role="listbox">
 			<!--First slide-->
-			<div class="carousel-item" *ngFor="let data of bannerData;let i=index" [ngClass]="{'active':i==0}">
+			<div class="carousel-item banner-slider" *ngFor="let data of bannerData;let i=index" [ngClass]="{'active':i==0}">
 				<img class="d-block w-100" [src]="data.website_banner" alt="First slide">
 			</div>
 			<!--/First slide-->

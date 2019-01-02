@@ -25,7 +25,7 @@
         <p [ngClass]="{'active':showCategories && i==selectedCat}">
           <a>
             <i class="fa fa-plus" aria-hidden="true" *ngIf="!showCategories" (click)="showsubCat(i,cat.id)"></i>
-            <i class="fa fa-plus" aria-hidden="true" *ngIf="showCategories && i!==selectedCat" (click)="showsubSubCat(i,cat.id)"></i>
+            <i class="fa fa-plus" aria-hidden="true" *ngIf="showCategories && i!==selectedCat" (click)="showsubCat(i,cat.id)"></i>
 
             <i class="fa fa-minus" aria-hidden="true" *ngIf="showCategories && i==selectedCat" (click)="closesubSubCat()"></i>
           </a> &nbsp;&nbsp;<span (click)="showCateProd(cat.id,cat.name)">{{cat.category_name}}</span>
@@ -138,7 +138,7 @@
       <div class="row" *ngIf="seeAll">
         <div class="col-md-3 item" *ngFor="let data of skuArr">
           <div class="card">
-            <img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails()">
+            <img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
             <div class="card-block">
               <h5 class="text-center">{{data.product_name}} </h5>
               <p class="text-center">

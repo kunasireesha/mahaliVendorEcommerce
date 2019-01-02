@@ -148,6 +148,7 @@ export class HeaderComponent implements OnInit {
         this.showLoginScreen = true;
         this.myAccount = false;
         this.phone = false;
+        this.router.navigate(['/'])
     }
     get f() { return this.registerForm.controls; }
     registration(form: FormGroup) {
@@ -270,11 +271,11 @@ export class HeaderComponent implements OnInit {
     }
     showProbyCat(catId, action, catName) {
         this.showSubCats = false;
-        this.router.navigate(['/freshvegetables'], { queryParams: { catId: catId, action: action, catName: catName } });
+        this.router.navigate(['/products'], { queryParams: { catId: catId, action: action, catName: catName } });
     }
     showProbySubCat(SubCatId, action, catName, subCat) {
         this.showSubCats = false;
-        this.router.navigate(['/freshvegetables'], { queryParams: { subId: SubCatId, action: action, catName: catName, subCat: subCat } });
+        this.router.navigate(['/products'], { queryParams: { subId: SubCatId, action: action, catName: catName, subCat: subCat } });
     }
     cartDetails = [];
     cartCount;

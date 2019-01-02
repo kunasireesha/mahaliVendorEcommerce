@@ -169,5 +169,10 @@ export class appService {
         const headers = new Headers({ 'Content-Type': "application/JSON" });
         return this.http.get(AppSettings.ordById + "/" + params, { headers: headers });
     }
+    update(params) {
+        const headers = new Headers({ 'Content-Type': "application/JSON" });
+        this.vendor_id = localStorage.userId;
+        return this.http.put(AppSettings.updateProd, params, { headers: headers });
+    }
 }
 

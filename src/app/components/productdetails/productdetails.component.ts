@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductsData } from '../../services/productsdata';
 import { ProductService } from '../../services/productservice';
 import { appService } from './../../services/mahaliServices/mahali.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-productdetails',
@@ -13,7 +14,7 @@ import { appService } from './../../services/mahaliServices/mahali.service';
 
 export class ProductdetailsComponent implements OnInit {
     product: ProductsData;
-    constructor(private route: ActivatedRoute, public productService: ProductService, private appService: appService) {
+    constructor(private route: ActivatedRoute, public productService: ProductService, private appService: appService,private router: Router) {
         this.route.queryParams.subscribe(params => {
             this.prodId = params.prodId;
         });
@@ -84,6 +85,17 @@ export class ProductdetailsComponent implements OnInit {
 
         })
     }
+    changeSize(skId){
+        for (var i = 0; i < this.prodData.length; i++) {
+            if (parseInt(skId) === this.prodData[i].skid) {
+                this.offer_price = this.prodData[i].offer_price;
+                this.actual_price = this.prodData[i].actual_price;
+                this.product_image = this.prodData[i].image;
+                this.skid = this.prodData[i].skid;
+                this.description = this.prodData[i].description;
+            }
+        }
+    }
     addtoCart(id) {
         var inData = {
             "products": [{
@@ -110,5 +122,8 @@ export class ProductdetailsComponent implements OnInit {
         }, err => {
 
         })
+    }
+    showProduxtDetails(prodId) {
+        this.router.navigate(['/productdetails'], { queryParams: { prodId: prodId } });
     }
 }

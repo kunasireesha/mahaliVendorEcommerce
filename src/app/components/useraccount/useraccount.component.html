@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputstate" class="col-sm-3 col-form-label">State
+                    <label for="inputstate" class="col-sm-3 col-form-label">Area
                         <span class="float-right">:</span>
                     </label>
                     <div class="col-sm-3 pad-rt">
@@ -885,7 +885,7 @@
                 <h3 class="profile-header">Vendor Order</h3>
             </div>
             <div class="order-details">
-                <p>Order no : 2991</p>
+                <p>Order no : {{ordId}}</p>
             </div>
             <table class="table myorder-details">
                 <thead>
@@ -897,9 +897,9 @@
                         <th scope="col" style="font-size:18px;">Price</th>
                     </tr>
                 </thead>
-                <!-- <tbody class="table-data myorder-details">
+                <tbody class="table-data myorder-details">
                     <tr *ngFor="let orddata of ordData">
-                        <td>
+                        <td class="addProd">
                             <img [src]="orddata.product_image">
                         </td>
                         <td>
@@ -910,8 +910,8 @@
                         <td>{{orddata.size}}</td>
                         <td>BD {{orddata.selling_price}}</td>
                     </tr>
-                </tbody> -->
-                  <tbody class="table-data myorder-details">
+                </tbody>
+                  <!-- <tbody class="table-data myorder-details">
                     <tr>
                         <td class="addProd">
                             <img src="assets/images/5.jpg" alt="electronics">
@@ -936,7 +936,7 @@
                         <td>29Inc</td>
                         <td>BD 20000</td>
                     </tr>
-                </tbody>
+                </tbody> -->
             </table>
 
             <div class="order-details">
@@ -950,7 +950,7 @@
                             <td class="prod-price">
                                 <strong>{{orderDet.wholesaler_name}}</strong>
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td style="font-size: 16px;">Order Date & Time</td>
                             <td class="prod-price">
@@ -962,8 +962,8 @@
                             <td class="prod-price">
                                 <strong>{{orderDet.order_status}}</strong>
                             </td>
-                        </tr> -->
-                        <tr>
+                        </tr>
+                        <!-- <tr>
                             <td style="font-size: 16px;">Wholeseller</td>
                             <td class="prod-price">
                                 <strong>Robert</strong>
@@ -980,7 +980,7 @@
                             <td class="prod-price">
                                 <strong>Placed</strong>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -1957,12 +1957,12 @@
                     <div class="row">
                         <div class="col-sm-5">
                             <div class="add-popup">
-                                <img src="http://versatilemobitech.co.in/Mahali/images/28_0_55_15lbpi2ejq7qsdons.png" alt="electronics" />
+                                <!-- <div class="addProd"> -->
+                                <img [src]="reqProds.product_image" alt="electronics"/>
+                            <!-- </div> -->
                                 <p>
-                                    <span class="pot">Electronics</span>
-                                    <br />
-                                    <!-- {{reqProds.brand}} -->
-                                </p>
+                                    <span class="pot">{{reqProds.product_name}}</span>
+                                    <br />{{reqProds.brand}}</p>
                             </div>
                         </div>
                         <div class="col-sm-7">
@@ -1975,7 +1975,7 @@
                                                 <input type="text" class="form-control" id="price" formControlName="deal_price"
                                                     class="form-control" [ngClass]="{ 'is-invalid': submitted && f2.deal_price.errors }">
                                                 <div *ngIf="submitted && f2.deal_price.errors" class="invalid-feedback">
-                                                    <div *ngIf="f2.deal_price.errors.required">Account Holder is
+                                                    <div *ngIf="f2.deal_price.errors.required">Price is
                                                         required</div>
                                                 </div>
                                                
@@ -1988,7 +1988,7 @@
                                                 <input type="text" class="form-control" id="discount" formControlName="status"
                                                     class="form-control" [ngClass]="{ 'is-invalid': submitted && f2.status.errors }">
                                                 <div *ngIf="submitted && f2.status.errors" class="invalid-feedback">
-                                                    <div *ngIf="f2.status.errors.required">Account Holder is required</div>
+                                                    <div *ngIf="f2.status.errors.required">Discount is required</div>
                                                 </div>
                                                 
                                         </div>
@@ -2000,7 +2000,7 @@
                                                 <input type="text" class="form-control" id="status" formControlName="discount"
                                                     class="form-control" [ngClass]="{ 'is-invalid': submitted && f2.discount.errors }">
                                                 <div *ngIf="submitted && f2.discount.errors" class="invalid-feedback">
-                                                    <div *ngIf="f2.discount.errors.required">Account Holder is required</div>
+                                                    <div *ngIf="f2.discount.errors.required">Status is required</div>
                                                 </div>
                                                 <button type="submit" class="btn add-button pop-save" (click)="save(reqProds.product_id)">SAVE</button>
                                              
