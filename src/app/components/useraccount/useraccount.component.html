@@ -1022,18 +1022,18 @@
                                             </tr>
                                         </thead>
                                         <tbody class="cust-tbody">
-                                            <!-- <tr>
+                                            <tr>
                                                 <th scope="row" class="cust-1">1</th>
-                                                <td>
-                                                    <img [src]="reqProds.product_image" alt="Potatoes">
+                                                <td class="add-img">
+                                                    <img [src]="reqProds.product_image" alt="electronics">
                                                 </td>
                                                 <td class="cust-pot">{{reqProds.product_name}}</td>
                                                 <td class="cust-1">{{reqProds.brand}}</td>
                                                 <td class="cust-1">
                                                     <a href="" class="cust-add" data-toggle="modal" data-target="#addProd">ADD</a>
                                                 </td>
-                                            </tr> -->
-                                            <tr>
+                                            </tr>
+                                            <!-- <tr>
                                                 <th scope="row" class="cust-1">1</th>
                                                 <td class="addProd">
                                                     <img src="assets/images/2.jpg" alt="Electronics">
@@ -1054,7 +1054,7 @@
                                                 <td class="cust-1">
                                                     <a href="" class="cust-add" data-toggle="modal" data-target="#addProd">ADD</a>
                                                 </td>
-                                            </tr>
+                                            </tr> -->
                                             <!-- <tr>
                                                 <th scope="row" class="cust-1">3</th>
                                                 <td>
@@ -1749,7 +1749,7 @@
                                 </tr>
                             </thead>
                             <tbody class="cust-tbody">
-                                <!-- <tr class="cst-topad" *ngFor="let ord of orders;let i =index" (click)="showBukedOrderDetails(ord.order_id)">
+                                <tr class="cst-topad" *ngFor="let ord of orders;let i =index" (click)="showOrderDetailsEcom(ord.order_id)">
                                     <th scope="row">{{i+1}}</th>
                                     <td>
                                         {{ord.order_id}}
@@ -1760,10 +1760,10 @@
                                     <td>BD.{{ord.billing_amount}}</td>
                                     <td>{{ord.order_status}}</td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     {{this.count}}
                                 </tr> -->
-                                <tr (click)="showBukedOrderDetails()" class="cst-topad">
+                                <!-- <tr (click)="showBukedOrderDetails()" class="cst-topad">
                                     <th scope="row">2</th>
                                     <td>
                                         3713643
@@ -1814,7 +1814,7 @@
                                         BD.266.00
                                     </td>
                                     <td>Delivered</td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>

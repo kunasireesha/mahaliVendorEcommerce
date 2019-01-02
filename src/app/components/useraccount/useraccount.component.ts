@@ -185,7 +185,7 @@ export class UseraccountComponent implements OnInit {
         this.showAddProducts5=false;
         this.showOfferZone = false;
         this.showMyProducts = false;
-        // this.getOrders();
+        this.getOrders();
     }
 
     // notifications() {
@@ -205,7 +205,7 @@ export class UseraccountComponent implements OnInit {
     //     this.showOfferZone = false;
     // }
 
-    showBukedOrderDetails() {
+    showOrderDetailsEcom(ordId) {
         this.showNotifications = false;
         this.showOrderDetails = true;
         this.showMyOrders = false;
@@ -221,6 +221,7 @@ export class UseraccountComponent implements OnInit {
         this.showAddProducts5=false;
         this.showOfferZone = false;
         this.showMyProducts = false;
+        this.ordDetails(ordId);
     }
     accountDetails() {
         this.showNotifications = false;
@@ -344,6 +345,23 @@ export class UseraccountComponent implements OnInit {
 
     email;
     profileData;
+    ordId;
+    ordData = [];
+    orderDet = [];
+    count;
+    ordDetails(ordId) {
+        this.ordId = ordId;
+        this.appService.orderById(ordId).subscribe(resp => {
+            this.ordData = resp.json().Order.products;
+            for (var i = 0; i < this.ordData.length; i++) {
+                this.ordData[i].size = this.ordData[i].sku_details[0].size;
+                this.ordData[i].selling_price = this.ordData[i].sku_details[0].selling_price;
+            }
+            this.orderDet = resp.json().Order.details[0];
+            this.count = resp.json().Order.total_selling_price;
+
+        })
+    }
     getProfile() {
         this.email = (localStorage.email);
         this.appService.loginDetailsbyEmail(this.email).subscribe(response => {
@@ -468,8 +486,6 @@ export class UseraccountComponent implements OnInit {
     getOrders() {
         this.appService.getPlaceOrder().subscribe(res => {
             this.orders = res.json().Orders;
-            console.log(this.orders);
-          
         }, err => {
 
         })

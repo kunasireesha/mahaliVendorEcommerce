@@ -34,7 +34,7 @@ export const AppSettings = {
     ProductById:baseUrl+"products/product_id",
     ecomProducts:baseUrl+"products/e_commerce",
     getPlaceOrd:baseUrl+"place_order/vendor_orders/ecommerce/vendor_id",
-    // getPlaceOrd:baseUrl+"place_order/vendor_orders/vendor_id",
+    ordById:baseUrl+"place_order/order_products",
     reqProducts:baseUrl+"place_order/request_products/vendor",
 }
 

@@ -165,5 +165,9 @@ export class appService {
         this.vendor_id = localStorage.userId;
         return this.http.get(AppSettings.reqProducts + "/" + this.vendor_id + "/" + params, { headers: headers });
     }
+    orderById(params) {
+        const headers = new Headers({ 'Content-Type': "application/JSON" });
+        return this.http.get(AppSettings.ordById + "/" + params, { headers: headers });
+    }
 }
 
