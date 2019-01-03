@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import swal from 'sweetalert'
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the module
 
 
 //components
@@ -76,6 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
+        Ng2SearchPipeModule,
         MDBBootstrapModule.forRoot(),
         TranslateModule.forRoot({
             loader: {

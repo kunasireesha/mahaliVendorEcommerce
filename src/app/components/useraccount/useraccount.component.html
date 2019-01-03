@@ -84,11 +84,11 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputphoneno" class="col-sm-3 col-form-label">Phone No
+                    <label for="inputphoneno1" class="col-sm-3 col-form-label">Phone No
                         <span class="float-right">:</span>
                     </label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control input-feild" id="inputphoneno" placeholder="8586854500"
+                        <input type="text" class="form-control input-feild" id="inputphoneno1" placeholder="8586854500"
                             [(ngModel)]="profileData.mobile_number" name="mobile_number">
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                         <span class="float-right">:</span>
                     </label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control input-feild" id="inputphoneno" placeholder="8586854500">
+                        <input type="text" class="form-control input-feild" id="inputphoneno" placeholder="my busineess">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -414,7 +414,7 @@
                 </div>
             </div>
             <div class="col-lg-12 align-self-center">
-                <button type="button" class="btn btn-submit" (click)="selectAdd()">Submit</button>
+                <button type="button" class="btn btn-submit" *ngIf="getAddData" (click)="selectAdd()">Submit</button>
             </div>
         </div>
 
@@ -882,7 +882,7 @@
          <!-- order details -->
          <div class="col-lg-9" *ngIf="showOrderDetails">
             <div>
-                <h3 class="profile-header">Vendor Order</h3>
+                <h3 class="profile-header">Order Details</h3>
             </div>
             <div class="order-details">
                 <p>Order no : {{ordId}}</p>
@@ -1246,9 +1246,9 @@
                 <!-- <div class="search-notfound">
                     <button type="submit" class="btn" data-toggle="modal" data-target="#notfound">Item not found</button>
                 </div> -->
-                <!-- <div class="search-notfound">
+                <div class="search-notfound">
                     <button type="submit" class="btn" (click)="requestAdmin()">Item not found</button>
-                </div> -->
+                </div>
             </div>
             <!-- Add Products2 -->
     
@@ -1288,6 +1288,38 @@
             </div>
         </div>
     </div>
+    <div class="col-lg-9" *ngIf="showRequestAdmin">
+            <div id="multi-item-example6" class="carousel slide" data-ride="carousel">
+              <br />
+              <div class="carousel-inner cust-inner" role="listbox">
+                <div class="carousel-item active">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="row justify-content-between">
+                      <div class="col-lg-4 col-md-5 col-sm-5">
+                        <h3 class="addprod-clr">Add Products</h3>
+                      </div>
+                      <div class="col-lg-4 col-md-5 col-sm-5">
+                        <form class="form-inline form-rt">
+                          <i class="fa fa-search item-search" aria-hidden="true"></i>
+                          <input class="form-control mr-sm-2 placeholder-padding" type="search" placeholder="Search by item name"
+                            aria-label="Search">
+                        </form>
+                      </div>
+                    </div>
+                    <div class="row justify-content-center">
+                      <div class="cust-calflow">
+                        <p>Cauliflower item is not found</p>
+                        <button type="submit" class="btn request-admin cust-radm" data-dismiss="modal" data-toggle="modal"
+                          data-target="#product-name">Request
+                          Admin
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
         <!-- notofications -->
@@ -1733,7 +1765,7 @@
                         <form class="form-inline form-rt">
                             <i class="fa fa-search item-search" aria-hidden="true"></i>
                             <input class="form-control mr-sm-2 placeholder-padding" type="search" placeholder="Search Id"
-                                aria-label="Search">
+                                aria-label="Search" name="filter" [(ngModel)]="filter">
                         </form>
                     </div>
                     <div class="table-responsive my-4">
@@ -1749,7 +1781,7 @@
                                 </tr>
                             </thead>
                             <tbody class="cust-tbody">
-                                <tr class="cst-topad" *ngFor="let ord of orders;let i =index" (click)="showOrderDetailsEcom(ord.order_id)">
+                                <tr class="cst-topad" *ngFor="let ord of orders | filter:filter;let i =index" (click)="showOrderDetailsEcom(ord.order_id)">
                                     <th scope="row">{{i+1}}</th>
                                     <td>
                                         {{ord.order_id}}
@@ -2030,7 +2062,7 @@
                         <div class="form-group row">
                             <label for="quantity" class="col-sm-4 col-form-label">Product Name</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="quantity" placeholder="">
+                                <input type="text" class="form-control" id="quantity" placeholder="Product name">
                                 <button type="submit" class="btn request-admin popsbtn" data-dismiss="modal">SUBMIT</button>
                             </div>
                         </div>

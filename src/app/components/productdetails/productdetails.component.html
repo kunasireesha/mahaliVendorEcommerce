@@ -5,10 +5,15 @@
     <a>Electronics </a>&nbsp;&nbsp;
   </p>
   <div class="row">
-    <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
+    <!-- <div class="col-md-2">
+      <div class="img" *ngFor="let item of prodsData">
+        <img src="">
+      </div>
+    </div> -->
+    <div class="col-md-6">
       <img id="myImg" src="{{product_image}}" alt="Snow" style="width:100%;max-width:300px" (click)="showProduxtDetails(data.product_id)">
     </div>
-    <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6 details">
+    <div class="col-md-6 details">
       <h4>{{prodName}} </h4>
       <div class="row">
         <div class="col-md-6">

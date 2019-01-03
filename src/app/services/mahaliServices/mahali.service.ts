@@ -33,11 +33,12 @@ export class appService {
         return this.http.get(AppSettings.loginDetailsbyEmail + formValaues, { headers: headers })
     }
     updateProfile(params) {
+        this.vendor_id = localStorage.userId;
         const headers = new Headers({
             'Content-Type': "application/JSON",
             'x-access-token': (localStorage.token),
         });
-        return this.http.put(AppSettings.updateProfile, params, { headers: headers })
+        return this.http.put(AppSettings.updateProfile+"/"+this.vendor_id, params, { headers: headers })
     }
     forgotPassword(params) {
         const headers = new Headers({
