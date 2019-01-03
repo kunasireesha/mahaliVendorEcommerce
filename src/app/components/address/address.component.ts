@@ -31,6 +31,7 @@ export class AddressComponent implements OnInit {
     bank_area_errors = false;
     bank_city_errors = false;
     bank_branch_errors = false;
+    re_account_number_errors=false;
     constructor(public appService: appService, private router: Router, private formBuilder: FormBuilder) { }
     //     "first_name":"JyothiN",
     //     "last_name":"sri ",
@@ -76,7 +77,7 @@ export class AddressComponent implements OnInit {
         this.bankForm = this.formBuilder.group({
             account_holder_name: [''],
             account_number: [''],
-            // re_account_number: [''],
+            re_account_number: [''],
             bank_name: [''],
             ifsc_code: [''],
             bank_area: [''],
@@ -201,7 +202,6 @@ export class AddressComponent implements OnInit {
     get f2() { return this.bankForm.controls; }
 
     bankDeatails() {
-
         if (this.bankForm.value.account_holder_name === '') {
             this.account_holder_name_errors = true;
             return;
@@ -210,16 +210,24 @@ export class AddressComponent implements OnInit {
             this.account_holder_name_errors = false;
             this.account_number_errors = true;
             return;
-        } else if (this.bankForm.value.bank_name === '') {
+        }   else if (this.bankForm.value.re_account_number === '') {
+            this.account_holder_name_errors = false;
+            this.account_number_errors = false;
+            this.re_account_number_errors = true;
+            return;
+        }
+        else if (this.bankForm.value.bank_name === '') {
             this.account_holder_name_errors = false;
             this.account_number_errors = false;
             this.bank_name_errors = true;
+            this.re_account_number_errors=false;
             return;
         } else if (this.bankForm.value.ifsc_code === '') {
             this.account_holder_name_errors = false;
             this.account_number_errors = false;
             this.bank_name_errors = false;
             this.ifsc_code_errors = true;
+            this.re_account_number_errors=false;
             return;
         } else if (this.bankForm.value.bank_area === '') {
             this.account_holder_name_errors = false;
@@ -227,6 +235,7 @@ export class AddressComponent implements OnInit {
             this.bank_name_errors = false;
             this.ifsc_code_errors = false;
             this.bank_area_errors = true;
+            this.re_account_number_errors=false;
             return;
         } else if (this.bankForm.value.bank_city === '') {
             this.account_holder_name_errors = false;
@@ -235,6 +244,7 @@ export class AddressComponent implements OnInit {
             this.ifsc_code_errors = false;
             this.bank_area_errors = false;
             this.bank_city_errors = true;
+            this.re_account_number_errors=false;
             return;
         } else if (this.bankForm.value.bank_branch === '') {
             this.account_holder_name_errors = false;
@@ -244,10 +254,13 @@ export class AddressComponent implements OnInit {
             this.bank_area_errors = false;
             this.bank_city_errors = false;
             this.bank_branch_errors = true;
+            this.re_account_number_errors=false;
             return;
-        }
-
-
+        } 
+//         else if(this.bankForm.value.account_number===this.bankForm.value.re_account_number){
+// alert(this.bankForm.value.account_number===this.bankForm.value.re_account_number);
+//         }
+      
         // stop here if form is invalid
         // if (this.bankForm.invalid) {
         //     return;

@@ -513,7 +513,7 @@ export class UseraccountComponent implements OnInit {
     get f2() { return this.productForm.controls; }
     productId;
     save(prodId) {
-        alert(prodId);
+        // alert(prodId);
         this.productId = prodId;
         this.submitted = true;
         // stop here if form is invalid
