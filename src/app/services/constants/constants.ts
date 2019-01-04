@@ -13,6 +13,7 @@ export const AppSettings = {
     addaddress:baseUrl+"delivery_address",
     getAddress:baseUrl+"delivery_address",
     delAddress:baseUrl+"delivery_address",
+    updateAddress:baseUrl+"delivery_address",
     businessDetails:baseUrl+"vendors/update_profile",
     taxDetails:baseUrl+"vendors/update_profile",
     bankDetails:baseUrl+"vendors/update_profile",

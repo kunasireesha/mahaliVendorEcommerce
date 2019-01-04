@@ -566,5 +566,11 @@ export class UseraccountComponent implements OnInit {
         })
 
     }
+    editAdd(addId){
+        this.appService.updateAdd(addId).subscribe(resp=> {
+        },err=>{
+
+        })
+    }
 
 }

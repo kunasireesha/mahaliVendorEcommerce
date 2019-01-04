@@ -175,5 +175,10 @@ export class appService {
         this.vendor_id = localStorage.userId;
         return this.http.put(AppSettings.updateProd, params, { headers: headers });
     }
+    updateAdd(params){
+        const headers = new Headers({ 'Content-Type': "application/JSON" });
+        this.vendor_id = localStorage.userId;
+        return this.http.put(AppSettings.updateAddress+"/"+this.vendor_id+"/"+params, { headers: headers });   
+    }
 }
 

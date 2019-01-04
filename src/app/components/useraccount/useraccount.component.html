@@ -34,22 +34,22 @@
             <div class="details">
                 <p>
                     <i class="fa fa-user" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;
-                    <span>{{profileData.first_name}} </span>
+                    <span>{{profileData?.first_name}} </span>
                 </p>
                 <p>
                     <i class="fa fa-at" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;
                     <span>
-                        {{profileData.email}}</span>
+                        {{profileData?.email}}</span>
                 </p>
                 <p>
                     <i class="fa fa-phone" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;
-                    <span>{{profileData.mobile_number}}</span>
+                    <span>{{profileData?.mobile_number}}</span>
                 </p>
                 <p>
                     <i class="fa fa-map-marker" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;Unispace
-                    {{profileData.bussiness_area}}, {{profileData.bussiness_address}},
-                    <br /> {{profileData.bussiness_city}}
-                    <br /> {{profileData.bussiness_country}}
+                    {{profileData?.bussiness_area}}, {{profileData?.bussiness_address}},
+                    <br /> {{profileData?.bussiness_city}}
+                    <br /> {{profileData?.bussiness_country}}
                 </p>
             </div>
             <div class="row">
@@ -157,7 +157,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.account_holder_name}}</p>
+            <p>{{accDet?.account_holder_name}}</p>
         </div>
     </div>
     <div class="row">
@@ -168,7 +168,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.account_number}}</p>
+            <p>{{accDet?.account_number}}</p>
         </div>
     </div>
     <div class="row">
@@ -179,7 +179,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.bank_name}}</p>
+            <p>{{accDet?.bank_name}}</p>
         </div>
     </div>
     <div class="row">
@@ -190,7 +190,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.ifsc_code}}</p>
+            <p>{{accDet?.ifsc_code}}</p>
         </div>
     </div>
     <div class="row">
@@ -201,7 +201,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.bank_area}}</p>
+            <p>{{accDet?.bank_area}}</p>
         </div>
     </div>
     <div class="row">
@@ -212,7 +212,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.bank_city}}</p>
+            <p>{{accDet?.bank_city}}</p>
         </div>
     </div>
     <div class="row">
@@ -223,7 +223,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.bank_branch}}</p>
+            <p>{{accDet?.bank_branch}}</p>
         </div>
     </div>
     <div class="row">
@@ -404,7 +404,7 @@
                 <div class="col-lg-2 form-check">
                     <div *ngIf="seleOpt==i">
                         <button class="icon-btn">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                            <i class="fa fa-pencil" aria-hidden="true" (click)="editAdd(add.address_id)"></i>
                         </button>
                         <button class="icon-btn1">
                             <i class="fa fa-trash" aria-hidden="true" (click)="delAdd(add.address_id)"></i>
