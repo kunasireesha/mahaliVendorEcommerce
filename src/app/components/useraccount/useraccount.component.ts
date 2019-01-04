@@ -285,7 +285,7 @@ export class UseraccountComponent implements OnInit {
     }
     cancelAdd(){
         this.showDeliveryAddress = true;   
-        this.showDeliveryAddress=false;
+        this.showAddAddress=false;
     }
     addProducts() {
         this.showNotifications = false;
@@ -472,11 +472,20 @@ export class UseraccountComponent implements OnInit {
         // stop here if form is invalid
         if (this.resetForm.invalid) {
             return;
-        }
+        }else if(this.resetForm.value.password!=this.resetForm.value.new_password){
+            swal("Passwords doesn't matched","","warning");
+            return;
+           }
         this.appService.changePwd(this.resetForm.value).subscribe(resp => {
-            swal(resp.json().message, "", "success");
-            this.router.navigate(['/']);
+            if(resp.json().status===200){
+                swal(resp.json().message, "", "success");
+                this.router.navigate(['/'])
+            }else{
+                swal(resp.json().message, "", "error");
+            }
 
+        },err=> {
+            swal(err.json().message, "", "error");
         })
 
 

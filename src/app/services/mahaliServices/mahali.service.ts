@@ -20,7 +20,7 @@ export class appService {
     changePwd(params) {
         const headers = new Headers({
             'Content-Type': "application/JSON",
-            'x-access-token': localStorage.token,
+            'x-access-token': JSON.parse(localStorage.token)
         });
         return this.http.post(AppSettings.changePwdUrl, params, { headers: headers });
     }

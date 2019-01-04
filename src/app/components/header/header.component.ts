@@ -1,6 +1,6 @@
 import { appService } from './../../services/mahaliServices/mahali.service';
 import { UseraccountComponent } from './../useraccount/useraccount.component';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild,Input } from '@angular/core';
 import { MatDialog, MatDialogConfig } from "@angular/material";
 import { LoginComponent } from '../../components/login/login.component';
 import { Router } from '@angular/router';
@@ -15,6 +15,7 @@ declare var google: any;
     styleUrls: ['./header.component.less']
 })
 export class HeaderComponent implements OnInit {
+    @Input() cartCount:number; 
     registerForm: FormGroup;
     loginForm: FormGroup;
     submitted = false;
@@ -278,7 +279,6 @@ export class HeaderComponent implements OnInit {
         this.router.navigate(['/products'], { queryParams: { subId: SubCatId, action: action, catName: catName, subCat: subCat } });
     }
     cartDetails = [];
-    cartCount;
     cartData = [];
     billing;
     getCart() {
