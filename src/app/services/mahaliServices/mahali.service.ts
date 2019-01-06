@@ -178,7 +178,12 @@ export class appService {
     updateAdd(params){
         const headers = new Headers({ 'Content-Type': "application/JSON" });
         this.vendor_id = localStorage.userId;
-        return this.http.put(AppSettings.updateAddress+"/"+this.vendor_id+"/"+params, { headers: headers });   
+        return this.http.get(AppSettings.updateAddress+"/"+this.vendor_id+"/"+params, { headers: headers });   
+    }
+    filterVendor(params){
+        const headers = new Headers({ 'Content-Type': "application/JSON" });
+        this.vendor_id = localStorage.userId;
+        return this.http.post(AppSettings.filterVendor+"/"+this.vendor_id,params, { headers: headers });
     }
 }
 
