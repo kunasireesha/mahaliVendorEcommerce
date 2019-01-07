@@ -45,13 +45,21 @@
 </main>
 <br />
 <!-- delas -->
-<div id="multi-item-example" class="carousel slide carousel-multi-item container" data-ride="carousel">
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
+			<h4 class="text-center">Deals of the Day
+				<span>
+					<a (click)="seeAll('deals')">See all</a>
+				</span>
+			</h4>
+		</div>
+	</div>
+	<hr>
+</div>
+<div id="multi-item-example" class="carousel slide carousel-multi-item container " data-ride="carousel">
 
-	<h4 class="text-center">Deals of the Day
-		<span>
-			<a (click)="seeAll('deals')">See all</a>
-		</span>
-	</h4>
+
 
 	<br />
 	<!--Slides-->
@@ -67,7 +75,7 @@
 						<h5 class="text-center">{{data.product_name}}</h5>
 						<p class="text-center">
 							BD {{data.selling_price}}
-							
+
 							<strike>BD {{data.actual_price}}</strike>
 						</p>
 					</div>
@@ -99,7 +107,7 @@
 					</div>
 				</div>
 			</div> -->
-<!-- 
+			<!-- 
 			<div class="col-md-3 hidden-sm-down">
 				<div class="card">
 					<img class="img-fluid" src="assets/images/4.jpg" alt="Card image cap">
@@ -253,9 +261,17 @@
 <!-- end deals -->
 
 <!-- featurs -->
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
+			<h4 class="text-center">Featured Brands
+			</h4>
+		</div>
+	</div>
+	<hr>
+</div>
 <div class="container fetures">
-	<h4 class="text-center">Featured Brands
-	</h4>
+
 	<br />
 	<div class="row">
 
@@ -271,13 +287,21 @@
 <br />
 
 <!-- offers -->
-<div id="multi-item-example1" class="carousel slide carousel-multi-item container" data-ride="carousel">
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
 
-	<h4 class="text-center">Top offers
-		<span>
-			<a (click)="seeAll('typeProd')">See all</a>
-		</span>
-	</h4>
+			<h4 class="text-center">Top offers
+				<span>
+					<a (click)="seeAll('typeProd')">See all</a>
+				</span>
+			</h4>
+
+		</div>
+	</div>
+	<hr>
+</div>
+<div id="multi-item-example1" class="carousel slide carousel-multi-item container" data-ride="carousel">
 
 	<br />
 	<!--Slides-->
@@ -297,7 +321,7 @@
 					</div>
 				</div>
 			</div>
-<!-- 
+			<!-- 
 			<div class="col-md-3 hidden-sm-down">
 				<div class="card">
 					<img class="img-fluid" src="assets/images/6.jpg" alt="Card image cap">
@@ -482,15 +506,22 @@
 <br />
 <br />
 <br />
-
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
+			<h4 class="text-center">Clothing & Accessories
+				<span>
+					<a (click)="seeAll('cloth')">See all</a>
+				</span>
+			</h4>
+		</div>
+	</div>
+	<hr>
+</div>
 <!-- clothing -->
 <div id="multi-item-example3" class="carousel slide carousel-multi-item container" data-ride="carousel">
 
-	<h4 class="text-center">Clothing & Accessories
-		<span>
-			<a (click)="seeAll('cloth')">See all</a>
-		</span>
-	</h4>
+
 
 	<br />
 	<!--Slides-->
@@ -567,7 +598,7 @@
 
 
 		</div>
-		
+
 
 	</div>
 	<!--/.Slides-->
@@ -587,15 +618,20 @@
 <!-- end clothing -->
 
 <!-- jewellery -->
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
+			<h4 class="text-center">Jewellery
+				<span>
+					<a (click)="seeAll('jewel')">See all</a>
+				</span>
+			</h4>
 
+		</div>
+	</div>
+	<hr>
+</div>
 <div id="multi-item-example4" class="carousel slide carousel-multi-item container" data-ride="carousel">
-
-	<h4 class="text-center">Jewellery
-		<span>
-			<a (click)="seeAll('jewel')">See all</a>
-		</span>
-	</h4>
-
 	<br />
 	<!--Slides-->
 	<div class="carousel-inner deals" role="listbox">
@@ -619,7 +655,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 
 
 
@@ -810,13 +846,21 @@
 <br />
 
 <!-- recently viewed -->
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
+			<h4 class="text-center">Recently Viewed
+				<span>
+					<a (click)="seeAll('recent')">See all</a>
+				</span>
+			</h4>
+		</div>
+	</div>
+	<hr>
+</div>
 <div id="multi-item-example5" class="carousel slide carousel-multi-item container" data-ride="carousel">
 
-	<h4 class="text-center">Recently Viewed
-		<span>
-			<a (click)="seeAll('recent')">See all</a>
-		</span>
-	</h4>
+
 
 	<br />
 	<!--Slides-->
@@ -894,7 +938,7 @@
 
 		</div>
 		<!--/.First slide-->
-		
+
 	</div>
 	<!--/.Slides-->
 
@@ -913,13 +957,18 @@
 
 <!-- end recently viewed -->
 
-
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
+			<h4 class="text-center">Recommended Products</h4>
+		</div>
+	</div>
+	<hr>
+</div>
 <!-- recommended products -->
 <div id="multi-item-example6" class="carousel slide carousel-multi-item container" data-ride="carousel">
 
-	<h4 class="text-center">Recommended Products
 
-	</h4>
 
 	<br />
 	<!--Slides-->
@@ -927,10 +976,10 @@
 
 		<!--First slide-->
 		<div class="carousel-item active">
-				<div class="noData">
-						No records Found
-					  </div>
-<!-- 
+			<div class="noData">
+				No records Found
+			</div>
+			<!-- 
 			<div class="col-md-6">
 				<div class="card">
 					<div class="row">
@@ -942,10 +991,10 @@
 							</h5>
 							<p class="">
 								Jewellery</p> -->
-							<!-- <a *ngFor="let item of starList; let i=index " (click)="setStar(i)">
+			<!-- <a *ngFor="let item of starList; let i=index " (click)="setStar(i)">
 					<i class="fa" [ngClass]="{'fa-star-o':item,'fa-star':!item}"></i>
 				  </a> -->
-							<!-- <i *ngFor="let item of starList; let i=index " class="fa fa-star"></i>
+			<!-- <i *ngFor="let item of starList; let i=index " class="fa fa-star"></i>
 							<br />
 							<a href>View Product&nbsp;
 								<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
