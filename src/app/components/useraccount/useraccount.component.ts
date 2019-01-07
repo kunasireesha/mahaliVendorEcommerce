@@ -591,7 +591,6 @@ export class UseraccountComponent implements OnInit {
     get f2() { return this.productForm.controls; }
     productId;
     save(prodId) {
-        // alert(prodId);
         this.productId = prodId;
         this.submitted = true;
         // stop here if form is invalid
@@ -605,26 +604,48 @@ export class UseraccountComponent implements OnInit {
         })
 
     }
-    editAddData = [];
+    editAddData = {
+        full_name:'',
+        mobile_number:'',
+        house_no:'',
+        landmark:'',
+        city:'',
+        state:'',
+        pin_code:'',
+
+    };
     // get f3() { return this.editAddForm.controls; }
     editAdd(addId) {
-        this.appService.updateAdd(addId).subscribe(resp => {
+        this.appService.update(addId).subscribe(resp => {
             this.editAddData = resp.json().delivery_address[0];
         }, err => {
 
         })
     }
     UpdateAdd(addId) {
-        this.appService.updateAdd(addId).subscribe(resp => {
+        var indata ={
+            "full_name": this.editAddData.full_name,
+            "mobile_number": this.editAddData.mobile_number,
+            "house_no": this.editAddData.house_no,
+            "city": this.editAddData.city,
+            "state": this.editAddData.state,
+            "landmark": this.editAddData.landmark,
+            "pin_code": this.editAddData.pin_code,
+            "address_type": this.type
+        }
+        this.appService.updateAddData(indata,addId).subscribe(resp => {
             console.log(resp.json());
             debugger;
-
         }, err => {
 
         })
     }
     fromDt;
     toDt;
+    type;
+    Type(type) {
+        this.type = type;
+    }
     filterVendor() {
         var inData = {
             "from_date": this.fromDt,
