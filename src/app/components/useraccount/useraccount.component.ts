@@ -58,6 +58,9 @@ export class UseraccountComponent implements OnInit {
             vendor_id: localStorage.userId,
             product_id: this.productId
         });
+        // this.editAddForm = this.formBuilder.group({
+        //     full_name:['', Validators.required]
+        // })
     }
 
     page;
@@ -77,6 +80,7 @@ export class UseraccountComponent implements OnInit {
     showOfferZone = false;
     showMyProducts = false;
     showRequestAdmin=false;
+    showEditAddress=false;
     profile() {
         this.showNotifications = false;
         this.showOrderDetails = false;
@@ -94,6 +98,7 @@ export class UseraccountComponent implements OnInit {
         this.showOfferZone = false;
         this.showMyProducts = false;
         this.showRequestAdmin =false;
+        this.showEditAddress=false;
         this.getProfile();
     }
 
@@ -114,6 +119,7 @@ export class UseraccountComponent implements OnInit {
         this.showOfferZone = false;
         this.showMyProducts = false;
         this.showRequestAdmin =false;
+        this.showEditAddress=false;
     }
 
     deliveryAddress() {
@@ -133,6 +139,7 @@ export class UseraccountComponent implements OnInit {
         this.showOfferZone = false;
         this.showMyProducts = false;
         this.showRequestAdmin =false;
+        this.showEditAddress=false;
         this.getAdd();
     }
     addAddress() {
@@ -152,6 +159,7 @@ export class UseraccountComponent implements OnInit {
         this.showOfferZone = false;
         this.showMyProducts = false;
         this.showRequestAdmin =false;
+        this.showEditAddress=false;
     }
 
     // wishList() {
@@ -187,6 +195,7 @@ export class UseraccountComponent implements OnInit {
         this.showOfferZone = false;
         this.showMyProducts = false;
         this.showRequestAdmin =false;
+        this.showEditAddress=false;
     }
 
     myOrder() {
@@ -206,6 +215,7 @@ export class UseraccountComponent implements OnInit {
         this.showOfferZone = false;
         this.showMyProducts = false;
         this.showRequestAdmin =false;
+        this.showEditAddress=false;
         this.getOrders();
     }
 
@@ -243,6 +253,7 @@ export class UseraccountComponent implements OnInit {
         this.showOfferZone = false;
         this.showMyProducts = false;
         this.showRequestAdmin =false;
+        this.showEditAddress=false;
         this.ordDetails(ordId);
     }
     accountDetails() {
@@ -264,6 +275,7 @@ export class UseraccountComponent implements OnInit {
         this.showAddProducts=false;
         this.showOfferZone = false;
         this.showRequestAdmin =false;
+        this.showEditAddress=false;
         this.getAccDet();
     }
     editAccountDetails() {
@@ -282,10 +294,12 @@ export class UseraccountComponent implements OnInit {
         this.showAddProducts5=false;
         this.showOfferZone = false;
         this.showRequestAdmin =false;
+        this.showEditAddress=false;
     }
     cancelAdd(){
         this.showDeliveryAddress = true;   
         this.showAddAddress=false;
+        this.showEditAddress=false;
     }
     addProducts() {
         this.showNotifications = false;
@@ -307,6 +321,7 @@ export class UseraccountComponent implements OnInit {
         this.showOfferZone = false;
         this.showMyProducts = false;
         this.showRequestAdmin =false;
+        this.showEditAddress=false;
         this.getCategories();
     }
     showAddProducts2(Id) {
@@ -329,6 +344,7 @@ export class UseraccountComponent implements OnInit {
         this.showOfferZone = false;
         this.showMyProducts = false;
         this.showRequestAdmin = false;
+        this.showEditAddress=false;
         this.getProducts(Id);
     }
     offerZone() {
@@ -349,6 +365,7 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showRequestAdmin = false;
         this.showMyProducts = false;
+        this.showEditAddress=false;
     }
     myProducts() {
         this.showNotifications = false;
@@ -367,6 +384,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails = false;
         this.editAccount = false;
         this.showRequestAdmin = false;
+        this.showEditAddress=false;
     }
     requestAdmin() {
         this.showNotifications = false;
@@ -385,6 +403,27 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails = false;
         this.editAccount = false;
         this.showRequestAdmin = true;
+        this.showEditAddress=false;
+    }
+    showEditAdd(addId){
+      this.showNotifications = false;
+        this.showOrderDetails = false;
+        this.showMyOrders = false;
+        this.showMyProducts = false;
+        this.showWishlist = false;
+        this.showAddAddress = false;
+        this.showDeliveryAddress = false;
+        this.editUserProfile = false;
+        this.showProfile = false;
+        this.showOfferZone = false;
+        this.showAddProducts = false;
+        this.showAddProducts5 = false;
+        // this.showManageUserOrders = false;
+        this.showAccountDetails = false;
+        this.editAccount = false;
+        this.showRequestAdmin = false;
+        this.showEditAddress=true;  
+        this.editAdd(addId);
     }
     email;
     profileData;
@@ -566,5 +605,36 @@ export class UseraccountComponent implements OnInit {
         })
 
     }
+    editAddData=[];
+    // get f3() { return this.editAddForm.controls; }
+    editAdd(addId){
+        this.appService.updateAdd(addId).subscribe(resp=> {
+            this.editAddData  = resp.json().delivery_address[0];
+        },err=>{
+
+        })
+    }
+    UpdateAdd(addId){
+        this.appService.updateAdd(addId).subscribe(resp=> {
+           console.log(resp.json());
+           debugger;
+           
+        },err=>{
+
+        })  
+    }
+    filterVendor(){
+        var inData ={
+            "from_date":this.fromDt,
+	         "to_date":this.toDt
+        }
+        this.appService.filterVendor(inData).subscribe(resp=> {
+            this.orders =  resp.json().products;
+            
+         },err=>{
+ 
+         })     
+    }
+
 
 }

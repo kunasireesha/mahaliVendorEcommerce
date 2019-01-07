@@ -13,6 +13,7 @@ export const AppSettings = {
     addaddress:baseUrl+"delivery_address",
     getAddress:baseUrl+"delivery_address",
     delAddress:baseUrl+"delivery_address",
+    updateAddress:baseUrl+"delivery_address",
     businessDetails:baseUrl+"vendors/update_profile",
     taxDetails:baseUrl+"vendors/update_profile",
     bankDetails:baseUrl+"vendors/update_profile",
@@ -36,6 +37,7 @@ export const AppSettings = {
     getPlaceOrd:baseUrl+"place_order/vendor_orders/ecommerce/vendor_id",
     ordById:baseUrl+"place_order/order_products",
     reqProducts:baseUrl+"place_order/request_products/vendor",
-    updateProd:baseUrl+"place_order/pricing"
+    updateProd:baseUrl+"place_order/pricing",
+    filterVendor:baseUrl+"products/filter/vendor"
 }
 

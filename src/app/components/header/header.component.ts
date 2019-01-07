@@ -335,4 +335,8 @@ export class HeaderComponent implements OnInit {
     // });
     // }
     // }
+
+    hidesub(){
+        this.showSubCats = false;
+    }
 }

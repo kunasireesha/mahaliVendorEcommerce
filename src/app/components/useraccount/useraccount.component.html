@@ -34,22 +34,22 @@
             <div class="details">
                 <p>
                     <i class="fa fa-user" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;
-                    <span>{{profileData.first_name}} </span>
+                    <span>{{profileData?.first_name}} </span>
                 </p>
                 <p>
                     <i class="fa fa-at" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;
                     <span>
-                        {{profileData.email}}</span>
+                        {{profileData?.email}}</span>
                 </p>
                 <p>
                     <i class="fa fa-phone" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;
-                    <span>{{profileData.mobile_number}}</span>
+                    <span>{{profileData?.mobile_number}}</span>
                 </p>
                 <p>
                     <i class="fa fa-map-marker" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;Unispace
-                    {{profileData.bussiness_area}}, {{profileData.bussiness_address}},
-                    <br /> {{profileData.bussiness_city}}
-                    <br /> {{profileData.bussiness_country}}
+                    {{profileData?.bussiness_area}}, {{profileData?.bussiness_address}},
+                    <br /> {{profileData?.bussiness_city}}
+                    <br /> {{profileData?.bussiness_country}}
                 </p>
             </div>
             <div class="row">
@@ -157,7 +157,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.account_holder_name}}</p>
+            <p>{{accDet?.account_holder_name}}</p>
         </div>
     </div>
     <div class="row">
@@ -168,7 +168,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.account_number}}</p>
+            <p>{{accDet?.account_number}}</p>
         </div>
     </div>
     <div class="row">
@@ -179,7 +179,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.bank_name}}</p>
+            <p>{{accDet?.bank_name}}</p>
         </div>
     </div>
     <div class="row">
@@ -190,7 +190,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.ifsc_code}}</p>
+            <p>{{accDet?.ifsc_code}}</p>
         </div>
     </div>
     <div class="row">
@@ -201,7 +201,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.bank_area}}</p>
+            <p>{{accDet?.bank_area}}</p>
         </div>
     </div>
     <div class="row">
@@ -212,7 +212,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.bank_city}}</p>
+            <p>{{accDet?.bank_city}}</p>
         </div>
     </div>
     <div class="row">
@@ -223,7 +223,7 @@
             </p>
         </div>
         <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet.bank_branch}}</p>
+            <p>{{accDet?.bank_branch}}</p>
         </div>
     </div>
     <div class="row">
@@ -404,7 +404,7 @@
                 <div class="col-lg-2 form-check">
                     <div *ngIf="seleOpt==i">
                         <button class="icon-btn">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                            <i class="fa fa-pencil" aria-hidden="true" (click)="showEditAdd(add.address_id)"></i>
                         </button>
                         <button class="icon-btn1">
                             <i class="fa fa-trash" aria-hidden="true" (click)="delAdd(add.address_id)"></i>
@@ -533,7 +533,110 @@
 
         </div>
 
+<!-- edit address -->
+<div class="col-lg-7 address " *ngIf="showEditAddress">
+    <h3 class="profile-header">Edit Delivery Address</h3>
+    <p>
+        <strong>Edit Adrress</strong>
+    </p>
+    <form class="form-details">
+        <div class="form-group row">
+            <label for="inputname1" class="col-sm-2 col-form-label">Full Name
+            </label>
+            <div class="col-sm-10">
+                    <input type="text" class="form-control input-feild" id="full_name" name="full_name" [(ngModel)]="editAddData.full_name">
+                    <!-- <div *ngIf="submitted && f1.full_name.errors" class="invalid-feedback">
+                        <div *ngIf="f1.full_name.errors.required">Full Name is required</div>
+                    </div> -->
+                  
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputMblnbr" class="col-sm-2 col-form-label">Mobile Number
+            </label>
+            <div class="col-sm-10">
+               
+                    <input type="text" class="form-control input-feild" id="inputNumber" name="mobile_number" [(ngModel)]="editAddData.mobile_number">
+                    <!-- <div *ngIf="submitted && f1.mobile_number.errors" class="invalid-feedback">
+                        <div *ngIf="f1.mobile_number.errors.required">Mobile Number is required</div>
+                    </div> -->
+                   
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputhouseno" class="col-sm-2 col-form-label">House: No
+            </label>
+            <div class="col-sm-10">
+             
+                    <input type="text" class="form-control input-feild" id="inputhouseno" name="house_no" [(ngModel)]="editAddData.house_no">
+                    <!-- <div *ngIf="submitted && f1.house_no.errors" class="invalid-feedback">
+                        <div *ngIf="f1.house_no.errors.required">House Number is required</div>
+                    </div> -->
+                   
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputstate" class="col-sm-2 col-form-label">Landmark
+            </label>
+            <div class="col-sm-4">
+              
+                    <input type="text" class="form-control input-feild" id="inputLand" name="landmark" [(ngModel)]="editAddData.landmark">
+                    <!-- <div *ngIf="submitted && f1.landmark.errors" class="invalid-feedback">name="house_no" [(ngModel)]="editAddData.house_no"
+                        <div *ngIf="f1.landmark.errors.required">Landmark is required</div>
+                    </div> -->
+                   
+            </div>
+            <label for="inputcity" class="col-sm-2 col-form-label">City
+            </label>
+            <div class="col-sm-4">
+                <!-- <select id="inputState" class="form-control input-feild" [(ngModel)]="addData.city">
+                    <option selected>Choose City</option>
+                    <option *ngFor="let city of Cities" [ngValue]="city">{{city}}</option>
+                </select> -->
+                <input type="text" class="form-control input-feild" id="inputpincode" name="city" [(ngModel)]="editAddData.city">
+                <!-- <div *ngIf="submitted && f1.city.errors" class="invalid-feedback">
+                    <div *ngIf="f1.city.errors.required">City is required</div>
+                </div> -->
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputstate" class="col-sm-2 col-form-label">State
+            </label>
+            <div class="col-sm-4">
+                <!-- <select id="inputState" class="form-control input-feild" [(ngModel)]="addData.state">
+                    <option selected>Choose State</option>
+                    <option *ngFor="let state of States" [ngValue]="state">{{state}}</option>
+                </select> -->
+                <input type="text" class="form-control input-feild" id="inputpincode1" name="state" [(ngModel)]="editAddData.state">
+                <!-- <div *ngIf="submitted && f1.state.errors" class="invalid-feedback">
+                    <div *ngIf="f1.state.errors.required">state is required</div>
+                </div> -->
+            </div>
+            <label for="inputcity" class="col-sm-2 col-form-label">Pin-code
+            </label>
+            <div class="col-sm-4">
+               
+                    <input type="text" class="form-control input-feild" id="inputpincode2" name="pin_code" [(ngModel)]="editAddData.pin_code">
+                    <!-- <div *ngIf="submitted && f1.pin_code.errors" class="invalid-feedback">
+                        <div *ngIf="f1.pin_code.errors.required">Pin-Code is required</div>
+                    </div> -->
+                    
+            </div>
+            <div class="addType">
+                <p>Choose nick name for this address</p>
+                <p class="addresses ">
+                    <a (click)="Type('Home')">Home</a>
+                    <a (click)="Type('Office')">Office</a>
+                    <a (click)="Type('Other')">Other</a>
+                </p>
+            </div>
+        </div>
+    </form>
 
+    <button type="button" class="btn address-btn" (click)="UpdateAdd(editAddData.address_id)">SUBMIT</button>
+    <button type="button" class="btn address-btn" (click)="cancelAdd()">CANCEL</button>
+
+</div>
         <!-- wishlist -->
 
         <div class="col-lg-9" *ngIf="showWishlist">
@@ -1271,14 +1374,14 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">From Date</label>
-                                        <input type="date" class="form-control" placeholder="From Date">
+                                        <input type="date" class="form-control" placeholder="From Date" name="fromDt" [(ngModel)]="fromDt">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">To Date</label>
-                                        <input type="date" class="form-control" placeholder="To Date">
+                                        <input type="date" class="form-control" placeholder="To Date" name="toDt" [(ngModel)]="toDt">
                                     </div>
                                     <div class="col-md-12 cust-apply">
-                                        <button type="submit" data-dismiss="modal">Apply</button>
+                                        <button type="submit" data-dismiss="modal" (click)="filterVendor()">Apply</button>
                                     </div>
                                 </div>
 
