@@ -12,18 +12,18 @@ import { Router } from '@angular/router';
 export class UseraccountComponent implements OnInit {
 
     constructor(
-        private route: ActivatedRoute,public appService: appService,private formBuilder: FormBuilder,private router: Router) {
+        private route: ActivatedRoute, public appService: appService, private formBuilder: FormBuilder, private router: Router) {
         this.page = this.route.snapshot.data[0]['page'];
         if (this.page === 'profile') {
             this.showProfile = true;
             this.getProfile();
         } else if (this.page === 'myproduct') {
             this.showMyProducts = true;
-        }else if(this.page === 'addProduct'){
+        } else if (this.page === 'addProduct') {
             this.showAddProducts = true;
             this.addProducts();
         }
-         else if (this.page === 'orders') {
+        else if (this.page === 'orders') {
             this.showMyOrders = true;
             this.getOrders();
         } else if (this.page === 'changePw') {
@@ -35,7 +35,7 @@ export class UseraccountComponent implements OnInit {
     resetForm: FormGroup;
     productForm: FormGroup
     submitted = false;
-    editDel=false;
+    editDel = false;
     ngOnInit() {
         this.addressForm = this.formBuilder.group({
             full_name: ['', Validators.required],
@@ -73,14 +73,14 @@ export class UseraccountComponent implements OnInit {
     showDeliveryAddress = false;
     editUserProfile = false;
     showProfile = false;
-    showAccountDetails=false;
-    editAccount=false;
-    showAddProducts=false;
-    showAddProducts5=false;
+    showAccountDetails = false;
+    editAccount = false;
+    showAddProducts = false;
+    showAddProducts5 = false;
     showOfferZone = false;
     showMyProducts = false;
-    showRequestAdmin=false;
-    showEditAddress=false;
+    showRequestAdmin = false;
+    showEditAddress = false;
     profile() {
         this.showNotifications = false;
         this.showOrderDetails = false;
@@ -91,14 +91,14 @@ export class UseraccountComponent implements OnInit {
         this.showDeliveryAddress = false;
         this.editUserProfile = false;
         this.showProfile = true;
-        this.showAccountDetails=false;
+        this.showAccountDetails = false;
         this.editAccount = false;
-        this.showAddProducts=false;
-        this.showAddProducts5=false;
+        this.showAddProducts = false;
+        this.showAddProducts5 = false;
         this.showOfferZone = false;
         this.showMyProducts = false;
-        this.showRequestAdmin =false;
-        this.showEditAddress=false;
+        this.showRequestAdmin = false;
+        this.showEditAddress = false;
         this.getProfile();
     }
 
@@ -112,14 +112,14 @@ export class UseraccountComponent implements OnInit {
         this.showDeliveryAddress = false;
         this.editUserProfile = true;
         this.showProfile = false;
-        this.showAccountDetails=false;
+        this.showAccountDetails = false;
         this.editAccount = false;
-        this.showAddProducts=false;
-        this.showAddProducts5=false;
+        this.showAddProducts = false;
+        this.showAddProducts5 = false;
         this.showOfferZone = false;
         this.showMyProducts = false;
-        this.showRequestAdmin =false;
-        this.showEditAddress=false;
+        this.showRequestAdmin = false;
+        this.showEditAddress = false;
     }
 
     deliveryAddress() {
@@ -132,14 +132,14 @@ export class UseraccountComponent implements OnInit {
         this.showDeliveryAddress = true;
         this.editUserProfile = false;
         this.showProfile = false;
-        this.showAccountDetails=false;
+        this.showAccountDetails = false;
         this.editAccount = false;
-        this.showAddProducts=false;
-        this.showAddProducts5=false;
+        this.showAddProducts = false;
+        this.showAddProducts5 = false;
         this.showOfferZone = false;
         this.showMyProducts = false;
-        this.showRequestAdmin =false;
-        this.showEditAddress=false;
+        this.showRequestAdmin = false;
+        this.showEditAddress = false;
         this.getAdd();
     }
     addAddress() {
@@ -152,14 +152,14 @@ export class UseraccountComponent implements OnInit {
         this.showDeliveryAddress = false;
         this.editUserProfile = false;
         this.showProfile = false;
-        this.showAccountDetails=false;
+        this.showAccountDetails = false;
         this.editAccount = false;
-        this.showAddProducts=false;
-        this.showAddProducts5=false;
+        this.showAddProducts = false;
+        this.showAddProducts5 = false;
         this.showOfferZone = false;
         this.showMyProducts = false;
-        this.showRequestAdmin =false;
-        this.showEditAddress=false;
+        this.showRequestAdmin = false;
+        this.showEditAddress = false;
     }
 
     // wishList() {
@@ -188,14 +188,14 @@ export class UseraccountComponent implements OnInit {
         this.showDeliveryAddress = false;
         this.editUserProfile = false;
         this.showProfile = false;
-        this.showAccountDetails=false;
+        this.showAccountDetails = false;
         this.editAccount = false;
-        this.showAddProducts=false;
-        this.showAddProducts5=false;
+        this.showAddProducts = false;
+        this.showAddProducts5 = false;
         this.showOfferZone = false;
         this.showMyProducts = false;
-        this.showRequestAdmin =false;
-        this.showEditAddress=false;
+        this.showRequestAdmin = false;
+        this.showEditAddress = false;
     }
 
     myOrder() {
@@ -208,14 +208,14 @@ export class UseraccountComponent implements OnInit {
         this.showDeliveryAddress = false;
         this.editUserProfile = false;
         this.showProfile = false;
-        this.showAccountDetails=false;
+        this.showAccountDetails = false;
         this.editAccount = false;
-        this.showAddProducts=false;
-        this.showAddProducts5=false;
+        this.showAddProducts = false;
+        this.showAddProducts5 = false;
         this.showOfferZone = false;
         this.showMyProducts = false;
-        this.showRequestAdmin =false;
-        this.showEditAddress=false;
+        this.showRequestAdmin = false;
+        this.showEditAddress = false;
         this.getOrders();
     }
 
@@ -246,14 +246,14 @@ export class UseraccountComponent implements OnInit {
         this.showDeliveryAddress = false;
         this.editUserProfile = false;
         this.showProfile = false;
-        this.showAccountDetails=false;
+        this.showAccountDetails = false;
         this.editAccount = false;
-        this.showAddProducts=false;
-        this.showAddProducts5=false;
+        this.showAddProducts = false;
+        this.showAddProducts5 = false;
         this.showOfferZone = false;
         this.showMyProducts = false;
-        this.showRequestAdmin =false;
-        this.showEditAddress=false;
+        this.showRequestAdmin = false;
+        this.showEditAddress = false;
         this.ordDetails(ordId);
     }
     accountDetails() {
@@ -272,10 +272,10 @@ export class UseraccountComponent implements OnInit {
         // this.showManageUserOrders = false;
         this.showAccountDetails = true;
         this.editAccount = false;
-        this.showAddProducts=false;
+        this.showAddProducts = false;
         this.showOfferZone = false;
-        this.showRequestAdmin =false;
-        this.showEditAddress=false;
+        this.showRequestAdmin = false;
+        this.showEditAddress = false;
         this.getAccDet();
     }
     editAccountDetails() {
@@ -288,18 +288,18 @@ export class UseraccountComponent implements OnInit {
         this.showDeliveryAddress = false;
         this.editUserProfile = false;
         this.showProfile = false;
-        this.showAccountDetails=false;
+        this.showAccountDetails = false;
         this.editAccount = true;
-        this.showAddProducts=false;
-        this.showAddProducts5=false;
+        this.showAddProducts = false;
+        this.showAddProducts5 = false;
         this.showOfferZone = false;
-        this.showRequestAdmin =false;
-        this.showEditAddress=false;
+        this.showRequestAdmin = false;
+        this.showEditAddress = false;
     }
-    cancelAdd(){
-        this.showDeliveryAddress = true;   
-        this.showAddAddress=false;
-        this.showEditAddress=false;
+    cancelAdd() {
+        this.showDeliveryAddress = true;
+        this.showAddAddress = false;
+        this.showEditAddress = false;
     }
     addProducts() {
         this.showNotifications = false;
@@ -316,12 +316,12 @@ export class UseraccountComponent implements OnInit {
         // this.showAddProducts5 = false;
         this.showAccountDetails = false;
         this.editAccount = false;
-        this.showAddProducts=true;
-        this.showAddProducts5=false;
+        this.showAddProducts = true;
+        this.showAddProducts5 = false;
         this.showOfferZone = false;
         this.showMyProducts = false;
-        this.showRequestAdmin =false;
-        this.showEditAddress=false;
+        this.showRequestAdmin = false;
+        this.showEditAddress = false;
         this.getCategories();
     }
     showAddProducts2(Id) {
@@ -340,11 +340,11 @@ export class UseraccountComponent implements OnInit {
         // this.showManageUserOrders = false;
         this.showAccountDetails = false;
         this.editAccount = false;
-        this.showAddProducts5=true;
+        this.showAddProducts5 = true;
         this.showOfferZone = false;
         this.showMyProducts = false;
         this.showRequestAdmin = false;
-        this.showEditAddress=false;
+        this.showEditAddress = false;
         this.getProducts(Id);
     }
     offerZone() {
@@ -365,7 +365,7 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showRequestAdmin = false;
         this.showMyProducts = false;
-        this.showEditAddress=false;
+        this.showEditAddress = false;
     }
     myProducts() {
         this.showNotifications = false;
@@ -384,7 +384,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails = false;
         this.editAccount = false;
         this.showRequestAdmin = false;
-        this.showEditAddress=false;
+        this.showEditAddress = false;
     }
     requestAdmin() {
         this.showNotifications = false;
@@ -403,10 +403,10 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails = false;
         this.editAccount = false;
         this.showRequestAdmin = true;
-        this.showEditAddress=false;
+        this.showEditAddress = false;
     }
-    showEditAdd(addId){
-      this.showNotifications = false;
+    showEditAdd(addId) {
+        this.showNotifications = false;
         this.showOrderDetails = false;
         this.showMyOrders = false;
         this.showMyProducts = false;
@@ -422,7 +422,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails = false;
         this.editAccount = false;
         this.showRequestAdmin = false;
-        this.showEditAddress=true;  
+        this.showEditAddress = true;
         this.editAdd(addId);
     }
     email;
@@ -457,8 +457,8 @@ export class UseraccountComponent implements OnInit {
             first_name: this.profileData.first_name,
             email: this.profileData.email,
             mobile_number: this.profileData.mobile_number,
-            bussiness_area:this.profileData.bussiness_area,
-            bussiness_city:this.profileData.bussiness_city
+            bussiness_area: this.profileData.bussiness_area,
+            bussiness_city: this.profileData.bussiness_city
 
         }
         this.appService.updateProfile(inDate).subscribe(response => {
@@ -491,7 +491,7 @@ export class UseraccountComponent implements OnInit {
 
         })
     }
-    getAddData =[];
+    getAddData = [];
     getAdd() {
         this.appService.getAddress().subscribe(res => {
             this.getAddData = res.json().delivery_address;
@@ -511,19 +511,19 @@ export class UseraccountComponent implements OnInit {
         // stop here if form is invalid
         if (this.resetForm.invalid) {
             return;
-        }else if(this.resetForm.value.password!=this.resetForm.value.new_password){
-            swal("Passwords doesn't matched","","warning");
+        } else if (this.resetForm.value.password != this.resetForm.value.new_password) {
+            swal("Passwords doesn't matched", "", "warning");
             return;
-           }
+        }
         this.appService.changePwd(this.resetForm.value).subscribe(resp => {
-            if(resp.json().status===200){
+            if (resp.json().status === 200) {
                 swal(resp.json().message, "", "success");
                 this.router.navigate(['/'])
-            }else{
+            } else {
                 swal(resp.json().message, "", "error");
             }
 
-        },err=> {
+        }, err => {
             swal(err.json().message, "", "error");
         })
 
@@ -565,7 +565,7 @@ export class UseraccountComponent implements OnInit {
         this.showAccountDetails = true;
         this.editAccount = false;
     }
-    category=[];
+    category = [];
     getCategories() {
         this.appService.getCategories().subscribe(resp => {
             this.category = resp.json().categories;
@@ -573,7 +573,7 @@ export class UseraccountComponent implements OnInit {
     }
     prodId;
     reqProds = [];
-    orders=[];
+    orders = [];
     getOrders() {
         this.appService.getPlaceOrder().subscribe(res => {
             this.orders = res.json().Orders;
@@ -605,37 +605,37 @@ export class UseraccountComponent implements OnInit {
         })
 
     }
-    editAddData=[];
+    editAddData = [];
     // get f3() { return this.editAddForm.controls; }
-    editAdd(addId){
-        this.appService.updateAdd(addId).subscribe(resp=> {
-            this.editAddData  = resp.json().delivery_address[0];
-        },err=>{
+    editAdd(addId) {
+        this.appService.updateAdd(addId).subscribe(resp => {
+            this.editAddData = resp.json().delivery_address[0];
+        }, err => {
 
         })
     }
-    UpdateAdd(addId){
-        this.appService.updateAdd(addId).subscribe(resp=> {
-           console.log(resp.json());
-           debugger;
-           
-        },err=>{
+    UpdateAdd(addId) {
+        this.appService.updateAdd(addId).subscribe(resp => {
+            console.log(resp.json());
+            debugger;
 
-        })  
+        }, err => {
+
+        })
     }
     fromDt;
     toDt;
-    filterVendor(){
-        var inData ={
-            "from_date":this.fromDt,
-	         "to_date":this.toDt
+    filterVendor() {
+        var inData = {
+            "from_date": this.fromDt,
+            "to_date": this.toDt
         }
-        this.appService.filterVendor(inData).subscribe(resp=> {
-            this.orders =  resp.json().products;
-            
-         },err=>{
- 
-         })     
+        this.appService.filterVendor(inData).subscribe(resp => {
+            this.orders = resp.json().products;
+
+        }, err => {
+
+        })
     }
 
 
