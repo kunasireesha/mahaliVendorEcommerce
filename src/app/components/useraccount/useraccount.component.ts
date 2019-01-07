@@ -623,6 +623,8 @@ export class UseraccountComponent implements OnInit {
 
         })  
     }
+    fromDt;
+    toDt;
     filterVendor(){
         var inData ={
             "from_date":this.fromDt,
