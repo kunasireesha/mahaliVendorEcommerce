@@ -81,6 +81,7 @@ export class UseraccountComponent implements OnInit {
     showMyProducts = false;
     showRequestAdmin = false;
     showEditAddress = false;
+    showManageUserOrders=false;
     profile() {
         this.showNotifications = false;
         this.showOrderDetails = false;
@@ -99,6 +100,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
+        this.showManageUserOrders=false;
         this.getProfile();
     }
 
@@ -120,6 +122,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
+        this.showManageUserOrders=false;
     }
 
     deliveryAddress() {
@@ -140,6 +143,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
+        this.showManageUserOrders=false;
         this.getAdd();
     }
     addAddress() {
@@ -160,6 +164,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
+        this.showManageUserOrders=false;
     }
 
     // wishList() {
@@ -196,6 +201,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
+        this.showManageUserOrders=false;
     }
 
     myOrder() {
@@ -216,6 +222,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
+        this.showManageUserOrders=false;
         this.getOrders();
     }
 
@@ -254,6 +261,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
+        this.showManageUserOrders=false;
         this.ordDetails(ordId);
     }
     accountDetails() {
@@ -269,7 +277,7 @@ export class UseraccountComponent implements OnInit {
         // this.showOfferZone = false;
         // this.showAddProducts = false;
         // this.showAddProducts5 = false;
-        // this.showManageUserOrders = false;
+        this.showManageUserOrders = false;
         this.showAccountDetails = true;
         this.editAccount = false;
         this.showAddProducts = false;
@@ -295,6 +303,7 @@ export class UseraccountComponent implements OnInit {
         this.showOfferZone = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
+        this.showManageUserOrders=false;
     }
     cancelAdd() {
         this.showDeliveryAddress = true;
@@ -322,6 +331,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
+        this.showManageUserOrders=false;
         this.getCategories();
     }
     showAddProducts2(Id) {
@@ -345,6 +355,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
+        this.showManageUserOrders=false;
         this.getProducts(Id);
     }
     offerZone() {
@@ -366,6 +377,7 @@ export class UseraccountComponent implements OnInit {
         this.showRequestAdmin = false;
         this.showMyProducts = false;
         this.showEditAddress = false;
+        this.showManageUserOrders=false;
     }
     myProducts() {
         this.showNotifications = false;
@@ -385,6 +397,7 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
+        this.showManageUserOrders=false;
     }
     requestAdmin() {
         this.showNotifications = false;
@@ -404,6 +417,7 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showRequestAdmin = true;
         this.showEditAddress = false;
+        this.showManageUserOrders=false;
     }
     showEditAdd(addId) {
         this.showNotifications = false;
@@ -418,12 +432,31 @@ export class UseraccountComponent implements OnInit {
         this.showOfferZone = false;
         this.showAddProducts = false;
         this.showAddProducts5 = false;
-        // this.showManageUserOrders = false;
+        this.showManageUserOrders = false;
         this.showAccountDetails = false;
         this.editAccount = false;
         this.showRequestAdmin = false;
         this.showEditAddress = true;
         this.editAdd(addId);
+    }
+    showVendorOrderDetails(){
+        this.showNotifications = false;
+        this.showOrderDetails = false;
+        this.showMyOrders = false;
+        this.showMyProducts = false;
+        this.showWishlist = false;
+        this.showAddAddress = false;
+        this.showDeliveryAddress = false;
+        this.editUserProfile = false;
+        this.showProfile = false;
+        this.showOfferZone = false;
+        this.showAddProducts = false;
+        this.showAddProducts5 = false;
+        this.showManageUserOrders = true;
+        this.showAccountDetails = false;
+        this.editAccount = false;
+        this.showRequestAdmin = false;
+        this.showEditAddress = false;
     }
     email;
     profileData;
@@ -599,7 +632,6 @@ export class UseraccountComponent implements OnInit {
         }
         this.appService.update(this.productForm.value).subscribe(resp => {
             swal("Your order under process for Approvel", "", "success");
-            debugger;
 
         })
 
@@ -635,7 +667,6 @@ export class UseraccountComponent implements OnInit {
         }
         this.appService.updateAddData(indata,addId).subscribe(resp => {
             console.log(resp.json());
-            debugger;
         }, err => {
 
         })
