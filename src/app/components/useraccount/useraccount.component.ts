@@ -312,6 +312,7 @@ export class UseraccountComponent implements OnInit {
         this.showDeliveryAddress = true;
         this.showAddAddress = false;
         this.showEditAddress = false;
+        this.getAdd();
     }
     addProducts() {
         this.showNotifications = false;
@@ -494,7 +495,8 @@ export class UseraccountComponent implements OnInit {
             email: this.profileData.email,
             mobile_number: this.profileData.mobile_number,
             bussiness_area: this.profileData.bussiness_area,
-            bussiness_city: this.profileData.bussiness_city
+            bussiness_city: this.profileData.bussiness_city,
+            bussiness_name:this.profileData.bussiness_name
 
         }
         this.appService.updateProfile(inDate).subscribe(response => {
@@ -502,11 +504,13 @@ export class UseraccountComponent implements OnInit {
             swal(response.json().message, "", "success");
             this.ngOnInit();
             this.getProfile();
+            this.cancel();
         })
     }
     cancel() {
         this.showProfile = true;
         this.editUserProfile = false;
+        this.getProfile();
 
     }
     get f1() { return this.addressForm.controls; }
@@ -521,6 +525,7 @@ export class UseraccountComponent implements OnInit {
             this.addressForm.reset();
             swal(res.json().message, "", "success");
             this.getAdd();
+            this.cancelAdd();
             //   this.addressForm.reset();
             // this.showAddresses = true;
             //     this.addresses = false;
@@ -593,6 +598,7 @@ export class UseraccountComponent implements OnInit {
         this.appService.updateAcc(inData).subscribe(res => {
             swal(res.json().message, "", "success");
             this.getAccDet();
+            this.cancelDetails();
         }, err => {
 
         })
@@ -670,7 +676,8 @@ export class UseraccountComponent implements OnInit {
         }
         this.appService.updateAddData(indata,addId).subscribe(resp => {
             swal(resp.json().message,"","success");
-            this.getAccDet();
+            this.getAdd();
+            this.cancelAdd();
         }, err => {
 
         })
@@ -693,6 +700,27 @@ export class UseraccountComponent implements OnInit {
 
         })
     }
+    cartData=[];
+    cartCount;
+    billing;
+    getCart() {
+        var inData = localStorage.getItem('userId');
+        this.appService.getCart(inData).subscribe(res => {
+          this.cartData = res.json().cart_details;
+          for (var i = 0; i < this.cartData.length; i++) {
+            this.cartData[i].products.skuValue = this.cartData[i].products.sku_details[0].size;
+            this.cartData[i].products.skid = this.cartData[i].products.sku_details[0].skid;
+            this.cartData[i].products.selling_price = this.cartData[i].products.sku_details[0].selling_price;
+            this.cartData[i].prodName = this.cartData[i].products.product_name;
+            this.cartData[i].products.img = this.cartData[i].products.sku_details[0].image;
+          }
+          this.cartCount = res.json().count;
+          this.billing = res.json().selling_Price_bill;
+    
+        }, err => {
+    
+        })
+      }
 
 
 }

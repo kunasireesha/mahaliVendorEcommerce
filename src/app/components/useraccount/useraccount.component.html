@@ -8,8 +8,8 @@
                 <h6 class="account-header">MY ACCOUNT</h6>
                 <div class="li-data">
                     <li [ngClass]="{'active':showProfile || editUserProfile}" (click)="profile()">My Profile</li>
-                    <li [ngClass]="{'active': showAccountDetails}" (click)="accountDetails()">Account Detials</li>
-                    <li [ngClass]="{'active':showDeliveryAddress || showAddAddress}" (click)="deliveryAddress()">Delivery
+                    <li [ngClass]="{'active': showAccountDetails|| editAccount}" (click)="accountDetails()">Account Detials</li>
+                    <li [ngClass]="{'active':showDeliveryAddress || showAddAddress|| showEditAddress}" (click)="deliveryAddress()">Delivery
                         Address</li>
                 </div>
                 <h6 class="account-header">MANAGE PRODUCTS</h6>
