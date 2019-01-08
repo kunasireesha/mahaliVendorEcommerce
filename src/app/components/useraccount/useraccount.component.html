@@ -41,9 +41,9 @@
                     <span>
                         {{profileData?.email}}</span>
                 </p>
-                <p>
-                    <i class="fa fa-phone" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;
-                    <span>{{profileData?.mobile_number}}</span>
+                <p class="store-img">
+                    <img src="assets/images/store.png" aria-hidden="true" style="color:#801424; font-size: 20px;">&nbsp;&nbsp;&nbsp;
+                    <span>{{profileData?.bussiness_name}}</span>
                 </p>
                 <p>
                     <i class="fa fa-map-marker" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;Unispace
@@ -98,7 +98,7 @@
                         <span class="float-right">:</span>
                     </label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control input-feild" id="inputphoneno" placeholder="my busineess">
+                        <input type="text" class="form-control input-feild" id="inputphoneno" placeholder="my busineess" [(ngModel)]="profileData.bussiness_name" name="bussiness_name">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -404,7 +404,7 @@
                 <div class="col-lg-2 form-check">
                     <div *ngIf="seleOpt==i">
                         <button class="icon-btn">
-                            <i class="fa fa-pencil" aria-hidden="true" (click)="editAdd(add.address_id)"></i>
+                            <i class="fa fa-pencil" aria-hidden="true" (click)="showEditAdd(add.address_id)"></i>
                         </button>
                         <button class="icon-btn1">
                             <i class="fa fa-trash" aria-hidden="true" (click)="delAdd(add.address_id)"></i>
@@ -520,9 +520,9 @@
                     <div class="addType">
                         <p>Choose nick name for this address</p>
                         <p class="addresses ">
-                            <a (click)="Type('Home')">Home</a>
-                            <a (click)="Type('Office')">Office</a>
-                            <a (click)="Type('Other')">Other</a>
+                            <a (click)="Type('Home')" [ngClass]="{'activeAdd':type=='Home'}">Home</a>
+                            <a (click)="Type('Office')" [ngClass]="{'activeAdd':type=='Office'}">Office</a>
+                            <a (click)="Type('Other')" [ngClass]="{'activeAdd':type=='Other'}">Other</a>
                         </p>
                     </div>
                 </div>
@@ -2149,7 +2149,7 @@
     <div class="customer-detls">
       <p>Customer Details</p>
     </div>
-    <ul class="cust-dets">
+    <ul class=" ">
       <li>
         <i class="fa fa-user" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Peter Mark</li>
       <li>

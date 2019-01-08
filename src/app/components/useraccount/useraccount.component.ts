@@ -28,6 +28,9 @@ export class UseraccountComponent implements OnInit {
             this.getOrders();
         } else if (this.page === 'changePw') {
             this.showChangePassword = true;
+        }else if (this.page === 'accountData') {
+            this.showAccountDetails = true;
+            this.accountDetails();
         }
 
     }
@@ -648,7 +651,7 @@ export class UseraccountComponent implements OnInit {
     };
     // get f3() { return this.editAddForm.controls; }
     editAdd(addId) {
-        this.appService.update(addId).subscribe(resp => {
+        this.appService.getAdd(addId).subscribe(resp => {
             this.editAddData = resp.json().delivery_address[0];
         }, err => {
 
@@ -666,7 +669,8 @@ export class UseraccountComponent implements OnInit {
             "address_type": this.type
         }
         this.appService.updateAddData(indata,addId).subscribe(resp => {
-            console.log(resp.json());
+            swal(resp.json().message,"","success");
+            this.getAccDet();
         }, err => {
 
         })

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { RegistrationComponent } from '../../components/registration/registration.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var jQuery: any;
+declare var $: any;
 // import { } from 'googlemaps';
 declare var google: any;
 @Component({
@@ -273,10 +274,12 @@ export class HeaderComponent implements OnInit {
     showProbyCat(catId, action, catName) {
         this.showSubCats = false;
         this.router.navigate(['/products'], { queryParams: { catId: catId, action: action, catName: catName } });
+        $("#itemdesc").modal("hide");
     }
     showProbySubCat(SubCatId, action, catName, subCat) {
         this.showSubCats = false;
         this.router.navigate(['/products'], { queryParams: { subId: SubCatId, action: action, catName: catName, subCat: subCat } });
+        $("#itemdesc").modal("hide");
     }
     cartDetails = [];
     cartData = [];
