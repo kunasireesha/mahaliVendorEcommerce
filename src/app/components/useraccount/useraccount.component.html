@@ -7,10 +7,10 @@
             <ul class="list-details">
                 <h6 class="account-header">MY ACCOUNT</h6>
                 <div class="li-data">
-                <li [ngClass]="{'active':showProfile || editUserProfile}" (click)="profile()">My Profile</li>
-                <li [ngClass]="{'active': showAccountDetails}" (click)="accountDetails()">Account Detials</li>
-                <li [ngClass]="{'active':showDeliveryAddress || showAddAddress}" (click)="deliveryAddress()">Delivery
-                    Address</li>
+                    <li [ngClass]="{'active':showProfile || editUserProfile}" (click)="profile()">My Profile</li>
+                    <li [ngClass]="{'active': showAccountDetails}" (click)="accountDetails()">Account Detials</li>
+                    <li [ngClass]="{'active':showDeliveryAddress || showAddAddress}" (click)="deliveryAddress()">Delivery
+                        Address</li>
                 </div>
                 <h6 class="account-header">MANAGE PRODUCTS</h6>
                 <div class="li-data">
@@ -106,7 +106,8 @@
                         <span class="float-right">:</span>
                     </label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control input-feild" id="inputhouseno" placeholder="Unispace Bussiness Center #143" [(ngModel)]="profileData.bussiness_area" name="bussiness_area">
+                        <input type="text" class="form-control input-feild" id="inputhouseno" placeholder="Unispace Bussiness Center #143"
+                            [(ngModel)]="profileData.bussiness_area" name="bussiness_area">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -120,7 +121,8 @@
                         <span class="float-right">:</span>
                     </label>
                     <div class="col-sm-3 pad-lt">
-                        <input type="text" class="form-control input-feild" id="inputcity" placeholder="Bangalore" [(ngModel)]="profileData.bussiness_city" name="bussiness_city">
+                        <input type="text" class="form-control input-feild" id="inputcity" placeholder="Bangalore"
+                            [(ngModel)]="profileData.bussiness_city" name="bussiness_city">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -145,196 +147,196 @@
             </form>
         </div>
 
-  <!-- Account Details -->
-  <div class="col-lg-9 col-md-9 col-sm-12 col-12" *ngIf="showAccountDetails">
-    <h3 class="profile-header">Account Details</h3>
-    <br />
-    <div class="row">
-        <div class="col-md-3 col-sm-6 col-6">
-            <p class="text-left">
-                <strong>Account Name</strong>
-                <span class="float-right"> : </span>
-            </p>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet?.account_holder_name}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3 col-sm-6 col-6">
-            <p class="text-left">
-                <strong>Account Number</strong>
-                <span class="float-right"> : </span>
-            </p>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet?.account_number}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3 col-sm-6 col-6">
-            <p class="text-left">
-                <strong>Bank Name</strong>
-                <span class="float-right"> : </span>
-            </p>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet?.bank_name}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3 col-sm-6 col-6">
-            <p class="text-left">
-                <strong>IFSC code</strong>
-                <span class="float-right"> : </span>
-            </p>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet?.ifsc_code}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3 col-sm-6 col-6">
-            <p class="text-left">
-                <strong>Area</strong>
-                <span class="float-right"> : </span>
-            </p>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet?.bank_area}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3 col-sm-6 col-6">
-            <p class="text-left">
-                <strong>City</strong>
-                <span class="float-right"> : </span>
-            </p>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet?.bank_city}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3 col-sm-6 col-6">
-            <p class="text-left">
-                <strong>Branch</strong>
-                <span class="float-right"> : </span>
-            </p>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <p>{{accDet?.bank_branch}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-sm-6 col-lg-6">
-            <div class="col align-self-center">
-                <button type="button" class="btn edit-btn editbtn2" (click)="editAccountDetails()">Edit Details</button>
+        <!-- Account Details -->
+        <div class="col-lg-9 col-md-9 col-sm-12 col-12" *ngIf="showAccountDetails">
+            <h3 class="profile-header">Account Details</h3>
+            <br />
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-6">
+                    <p class="text-left">
+                        <strong>Account Name</strong>
+                        <span class="float-right"> : </span>
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-6">
+                    <p>{{accDet?.account_holder_name}}</p>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
-<!-- ./Account Details -->
-<!-- Edit Account Details -->
-<div class="col-lg-7 col-md-9 col-sm-12 col-12" *ngIf="editAccount">
-    <h3 class="profile-header">Edit Account Details</h3>
-    <form class="form-details">
-        <div class="form-group row">
-            <label for="inputname1" class="col-sm-4 col-md-4 col-form-label">
-                <strong>Account Name</strong>
-                <span class="float-right">:</span>
-            </label>
-            <div class="col-sm-8 col-md-8">
-                <input type="text" class="form-control input-feild" id="inputname1" [(ngModel)]="accDet.account_holder_name"
-                    name="account_holder_name" placeholder="Vijay Kumar">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-6">
+                    <p class="text-left">
+                        <strong>Account Number</strong>
+                        <span class="float-right"> : </span>
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-6">
+                    <p>{{accDet?.account_number}}</p>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-4 col-md-4 col-form-label">
-                <strong>Account No</strong>
-                <span class="float-right">:</span>
-            </label>
-            <div class="col-sm-8 col-md-8">
-                <input type="email" class="form-control input-feild" id="inputEmail3" [(ngModel)]="accDet.account_number"
-                    name="account_number" placeholder="09876547995432">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-6">
+                    <p class="text-left">
+                        <strong>Bank Name</strong>
+                        <span class="float-right"> : </span>
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-6">
+                    <p>{{accDet?.bank_name}}</p>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputphoneno" class="col-sm-4 col-md-4 col-form-label">
-                <strong>Bank Name</strong>
-                <span class="float-right">:</span>
-            </label>
-            <div class="col-sm-8 col-md-8">
-                <input type="text" class="form-control input-feild" id="inputphoneno" [(ngModel)]="accDet.bank_name"
-                    name="bank_name" placeholder="Lorem Bank">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-6">
+                    <p class="text-left">
+                        <strong>IFSC code</strong>
+                        <span class="float-right"> : </span>
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-6">
+                    <p>{{accDet?.ifsc_code}}</p>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputhouseno" class="col-sm-4 col-md-4 col-form-label">
-                <strong>IFSC Code</strong>
-                <span class="float-right">:</span>
-            </label>
-            <div class="col-sm-8 col-md-8">
-                <input type="text" class="form-control input-feild" id="inputhouseno" [(ngModel)]="accDet.ifsc_code"
-                    name="ifsc_code" placeholder="54500">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-6">
+                    <p class="text-left">
+                        <strong>Area</strong>
+                        <span class="float-right"> : </span>
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-6">
+                    <p>{{accDet?.bank_area}}</p>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputstate" class="col-sm-4 col-md-4 col-form-label">
-                <strong>Area</strong>
-                <span class="float-right">:</span>
-            </label>
-            <div class="col-sm-4 col-md-4">
-                <input type="text" class="form-control input-feild" id="inputstate" [(ngModel)]="accDet.bank_area"
-                    name="bank_area" placeholder="Lorem">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-6">
+                    <p class="text-left">
+                        <strong>City</strong>
+                        <span class="float-right"> : </span>
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-6">
+                    <p>{{accDet?.bank_city}}</p>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputcity" class="col-sm-4 col-md-4 col-form-label">
-                <strong>City</strong>
-                <span class="float-right">:</span>
-            </label>
-            <div class="col-sm-4 col-md-4">
-                <input type="text" class="form-control input-feild" id="inputcity" [(ngModel)]="accDet.bank_city"
-                    name="bank_city" placeholder="Lorem">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-6">
+                    <p class="text-left">
+                        <strong>Branch</strong>
+                        <span class="float-right"> : </span>
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-6">
+                    <p>{{accDet?.bank_branch}}</p>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputpincode" class="col-sm-4 col-md-4 col-form-label">
-                <strong>Branch</strong>
-                <span class="float-right">:</span>
-            </label>
-            <div class="col-sm-8 col-md-8">
-                <input type="text" class="form-control input-feild" id="inputpincode" [(ngModel)]="accDet.bank_branch"
-                    name="bank_branch" placeholder="Lorem">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <button type="button" class="btn save-btn" (click)="saveDetails()">Save</button>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <button type="button" class="btn save-btn" (click)="cancelDetails()">Cancel</button>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6">
+                    <div class="col align-self-center">
+                        <button type="button" class="btn edit-btn editbtn2" (click)="editAccountDetails()">Edit Details</button>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- ./Account Details -->
+        <!-- Edit Account Details -->
+        <div class="col-lg-7 col-md-9 col-sm-12 col-12" *ngIf="editAccount">
+            <h3 class="profile-header">Edit Account Details</h3>
+            <form class="form-details">
+                <div class="form-group row">
+                    <label for="inputname1" class="col-sm-4 col-md-4 col-form-label">
+                        <strong>Account Name</strong>
+                        <span class="float-right">:</span>
+                    </label>
+                    <div class="col-sm-8 col-md-8">
+                        <input type="text" class="form-control input-feild" id="inputname1" [(ngModel)]="accDet.account_holder_name"
+                            name="account_holder_name" placeholder="Vijay Kumar">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-md-4 col-form-label">
+                        <strong>Account No</strong>
+                        <span class="float-right">:</span>
+                    </label>
+                    <div class="col-sm-8 col-md-8">
+                        <input type="email" class="form-control input-feild" id="inputEmail3" [(ngModel)]="accDet.account_number"
+                            name="account_number" placeholder="09876547995432">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputphoneno" class="col-sm-4 col-md-4 col-form-label">
+                        <strong>Bank Name</strong>
+                        <span class="float-right">:</span>
+                    </label>
+                    <div class="col-sm-8 col-md-8">
+                        <input type="text" class="form-control input-feild" id="inputphoneno" [(ngModel)]="accDet.bank_name"
+                            name="bank_name" placeholder="Lorem Bank">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputhouseno" class="col-sm-4 col-md-4 col-form-label">
+                        <strong>IFSC Code</strong>
+                        <span class="float-right">:</span>
+                    </label>
+                    <div class="col-sm-8 col-md-8">
+                        <input type="text" class="form-control input-feild" id="inputhouseno" [(ngModel)]="accDet.ifsc_code"
+                            name="ifsc_code" placeholder="54500">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputstate" class="col-sm-4 col-md-4 col-form-label">
+                        <strong>Area</strong>
+                        <span class="float-right">:</span>
+                    </label>
+                    <div class="col-sm-4 col-md-4">
+                        <input type="text" class="form-control input-feild" id="inputstate" [(ngModel)]="accDet.bank_area"
+                            name="bank_area" placeholder="Lorem">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputcity" class="col-sm-4 col-md-4 col-form-label">
+                        <strong>City</strong>
+                        <span class="float-right">:</span>
+                    </label>
+                    <div class="col-sm-4 col-md-4">
+                        <input type="text" class="form-control input-feild" id="inputcity" [(ngModel)]="accDet.bank_city"
+                            name="bank_city" placeholder="Lorem">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputpincode" class="col-sm-4 col-md-4 col-form-label">
+                        <strong>Branch</strong>
+                        <span class="float-right">:</span>
+                    </label>
+                    <div class="col-sm-8 col-md-8">
+                        <input type="text" class="form-control input-feild" id="inputpincode" [(ngModel)]="accDet.bank_branch"
+                            name="bank_branch" placeholder="Lorem">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <button type="button" class="btn save-btn" (click)="saveDetails()">Save</button>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <button type="button" class="btn save-btn" (click)="cancelDetails()">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-    </form>
-</div>
-<!-- ./Edit Account Details -->
-  <!-- Add Procusts -->
-  <div class="col-lg-9" *ngIf="showAddProducts">
-    <h3 class="profile-header">Add Products</h3>
-    <p>
-        <span class="cust-category">Category</span>
-    </p>
-    <div class="row">
-        <div class="col-sm-6">
-            <ul class="fruits-list" *ngFor="let item of category">
-                <li (click)="showAddProducts2(item.id)">
-                    <strong>{{item.category_name}} ></strong>
-                </li>
-                <!-- <li>Foodgrains, Oil & Masala</li>
+            </form>
+        </div>
+        <!-- ./Edit Account Details -->
+        <!-- Add Procusts -->
+        <div class="col-lg-9" *ngIf="showAddProducts">
+            <h3 class="profile-header">Add Products</h3>
+            <p>
+                <span class="cust-category">Category</span>
+            </p>
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul class="fruits-list" *ngFor="let item of category">
+                        <li (click)="showAddProducts2(item.id)">
+                            <strong>{{item.category_name}} ></strong>
+                        </li>
+                        <!-- <li>Foodgrains, Oil & Masala</li>
                 <li>Bakery cakes & Dairy</li>
                 <li>Bevarages</li>
                 <li>Buety & Hygeine</li>
@@ -342,14 +344,14 @@
                 <li>Kitchen, Garden & pets</li>
                 <li>Egg, Meat & fish</li>
                 <li>Baby Care</li> -->
-            </ul>
-        </div>
-        <div class="col-sm-6">
-            <ul class="fruits-list">
-                <li (click)="showAddProducts2()">
-                    <strong>Electronics ></strong>
-                </li>
-                <!-- <li>Foodgrains, Oil & Masala</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="fruits-list">
+                        <li (click)="showAddProducts2()">
+                            <strong>Electronics ></strong>
+                        </li>
+                        <!-- <li>Foodgrains, Oil & Masala</li>
                 <li>Bakery cakes & Dairy</li>
                 <li>Bevarages</li>
                 <li>Buety & Hygeine</li>
@@ -357,9 +359,9 @@
                 <li>Kitchen, Garden & pets</li>
                 <li>Egg, Meat & fish</li>
                 <li>Baby Care</li> -->
-            </ul>
-        </div>
-        <!-- <div class="col-sm-4">
+                    </ul>
+                </div>
+                <!-- <div class="col-sm-4">
             <ul class="fruits-list">
                 <li>Foodgrains, Oil & Masala</li>
                 <li>Bakery cakes & Dairy</li>
@@ -371,9 +373,9 @@
                 <li>Baby Care</li>
             </ul>
         </div> -->
-    </div>
-</div>
-<!-- Add Procusts -->
+            </div>
+        </div>
+        <!-- Add Procusts -->
 
         <!-- delivery address -->
 
@@ -392,10 +394,10 @@
                 <div class="col-lg-10 ">
                     <h3>{{add.address_type}}</h3>
                     <P>
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
-                            {{add.landmark}},{{add.house_no}}
-                            <br /> {{add.city}} ,{{add.pin_code}}
-                            <br />
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                        {{add.landmark}},{{add.house_no}}
+                        <br /> {{add.city}} ,{{add.pin_code}}
+                        <br />
                     </P>
                     <p>
                         <i class="fa fa-phone" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>{{add.mobile_number}}
@@ -431,52 +433,52 @@
                     <label for="inputname1" class="col-sm-2 col-form-label">Full Name
                     </label>
                     <div class="col-sm-10">
-                        
-                            <input type="text" class="form-control input-feild" id="inputname1" formControlName="full_name"
-                                [ngClass]="{ 'is-invalid': submitted && f1.full_name.errors }">
-                            <div *ngIf="submitted && f1.full_name.errors" class="invalid-feedback">
-                                <div *ngIf="f1.full_name.errors.required">Full Name is required</div>
-                            </div>
-                          
+
+                        <input type="text" class="form-control input-feild" id="inputname1" formControlName="full_name"
+                            [ngClass]="{ 'is-invalid': submitted && f1.full_name.errors }">
+                        <div *ngIf="submitted && f1.full_name.errors" class="invalid-feedback">
+                            <div *ngIf="f1.full_name.errors.required">Full Name is required</div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputMblnbr" class="col-sm-2 col-form-label">Mobile Number
                     </label>
                     <div class="col-sm-10">
-                       
-                            <input type="text" class="form-control input-feild" id="inputNumber" formControlName="mobile_number"
-                                [ngClass]="{ 'is-invalid': submitted && f1.mobile_number.errors }">
-                            <div *ngIf="submitted && f1.mobile_number.errors" class="invalid-feedback">
-                                <div *ngIf="f1.mobile_number.errors.required">Mobile Number is required</div>
-                            </div>
-                           
+
+                        <input type="text" class="form-control input-feild" id="inputNumber" formControlName="mobile_number"
+                            [ngClass]="{ 'is-invalid': submitted && f1.mobile_number.errors }">
+                        <div *ngIf="submitted && f1.mobile_number.errors" class="invalid-feedback">
+                            <div *ngIf="f1.mobile_number.errors.required">Mobile Number is required</div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputhouseno" class="col-sm-2 col-form-label">House: No
                     </label>
                     <div class="col-sm-10">
-                     
-                            <input type="text" class="form-control input-feild" id="inputhouseno" formControlName="house_no"
-                                [ngClass]="{ 'is-invalid': submitted && f1.house_no.errors }">
-                            <div *ngIf="submitted && f1.house_no.errors" class="invalid-feedback">
-                                <div *ngIf="f1.house_no.errors.required">House Number is required</div>
-                            </div>
-                           
+
+                        <input type="text" class="form-control input-feild" id="inputhouseno" formControlName="house_no"
+                            [ngClass]="{ 'is-invalid': submitted && f1.house_no.errors }">
+                        <div *ngIf="submitted && f1.house_no.errors" class="invalid-feedback">
+                            <div *ngIf="f1.house_no.errors.required">House Number is required</div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputstate" class="col-sm-2 col-form-label">Landmark
                     </label>
                     <div class="col-sm-4">
-                      
-                            <input type="text" class="form-control input-feild" id="inputLand" formControlName="landmark"
-                                [ngClass]="{ 'is-invalid': submitted && f1.landmark.errors }">
-                            <div *ngIf="submitted && f1.landmark.errors" class="invalid-feedback">
-                                <div *ngIf="f1.landmark.errors.required">Landmark is required</div>
-                            </div>
-                           
+
+                        <input type="text" class="form-control input-feild" id="inputLand" formControlName="landmark"
+                            [ngClass]="{ 'is-invalid': submitted && f1.landmark.errors }">
+                        <div *ngIf="submitted && f1.landmark.errors" class="invalid-feedback">
+                            <div *ngIf="f1.landmark.errors.required">Landmark is required</div>
+                        </div>
+
                     </div>
                     <label for="inputcity" class="col-sm-2 col-form-label">City
                     </label>
@@ -509,13 +511,121 @@
                     <label for="inputcity" class="col-sm-2 col-form-label">Pin-code
                     </label>
                     <div class="col-sm-4">
-                       
-                            <input type="text" class="form-control input-feild" id="inputpincode2" formControlName="pin_code"
-                                [ngClass]="{ 'is-invalid': submitted && f1.pin_code.errors }">
-                            <div *ngIf="submitted && f1.pin_code.errors" class="invalid-feedback">
-                                <div *ngIf="f1.pin_code.errors.required">Pin-Code is required</div>
-                            </div>
-                            
+
+                        <input type="text" class="form-control input-feild" id="inputpincode2" formControlName="pin_code"
+                            [ngClass]="{ 'is-invalid': submitted && f1.pin_code.errors }">
+                        <div *ngIf="submitted && f1.pin_code.errors" class="invalid-feedback">
+                            <div *ngIf="f1.pin_code.errors.required">Pin-Code is required</div>
+                        </div>
+
+                    </div>
+                    <div class="addType">
+                        <p>Choose nick name for this address</p>
+                        <p class="addresses ">
+                            <a (click)="Type('Home')" [ngClass]="[bntStyle]">Home</a>
+                            <a (click)="Type('Office')" [ngClass]="[bntStyle]">Office</a>
+                            <a (click)="Type('Other')" [ngClass]="[bntStyle]">Other</a>
+                        </p>
+                    </div>
+                </div>
+            </form>
+
+            <button type="button" class="btn address-btn" (click)="saveAddress(newItem)">SUBMIT</button>
+            <button type="button" class="btn address-btn" (click)="cancelAdd()">CANCEL</button>
+
+        </div>
+
+        <!-- edit address -->
+        <div class="col-lg-7 address " *ngIf="showEditAddress">
+            <h3 class="profile-header">Edit Delivery Address</h3>
+            <p>
+                <strong>Edit Adrress</strong>
+            </p>
+            <form class="form-details">
+                <div class="form-group row">
+                    <label for="inputname1" class="col-sm-2 col-form-label">Full Name
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control input-feild" id="full_name" name="full_name" [(ngModel)]="editAddData.full_name">
+                        <!-- <div *ngIf="submitted && f1.full_name.errors" class="invalid-feedback">
+                        <div *ngIf="f1.full_name.errors.required">Full Name is required</div>
+                    </div> -->
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputMblnbr" class="col-sm-2 col-form-label">Mobile Number
+                    </label>
+                    <div class="col-sm-10">
+
+                        <input type="text" class="form-control input-feild" id="inputNumber" name="mobile_number"
+                            [(ngModel)]="editAddData.mobile_number">
+                        <!-- <div *ngIf="submitted && f1.mobile_number.errors" class="invalid-feedback">
+                        <div *ngIf="f1.mobile_number.errors.required">Mobile Number is required</div>
+                    </div> -->
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputhouseno" class="col-sm-2 col-form-label">House: No
+                    </label>
+                    <div class="col-sm-10">
+
+                        <input type="text" class="form-control input-feild" id="inputhouseno" name="house_no"
+                            [(ngModel)]="editAddData.house_no">
+                        <!-- <div *ngIf="submitted && f1.house_no.errors" class="invalid-feedback">
+                        <div *ngIf="f1.house_no.errors.required">House Number is required</div>
+                    </div> -->
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputstate" class="col-sm-2 col-form-label">Landmark
+                    </label>
+                    <div class="col-sm-4">
+
+                        <input type="text" class="form-control input-feild" id="inputLand" name="landmark" [(ngModel)]="editAddData.landmark">
+                        <!-- <div *ngIf="submitted && f1.landmark.errors" class="invalid-feedback">name="house_no" [(ngModel)]="editAddData.house_no"
+                        <div *ngIf="f1.landmark.errors.required">Landmark is required</div>
+                    </div> -->
+
+                    </div>
+                    <label for="inputcity" class="col-sm-2 col-form-label">City
+                    </label>
+                    <div class="col-sm-4">
+                        <!-- <select id="inputState" class="form-control input-feild" [(ngModel)]="addData.city">
+                    <option selected>Choose City</option>
+                    <option *ngFor="let city of Cities" [ngValue]="city">{{city}}</option>
+                </select> -->
+                        <input type="text" class="form-control input-feild" id="inputpincode" name="city" [(ngModel)]="editAddData.city">
+                        <!-- <div *ngIf="submitted && f1.city.errors" class="invalid-feedback">
+                    <div *ngIf="f1.city.errors.required">City is required</div>
+                </div> -->
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputstate" class="col-sm-2 col-form-label">State
+                    </label>
+                    <div class="col-sm-4">
+                        <!-- <select id="inputState" class="form-control input-feild" [(ngModel)]="addData.state">
+                    <option selected>Choose State</option>
+                    <option *ngFor="let state of States" [ngValue]="state">{{state}}</option>
+                </select> -->
+                        <input type="text" class="form-control input-feild" id="inputpincode1" name="state" [(ngModel)]="editAddData.state">
+                        <!-- <div *ngIf="submitted && f1.state.errors" class="invalid-feedback">
+                    <div *ngIf="f1.state.errors.required">state is required</div>
+                </div> -->
+                    </div>
+                    <label for="inputcity" class="col-sm-2 col-form-label">Pin-code
+                    </label>
+                    <div class="col-sm-4">
+
+                        <input type="text" class="form-control input-feild" id="inputpincode2" name="pin_code"
+                            [(ngModel)]="editAddData.pin_code">
+                        <!-- <div *ngIf="submitted && f1.pin_code.errors" class="invalid-feedback">
+                        <div *ngIf="f1.pin_code.errors.required">Pin-Code is required</div>
+                    </div> -->
+
                     </div>
                     <div class="addType">
                         <p>Choose nick name for this address</p>
@@ -528,115 +638,10 @@
                 </div>
             </form>
 
-            <button type="button" class="btn address-btn" (click)="saveAddress(newItem)">SUBMIT</button>
+            <button type="button" class="btn address-btn" (click)="UpdateAdd(editAddData.address_id)">SUBMIT</button>
             <button type="button" class="btn address-btn" (click)="cancelAdd()">CANCEL</button>
 
         </div>
-
-<!-- edit address -->
-<div class="col-lg-7 address " *ngIf="showEditAddress">
-    <h3 class="profile-header">Edit Delivery Address</h3>
-    <p>
-        <strong>Edit Adrress</strong>
-    </p>
-    <form class="form-details">
-        <div class="form-group row">
-            <label for="inputname1" class="col-sm-2 col-form-label">Full Name
-            </label>
-            <div class="col-sm-10">
-                    <input type="text" class="form-control input-feild" id="full_name" name="full_name" [(ngModel)]="editAddData.full_name">
-                    <!-- <div *ngIf="submitted && f1.full_name.errors" class="invalid-feedback">
-                        <div *ngIf="f1.full_name.errors.required">Full Name is required</div>
-                    </div> -->
-                  
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputMblnbr" class="col-sm-2 col-form-label">Mobile Number
-            </label>
-            <div class="col-sm-10">
-               
-                    <input type="text" class="form-control input-feild" id="inputNumber" name="mobile_number" [(ngModel)]="editAddData.mobile_number">
-                    <!-- <div *ngIf="submitted && f1.mobile_number.errors" class="invalid-feedback">
-                        <div *ngIf="f1.mobile_number.errors.required">Mobile Number is required</div>
-                    </div> -->
-                   
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputhouseno" class="col-sm-2 col-form-label">House: No
-            </label>
-            <div class="col-sm-10">
-             
-                    <input type="text" class="form-control input-feild" id="inputhouseno" name="house_no" [(ngModel)]="editAddData.house_no">
-                    <!-- <div *ngIf="submitted && f1.house_no.errors" class="invalid-feedback">
-                        <div *ngIf="f1.house_no.errors.required">House Number is required</div>
-                    </div> -->
-                   
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputstate" class="col-sm-2 col-form-label">Landmark
-            </label>
-            <div class="col-sm-4">
-              
-                    <input type="text" class="form-control input-feild" id="inputLand" name="landmark" [(ngModel)]="editAddData.landmark">
-                    <!-- <div *ngIf="submitted && f1.landmark.errors" class="invalid-feedback">name="house_no" [(ngModel)]="editAddData.house_no"
-                        <div *ngIf="f1.landmark.errors.required">Landmark is required</div>
-                    </div> -->
-                   
-            </div>
-            <label for="inputcity" class="col-sm-2 col-form-label">City
-            </label>
-            <div class="col-sm-4">
-                <!-- <select id="inputState" class="form-control input-feild" [(ngModel)]="addData.city">
-                    <option selected>Choose City</option>
-                    <option *ngFor="let city of Cities" [ngValue]="city">{{city}}</option>
-                </select> -->
-                <input type="text" class="form-control input-feild" id="inputpincode" name="city" [(ngModel)]="editAddData.city">
-                <!-- <div *ngIf="submitted && f1.city.errors" class="invalid-feedback">
-                    <div *ngIf="f1.city.errors.required">City is required</div>
-                </div> -->
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputstate" class="col-sm-2 col-form-label">State
-            </label>
-            <div class="col-sm-4">
-                <!-- <select id="inputState" class="form-control input-feild" [(ngModel)]="addData.state">
-                    <option selected>Choose State</option>
-                    <option *ngFor="let state of States" [ngValue]="state">{{state}}</option>
-                </select> -->
-                <input type="text" class="form-control input-feild" id="inputpincode1" name="state" [(ngModel)]="editAddData.state">
-                <!-- <div *ngIf="submitted && f1.state.errors" class="invalid-feedback">
-                    <div *ngIf="f1.state.errors.required">state is required</div>
-                </div> -->
-            </div>
-            <label for="inputcity" class="col-sm-2 col-form-label">Pin-code
-            </label>
-            <div class="col-sm-4">
-               
-                    <input type="text" class="form-control input-feild" id="inputpincode2" name="pin_code" [(ngModel)]="editAddData.pin_code">
-                    <!-- <div *ngIf="submitted && f1.pin_code.errors" class="invalid-feedback">
-                        <div *ngIf="f1.pin_code.errors.required">Pin-Code is required</div>
-                    </div> -->
-                    
-            </div>
-            <div class="addType">
-                <p>Choose nick name for this address</p>
-                <p class="addresses ">
-                    <a (click)="Type('Home')">Home</a>
-                    <a (click)="Type('Office')">Office</a>
-                    <a (click)="Type('Other')">Other</a>
-                </p>
-            </div>
-        </div>
-    </form>
-
-    <button type="button" class="btn address-btn" (click)="UpdateAdd(editAddData.address_id)">SUBMIT</button>
-    <button type="button" class="btn address-btn" (click)="cancelAdd()">CANCEL</button>
-
-</div>
         <!-- wishlist -->
 
         <div class="col-lg-9" *ngIf="showWishlist">
@@ -784,7 +789,7 @@
         </div>
 
         <!-- change password -->
-       
+
         <div class="col-lg-9" *ngIf="showChangePassword">
             <div class="row">
                 <div class="col-lg-6">
@@ -983,8 +988,8 @@
                 <button type="button" class="btn invoice-btn">Email Invoice</button>
             </div>
         </div> -->
-         <!-- order details -->
-         <div class="col-lg-9" *ngIf="showOrderDetails">
+        <!-- order details -->
+        <div class="col-lg-9" *ngIf="showOrderDetails">
             <div>
                 <h3 class="profile-header">Order Details</h3>
             </div>
@@ -1015,7 +1020,7 @@
                         <td>BD {{orddata.selling_price}}</td>
                     </tr>
                 </tbody>
-                  <!-- <tbody class="table-data myorder-details">
+                <!-- <tbody class="table-data myorder-details">
                     <tr>
                         <td class="addProd">
                             <img src="assets/images/5.jpg" alt="electronics">
@@ -1089,55 +1094,55 @@
                 </table>
             </div>
         </div>
-          <!-- Add Products2 -->
-          <div class="col-lg-9" *ngIf="showAddProducts5">
-                <div id="multi-item-example6" class="carousel slide" data-ride="carousel">
-                    <br />
-                    <!--Slides 1-->
-                    <div class="carousel-inner cust-inner" role="listbox">
-    
-                        <!--First slide-->
-                        <div class="carousel-item active">
-    
-                            <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="row justify-content-between">
-                                                <div class="col-lg-4 col-md-5 col-sm-5">
-                                                    <h3 class="addprod-clr">Add Products</h3>
-                                                </div>
-                                                <div class="col-lg-4 col-md-5 col-sm-5">
-                                                    <form class="form-inline form-rt">
-                                                        <i class="fa fa-search item-search" aria-hidden="true"></i>
-                                                        <input class="form-control mr-sm-2 placeholder-padding" type="search" placeholder="Search by item name"
-                                                        aria-label="Search">
-                                                    </form>
-                                                </div>
-                                            </div>
-                                       </div>
-                                <div class="table-responsive my-4">
-                                    <table class="table cust-table">
-                                        <thead class="thead-color">
-                                            <tr>
-                                                <th scope="col">S.No</th>
-                                                <th scope="col">Item</th>
-                                                <th scope="col">Item Name</th>
-                                                <th scope="col">Brand</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="cust-tbody">
-                                            <tr>
-                                                <th scope="row" class="cust-1">1</th>
-                                                <td class="add-img">
-                                                    <img [src]="reqProds.product_image" alt="electronics">
-                                                </td>
-                                                <td class="cust-pot">{{reqProds.product_name}}</td>
-                                                <td class="cust-1">{{reqProds.brand}}</td>
-                                                <td class="cust-1">
-                                                    <a href="" class="cust-add" data-toggle="modal" data-target="#addProd">ADD</a>
-                                                </td>
-                                            </tr>
-                                            <!-- <tr>
+        <!-- Add Products2 -->
+        <div class="col-lg-9" *ngIf="showAddProducts5">
+            <div id="multi-item-example6" class="carousel slide" data-ride="carousel">
+                <br />
+                <!--Slides 1-->
+                <div class="carousel-inner cust-inner" role="listbox">
+
+                    <!--First slide-->
+                    <div class="carousel-item active">
+
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="row justify-content-between">
+                                    <div class="col-lg-4 col-md-5 col-sm-5">
+                                        <h3 class="addprod-clr">Add Products</h3>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5 col-sm-5">
+                                        <form class="form-inline form-rt">
+                                            <i class="fa fa-search item-search" aria-hidden="true"></i>
+                                            <input class="form-control mr-sm-2 placeholder-padding" type="search"
+                                                placeholder="Search by item name" aria-label="Search">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive my-4">
+                                <table class="table cust-table">
+                                    <thead class="thead-color">
+                                        <tr>
+                                            <th scope="col">S.No</th>
+                                            <th scope="col">Item</th>
+                                            <th scope="col">Item Name</th>
+                                            <th scope="col">Brand</th>
+                                            <th scope="col" class="text-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="cust-tbody">
+                                        <tr>
+                                            <th scope="row" class="cust-1">1</th>
+                                            <td class="add-img">
+                                                <img [src]="reqProds.product_image" alt="electronics">
+                                            </td>
+                                            <td class="cust-pot">{{reqProds.product_name}}</td>
+                                            <td class="cust-1">{{reqProds.brand}}</td>
+                                            <td class="cust-1 text-right">
+                                                <button class="cust-add" data-toggle="modal" data-target="#addProd">ADD</button>
+                                            </td>
+                                        </tr>
+                                        <!-- <tr>
                                                 <th scope="row" class="cust-1">1</th>
                                                 <td class="addProd">
                                                     <img src="assets/images/2.jpg" alt="Electronics">
@@ -1159,7 +1164,7 @@
                                                     <a href="" class="cust-add" data-toggle="modal" data-target="#addProd">ADD</a>
                                                 </td>
                                             </tr> -->
-                                            <!-- <tr>
+                                        <!-- <tr>
                                                 <th scope="row" class="cust-1">3</th>
                                                 <td>
                                                     <img src="assets/images/cauliflower.png" alt="cauliflower">
@@ -1170,7 +1175,7 @@
                                                     <a href="" class="cust-add" data-toggle="modal" data-target="#addProd">ADD</a>
                                                 </td>
                                             </tr> -->
-                                            <!-- <tr>
+                                        <!-- <tr>
                                                 <th scope="row" class="cust-1">4</th>
                                                 <td>
                                                     <img src="assets/images/tomatoes.png" alt="tomatoes">
@@ -1192,7 +1197,7 @@
                                                     <a href="" class="cust-add" data-toggle="modal" data-target="#addProd">ADD</a>
                                                 </td>
                                             </tr> -->
-                                            <!-- <tr>
+                                        <!-- <tr>
                                                 <th scope="row" class="cust-1">2</th>
                                                 <td>
                                                     <img src="assets/images/tomatoes.png" alt="tomatoes">
@@ -1203,7 +1208,7 @@
                                                     <a href="" class="cust-add" data-toggle="modal" data-target="#addProd">ADD</a>
                                                 </td>
                                             </tr> -->
-                                            <!-- <tr>
+                                        <!-- <tr>
                                                 <th scope="row" class="cust-1">3</th>
                                                 <td>
                                                     <img src="assets/images/cauliflower.png" alt="cauliflower">
@@ -1214,7 +1219,7 @@
                                                     <a href="" class="cust-add" data-toggle="modal" data-target="#addProd">ADD</a>
                                                 </td>
                                             </tr> -->
-                                            <!-- <tr>
+                                        <!-- <tr>
                                                 <th scope="row" class="cust-1">4</th>
                                                 <td>
                                                     <img src="assets/images/tomatoes.png" alt="tomatoes">
@@ -1225,7 +1230,7 @@
                                                     <a href="" class="cust-add" data-toggle="modal" data-target="#addProd">ADD</a>
                                                 </td>
                                             </tr> -->
-                                            <!-- <tr class="last-tr">
+                                        <!-- <tr class="last-tr">
                                                 <th scope="row" class="cust-1">5</th>
                                                 <td>
                                                     <img src="assets/images/cauliflower.png" alt="cauliflower">
@@ -1236,16 +1241,16 @@
                                                     <a href="" class="cust-add" data-toggle="modal" data-target="#addProd">ADD</a>
                                                 </td>
                                             </tr> -->
-                                        </tbody>
-                                    </table>
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
-    
                         </div>
-                        <!--/.First slide-->
-    
-                        <!-- Second Slide -->
-                        <!-- <div class="carousel-item">
+
+                    </div>
+                    <!--/.First slide-->
+
+                    <!-- Second Slide -->
+                    <!-- <div class="carousel-item">
     
                             <div class="row">
                                 <div class="col-lg-6">
@@ -1331,13 +1336,13 @@
                             </div>
     
                         </div> -->
-                        <!-- ./second slide -->
-    
-                    </div>
-                    <!--/.Slides-->
-    
-                    <!--Controls-->
-                    <!-- <div class="controls-top controls arrow-rt">
+                    <!-- ./second slide -->
+
+                </div>
+                <!--/.Slides-->
+
+                <!--Controls-->
+                <!-- <div class="controls-top controls arrow-rt">
                         <a class="btn-floating btn-small slider-btn-left" href="#multi-item-example6" data-slide="prev">
                             <i class="fas fa-long-arrow-alt-left"></i>
                         </a>
@@ -1345,85 +1350,87 @@
                             <i class="fas fa-long-arrow-alt-right"></i>
                         </a>
                     </div> -->
-                    <!--/.Controls-->
-                </div>
-                <!-- <div class="search-notfound">
+                <!--/.Controls-->
+            </div>
+            <!-- <div class="search-notfound">
                     <button type="submit" class="btn" data-toggle="modal" data-target="#notfound">Item not found</button>
                 </div> -->
-                <div class="search-notfound">
-                    <button type="submit" class="btn" (click)="requestAdmin()">Item not found</button>
-                </div>
+            <div class="search-notfound">
+                <button type="submit" class="btn" (click)="requestAdmin()">Item not found</button>
             </div>
-            <!-- Add Products2 -->
-    
+        </div>
+        <!-- Add Products2 -->
 
-         <!-- Order Filter -->
-    <div class="modal" id="filter" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header c-modalheader">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="cust-close">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="cust-date">
-                            <strong>Select Date</strong>
-                            <form>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputEmail4">From Date</label>
-                                        <input type="date" class="form-control" placeholder="From Date" name="fromDt" [(ngModel)]="fromDt">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputPassword4">To Date</label>
-                                        <input type="date" class="form-control" placeholder="To Date" name="toDt" [(ngModel)]="toDt">
-                                    </div>
-                                    <div class="col-md-12 cust-apply">
-                                        <button type="submit" data-dismiss="modal" (click)="filterVendor()">Apply</button>
-                                    </div>
-                                </div>
 
-                            </form>
+        <!-- Order Filter -->
+        <div class="modal" id="filter" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header c-modalheader">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="cust-close">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="cust-date">
+                                <strong>Select Date</strong>
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputEmail4">From Date</label>
+                                            <input type="date" class="form-control" placeholder="From Date" name="fromDt"
+                                                [(ngModel)]="fromDt">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputPassword4">To Date</label>
+                                            <input type="date" class="form-control" placeholder="To Date" name="toDt"
+                                                [(ngModel)]="toDt">
+                                        </div>
+                                        <div class="col-md-12 cust-apply">
+                                            <button type="submit" data-dismiss="modal" (click)="filterVendor()">Apply</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-9" *ngIf="showRequestAdmin">
+        <div class="col-lg-9" *ngIf="showRequestAdmin">
             <div id="multi-item-example6" class="carousel slide" data-ride="carousel">
-              <br />
-              <div class="carousel-inner cust-inner" role="listbox">
-                <div class="carousel-item active">
-                  <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="row justify-content-between">
-                      <div class="col-lg-4 col-md-5 col-sm-5">
-                        <h3 class="addprod-clr">Add Products</h3>
-                      </div>
-                      <div class="col-lg-4 col-md-5 col-sm-5">
-                        <form class="form-inline form-rt">
-                          <i class="fa fa-search item-search" aria-hidden="true"></i>
-                          <input class="form-control mr-sm-2 placeholder-padding" type="search" placeholder="Search by item name"
-                            aria-label="Search">
-                        </form>
-                      </div>
+                <br />
+                <div class="carousel-inner cust-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="row justify-content-between">
+                                <div class="col-lg-4 col-md-5 col-sm-5">
+                                    <h3 class="addprod-clr">Add Products</h3>
+                                </div>
+                                <div class="col-lg-4 col-md-5 col-sm-5">
+                                    <form class="form-inline form-rt">
+                                        <i class="fa fa-search item-search" aria-hidden="true"></i>
+                                        <input class="form-control mr-sm-2 placeholder-padding" type="search"
+                                            placeholder="Search by item name" aria-label="Search">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="cust-calflow">
+                                    <p>Cauliflower item is not found</p>
+                                    <button type="submit" class="btn request-admin cust-radm" data-dismiss="modal"
+                                        data-toggle="modal" data-target="#product-name">Request
+                                        Admin
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row justify-content-center">
-                      <div class="cust-calflow">
-                        <p>Cauliflower item is not found</p>
-                        <button type="submit" class="btn request-admin cust-radm" data-dismiss="modal" data-toggle="modal"
-                          data-target="#product-name">Request
-                          Admin
-                        </button>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
+        </div>
 
 
         <!-- notofications -->
@@ -1450,331 +1457,331 @@
                     10000/- and get Cashback upto 3000</p>
             </div>
         </div> -->
-<!-- manage user orders -->
-<div class="col-lg-9" *ngIf="showOfferZone">
-    <div id="multi-item-example6" class="carousel slide" data-ride="carousel">
-        <br />
-        <!--Slides 1-->
-        <div class="carousel-inner cust-inner" role="listbox">
+        <!-- manage user orders -->
+        <div class="col-lg-9" *ngIf="showOfferZone">
+            <div id="multi-item-example6" class="carousel slide" data-ride="carousel">
+                <br />
+                <!--Slides 1-->
+                <div class="carousel-inner cust-inner" role="listbox">
 
-            <!--First slide-->
-            <div class="carousel-item active">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 cust-vendor">
-                        <h3>Manage User Orders</h3>
+                    <!--First slide-->
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 cust-vendor">
+                                <h3>Manage User Orders</h3>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="cust-filter" data-toggle="modal" data-target="#filter2">
+                                    <i class="fa fa-filter" aria-hidden="true"></i> Filters
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <form class="form-inline form-rt">
+                                    <i class="fa fa-search item-search" aria-hidden="true"></i>
+                                    <input class="form-control mr-sm-2 placeholder-padding" type="search" placeholder="Search Id"
+                                        aria-label="Search">
+                                </form>
+                            </div>
+                            <div class="table-responsive my-4">
+                                <table class="table cust-table">
+                                    <thead class="thead-color">
+                                        <tr>
+                                            <th scope="col">S.No</th>
+                                            <th scope="col">Order Id</th>
+                                            <th scope="col">Order Date & Time</th>
+                                            <th scope="col">Buyer Name</th>
+                                            <th scope="col">Order Type</th>
+                                            <th scope="col">Total Amount</th>
+                                            <th scope="col">Order Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="cust-tbody">
+                                        <tr (click)="showVendorOrderDetails()">
+                                            <th scope="row">1</th>
+                                            <td>
+                                                1441367
+                                            </td>
+                                            <td>24 July 2018,
+                                                <br /> 3:30 PM</td>
+                                            <td>Peter Mark</td>
+                                            <td>Immediate</td>
+                                            <td>Rs.107.00</td>
+                                            <td>Placed</td>
+                                        </tr>
+                                        <tr (click)="showVendorOrderDetails()">
+                                            <th scope="row">2</th>
+                                            <td>
+                                                3713643
+                                            </td>
+                                            <td>4 May 2018,
+                                                <br /> 10:30 PM</td>
+                                            <td>John Park</td>
+                                            <td>Scheduled</td>
+                                            <td>
+                                                Rs.84.00
+                                            </td>
+                                            <td>Processing</td>
+                                        </tr>
+                                        <tr (click)="showVendorOrderDetails()">
+                                            <th scope="row">3</th>
+                                            <td>
+                                                3862865
+                                            </td>
+                                            <td>17 Jan 2018,
+                                                <br /> 9:30 PM</td>
+                                            <td>Peter John</td>
+                                            <td>Scheduled</td>
+                                            <td>
+                                                Rs.266.00
+                                            </td>
+                                            <td>Delivered</td>
+                                        </tr>
+                                        <tr (click)="showVendorOrderDetails()">
+                                            <th scope="row">4</th>
+                                            <td>
+                                                3862866
+                                            </td>
+                                            <td>17 Jan 2018,
+                                                <br /> 9:30 PM</td>
+                                            <td>Martix John</td>
+                                            <td>Scheduled</td>
+                                            <td>
+                                                Rs.214.00
+                                            </td>
+                                            <td>Delivered</td>
+                                        </tr>
+                                        <tr class="last-tr" (click)="showVendorOrderDetails()">
+                                            <th scope="row">5</th>
+                                            <td>
+                                                3862867
+                                            </td>
+                                            <td>17 Jan 2018,
+                                                <br /> 9:30 PM</td>
+                                            <td>Peter John</td>
+                                            <td>Scheduled</td>
+                                            <td>
+                                                Rs.266.00
+                                            </td>
+                                            <td>Delivered</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <div class="cust-filter" data-toggle="modal" data-target="#filter2">
-                            <i class="fa fa-filter" aria-hidden="true"></i> Filters
+                    <!--/.First slide-->
+
+                    <!-- Second Slide -->
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 cust-vendor">
+                                <h3>Manage User Orders</h3>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="cust-filter" data-toggle="modal" data-target="#filter2">
+                                    <i class="fa fa-filter" aria-hidden="true"></i> Filters
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <form class="form-inline form-rt">
+                                    <i class="fa fa-search item-search" aria-hidden="true"></i>
+                                    <input class="form-control mr-sm-2 placeholder-padding" type="search" placeholder="Search Id"
+                                        aria-label="Search">
+                                </form>
+                            </div>
+                            <div class="table-responsive my-4">
+                                <table class="table cust-table">
+                                    <thead class="thead-color">
+                                        <tr>
+                                            <th scope="col">S.No</th>
+                                            <th scope="col">Order Id</th>
+                                            <th scope="col">Order Date & Time</th>
+                                            <th scope="col">customer Name</th>
+                                            <th scope="col">Order Type</th>
+                                            <th scope="col">Total Amount</th>
+                                            <th scope="col">Order Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="cust-tbody">
+                                        <tr (click)="showVendorOrderDetails()">
+                                            <th scope="row">1</th>
+                                            <td>
+                                                1441367
+                                            </td>
+                                            <td>24 July 2018,
+                                                <br /> 3:30 PM</td>
+                                            <td>Peter Mark</td>
+                                            <td>Immediate</td>
+                                            <td>Rs.107.00</td>
+                                            <td>Placed</td>
+                                        </tr>
+                                        <tr (click)="showVendorOrderDetails()">
+                                            <th scope="row">2</th>
+                                            <td>
+                                                3713643
+                                            </td>
+                                            <td>4 May 2018,
+                                                <br /> 10:30 PM</td>
+                                            <td>John Park</td>
+                                            <td>Scheduled</td>
+                                            <td>
+                                                Rs.84.00
+                                            </td>
+                                            <td>Processing</td>
+                                        </tr>
+                                        <tr (click)="showVendorOrderDetails()">
+                                            <th scope="row">3</th>
+                                            <td>
+                                                3862865
+                                            </td>
+                                            <td>17 Jan 2018,
+                                                <br /> 9:30 PM</td>
+                                            <td>Peter John</td>
+                                            <td>Scheduled</td>
+                                            <td>
+                                                Rs.266.00
+                                            </td>
+                                            <td>Delivered</td>
+                                        </tr>
+                                        <tr (click)="showVendorOrderDetails()">
+                                            <th scope="row">4</th>
+                                            <td>
+                                                3862866
+                                            </td>
+                                            <td>17 Jan 2018,
+                                                <br /> 9:30 PM</td>
+                                            <td>Martix John</td>
+                                            <td>Scheduled</td>
+                                            <td>
+                                                Rs.214.00
+                                            </td>
+                                            <td>Delivered</td>
+                                        </tr>
+                                        <tr class="last-tr" (click)="showVendorOrderDetails()">
+                                            <th scope="row">5</th>
+                                            <td>
+                                                3862867
+                                            </td>
+                                            <td>17 Jan 2018,
+                                                <br /> 9:30 PM</td>
+                                            <td>Peter John</td>
+                                            <td>Scheduled</td>
+                                            <td>
+                                                Rs.266.00
+                                            </td>
+                                            <td>Delivered</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <form class="form-inline form-rt">
-                            <i class="fa fa-search item-search" aria-hidden="true"></i>
-                            <input class="form-control mr-sm-2 placeholder-padding" type="search" placeholder="Search Id"
-                                aria-label="Search">
-                        </form>
-                    </div>
+                    <!-- ./second slide -->
+
+                </div>
+                <!--/.Slides-->
+
+                <!--Controls-->
+                <div class="controls-top controls arrow-rt">
+                    <a class="btn-floating btn-small slider-btn-left" href="#multi-item-example6" data-slide="prev">
+                        <i class="fas fa-long-arrow-alt-left"></i>
+                    </a>
+                    <a class="btn-floating btn-small slider-btn-right" href="#multi-item-example6" data-slide="next">
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                    </a>
+                </div>
+                <!--/.Controls-->
+            </div>
+        </div>
+        <!-- my Products -->
+        <div class="col-lg-9" *ngIf="showMyProducts">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6 col-md-6">
+                    <h3 class="">My Products</h3>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-md-6">
+                    <form class="form-inline form-rt">
+                        <i class="fa fa-search item-search" aria-hidden="true"></i>
+                        <input class="form-control mr-sm-2 placeholder-padding" type="search" placeholder="Search by item name"
+                            aria-label="Search">
+                    </form>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="table-responsive my-4">
                         <table class="table cust-table">
                             <thead class="thead-color">
                                 <tr>
                                     <th scope="col">S.No</th>
-                                    <th scope="col">Order Id</th>
-                                    <th scope="col">Order Date & Time</th>
-                                    <th scope="col">Buyer Name</th>
-                                    <th scope="col">Order Type</th>
-                                    <th scope="col">Total Amount</th>
-                                    <th scope="col">Order Status</th>
+                                    <th scope="col">Item</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Selling Price</th>
+                                    <th scope="col">Brand</th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <tbody class="cust-tbody">
-                                <tr (click)="showVendorOrderDetails()">
-                                    <th scope="row">1</th>
-                                    <td>
-                                        1441367
-                                    </td>
-                                    <td>24 July 2018,
-                                        <br /> 3:30 PM</td>
-                                    <td>Peter Mark</td>
-                                    <td>Immediate</td>
-                                    <td>Rs.107.00</td>
-                                    <td>Placed</td>
-                                </tr>
-                                <tr (click)="showVendorOrderDetails()">
-                                    <th scope="row">2</th>
-                                    <td>
-                                        3713643
-                                    </td>
-                                    <td>4 May 2018,
-                                        <br /> 10:30 PM</td>
-                                    <td>John Park</td>
-                                    <td>Scheduled</td>
-                                    <td>
-                                        Rs.84.00
-                                    </td>
-                                    <td>Processing</td>
-                                </tr>
-                                <tr (click)="showVendorOrderDetails()">
-                                    <th scope="row">3</th>
-                                    <td>
-                                        3862865
-                                    </td>
-                                    <td>17 Jan 2018,
-                                        <br /> 9:30 PM</td>
-                                    <td>Peter John</td>
-                                    <td>Scheduled</td>
-                                    <td>
-                                        Rs.266.00
-                                    </td>
-                                    <td>Delivered</td>
-                                </tr>
-                                <tr (click)="showVendorOrderDetails()">
-                                    <th scope="row">4</th>
-                                    <td>
-                                        3862866
-                                    </td>
-                                    <td>17 Jan 2018,
-                                        <br /> 9:30 PM</td>
-                                    <td>Martix John</td>
-                                    <td>Scheduled</td>
-                                    <td>
-                                        Rs.214.00
-                                    </td>
-                                    <td>Delivered</td>
-                                </tr>
-                                <tr class="last-tr" (click)="showVendorOrderDetails()">
-                                    <th scope="row">5</th>
-                                    <td>
-                                        3862867
-                                    </td>
-                                    <td>17 Jan 2018,
-                                        <br /> 9:30 PM</td>
-                                    <td>Peter John</td>
-                                    <td>Scheduled</td>
-                                    <td>
-                                        Rs.266.00
-                                    </td>
-                                    <td>Delivered</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-            </div>
-            <!--/.First slide-->
-
-            <!-- Second Slide -->
-            <div class="carousel-item">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 cust-vendor">
-                        <h3>Manage User Orders</h3>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <div class="cust-filter" data-toggle="modal" data-target="#filter2">
-                            <i class="fa fa-filter" aria-hidden="true"></i> Filters
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <form class="form-inline form-rt">
-                            <i class="fa fa-search item-search" aria-hidden="true"></i>
-                            <input class="form-control mr-sm-2 placeholder-padding" type="search" placeholder="Search Id"
-                                aria-label="Search">
-                        </form>
-                    </div>
-                    <div class="table-responsive my-4">
-                        <table class="table cust-table">
-                            <thead class="thead-color">
+                            <tbody>
                                 <tr>
-                                    <th scope="col">S.No</th>
-                                    <th scope="col">Order Id</th>
-                                    <th scope="col">Order Date & Time</th>
-                                    <th scope="col">customer Name</th>
-                                    <th scope="col">Order Type</th>
-                                    <th scope="col">Total Amount</th>
-                                    <th scope="col">Order Status</th>
+                                    <th scope="row" class="cst-padtp">
+                                        <strong>1</strong>
+                                    </th>
+                                    <td class="addProd">
+                                        <img src="assets/images/5.jpg" alt="Electronics">
+                                    </td>
+                                    <td class="cst-padtp2">
+                                        <strong>Watch</strong>
+                                    </td>
+                                    <td class="cst-padtp">
+                                        <strong>BD 45</strong>
+                                    </td>
+                                    <td class="cst-padtp">
+                                        <strong>Brand 1</strong>
+                                    </td>
+                                    <td class="cst-padtp">
+                                        <i class="fa fa-trash-o cust-delete" aria-hidden="true"></i>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody class="cust-tbody">
-                                <tr (click)="showVendorOrderDetails()">
-                                    <th scope="row">1</th>
-                                    <td>
-                                        1441367
+                                <tr>
+                                    <th scope="row" class="cst-padtp">
+                                        <strong>2</strong>
+                                    </th>
+                                    <td class="addProd">
+                                        <img src="assets/images/4.jpg" alt="Grinder">
                                     </td>
-                                    <td>24 July 2018,
-                                        <br /> 3:30 PM</td>
-                                    <td>Peter Mark</td>
-                                    <td>Immediate</td>
-                                    <td>Rs.107.00</td>
-                                    <td>Placed</td>
+                                    <td class="cst-padtp2">
+                                        <strong>Bag</strong>
+                                    </td>
+                                    <td class="cst-padtp">
+                                        <strong>BD 3D</strong>
+                                    </td>
+                                    <td class="cst-padtp">
+                                        <strong>Brand 2</strong>
+                                    </td>
+                                    <td class="cst-padtp">
+                                        <i class="fa fa-trash-o cust-delete" aria-hidden="true"></i>
+                                    </td>
                                 </tr>
-                                <tr (click)="showVendorOrderDetails()">
-                                    <th scope="row">2</th>
-                                    <td>
-                                        3713643
+                                <tr>
+                                    <th scope="row" class="cst-padtp">
+                                        <strong>3</strong>
+                                    </th>
+                                    <td class="addProd">
+                                        <img src="assets/images/9.jpg" alt="Cooker">
                                     </td>
-                                    <td>4 May 2018,
-                                        <br /> 10:30 PM</td>
-                                    <td>John Park</td>
-                                    <td>Scheduled</td>
-                                    <td>
-                                        Rs.84.00
+                                    <td class="cst-padtp2">
+                                        <strong>Belt</strong>
                                     </td>
-                                    <td>Processing</td>
+                                    <td class="cst-padtp">
+                                        <strong>BD 35</strong>
+                                    </td>
+                                    <td class="cst-padtp">
+                                        <strong>Brand 3</strong>
+                                    </td>
+                                    <td class="cst-padtp">
+                                        <i class="fa fa-trash-o cust-delete" aria-hidden="true"></i>
+                                    </td>
                                 </tr>
-                                <tr (click)="showVendorOrderDetails()">
-                                    <th scope="row">3</th>
-                                    <td>
-                                        3862865
-                                    </td>
-                                    <td>17 Jan 2018,
-                                        <br /> 9:30 PM</td>
-                                    <td>Peter John</td>
-                                    <td>Scheduled</td>
-                                    <td>
-                                        Rs.266.00
-                                    </td>
-                                    <td>Delivered</td>
-                                </tr>
-                                <tr (click)="showVendorOrderDetails()">
-                                    <th scope="row">4</th>
-                                    <td>
-                                        3862866
-                                    </td>
-                                    <td>17 Jan 2018,
-                                        <br /> 9:30 PM</td>
-                                    <td>Martix John</td>
-                                    <td>Scheduled</td>
-                                    <td>
-                                        Rs.214.00
-                                    </td>
-                                    <td>Delivered</td>
-                                </tr>
-                                <tr class="last-tr" (click)="showVendorOrderDetails()">
-                                    <th scope="row">5</th>
-                                    <td>
-                                        3862867
-                                    </td>
-                                    <td>17 Jan 2018,
-                                        <br /> 9:30 PM</td>
-                                    <td>Peter John</td>
-                                    <td>Scheduled</td>
-                                    <td>
-                                        Rs.266.00
-                                    </td>
-                                    <td>Delivered</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- ./second slide -->
-
-        </div>
-        <!--/.Slides-->
-
-        <!--Controls-->
-        <div class="controls-top controls arrow-rt">
-            <a class="btn-floating btn-small slider-btn-left" href="#multi-item-example6" data-slide="prev">
-                <i class="fas fa-long-arrow-alt-left"></i>
-            </a>
-            <a class="btn-floating btn-small slider-btn-right" href="#multi-item-example6" data-slide="next">
-                <i class="fas fa-long-arrow-alt-right"></i>
-            </a>
-        </div>
-        <!--/.Controls-->
-    </div>
-</div>
- <!-- my Products -->
- <div class="col-lg-9" *ngIf="showMyProducts">
-    <div class="row">
-        <div class="col-lg-6 col-sm-6 col-md-6">
-            <h3 class="">My Products</h3>
-        </div>
-        <div class="col-lg-6 col-sm-6 col-md-6">
-            <form class="form-inline form-rt">
-                <i class="fa fa-search item-search" aria-hidden="true"></i>
-                <input class="form-control mr-sm-2 placeholder-padding" type="search" placeholder="Search by item name"
-                    aria-label="Search">
-            </form>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="table-responsive my-4">
-                <table class="table cust-table">
-                    <thead class="thead-color">
-                        <tr>
-                            <th scope="col">S.No</th>
-                            <th scope="col">Item</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Selling Price</th>
-                            <th scope="col">Brand</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row" class="cst-padtp">
-                                <strong>1</strong>
-                            </th>
-                            <td class="addProd">
-                            <img src="assets/images/5.jpg" alt="Electronics">
-                            </td>
-                            <td class="cst-padtp2">
-                                <strong>Watch</strong>
-                            </td>
-                            <td class="cst-padtp">
-                                <strong>BD 45</strong>
-                            </td>
-                            <td class="cst-padtp">
-                                <strong>Brand 1</strong>
-                            </td>
-                            <td class="cst-padtp">
-                                <i class="fa fa-trash-o cust-delete" aria-hidden="true"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="cst-padtp">
-                                <strong>2</strong>
-                            </th>
-                            <td class="addProd">
-                                <img src="assets/images/4.jpg" alt="Grinder">
-                            </td>
-                            <td class="cst-padtp2">
-                                <strong>Bag</strong>
-                            </td>
-                            <td class="cst-padtp">
-                                <strong>BD 3D</strong>
-                            </td>
-                            <td class="cst-padtp">
-                                <strong>Brand 2</strong>
-                            </td>
-                            <td class="cst-padtp">
-                                <i class="fa fa-trash-o cust-delete" aria-hidden="true"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="cst-padtp">
-                                <strong>3</strong>
-                            </th>
-                            <td class="addProd">
-                                <img src="assets/images/9.jpg" alt="Cooker">
-                            </td>
-                            <td class="cst-padtp2">
-                                <strong>Belt</strong>
-                            </td>
-                            <td class="cst-padtp">
-                                <strong>BD 35</strong>
-                            </td>
-                            <td class="cst-padtp">
-                                <strong>Brand 3</strong>
-                            </td>
-                            <td class="cst-padtp">
-                                <i class="fa fa-trash-o cust-delete" aria-hidden="true"></i>
-                            </td>
-                        </tr>
-                        <!-- <tr>
+                                <!-- <tr>
                             <th scope="row" class="cst-padtp">
                                 <strong>4</strong>
                             </th>
@@ -1794,112 +1801,113 @@
                                 <i class="fa fa-trash-o cust-delete" aria-hidden="true"></i>
                             </td>
                         </tr> -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- manage user orders -->
-  <!-- Vendor Order Details filter2 -->
-  <div class="modal" id="filter2" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header c-modalheader">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" class="cust-close">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="cust-date">
-                        <strong>Select Date</strong>
-                        <form>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">From Date</label>
-                                    <input type="date" class="form-control" placeholder="From Date">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">To Date</label>
-                                    <input type="date" class="form-control" placeholder="To Date">
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="inputState">Select Type</label>
-                                    <select id="inputState" class="form-control">
-                                        <option selected>Immediate</option>
-                                        <option>type 1</option>
-                                        <option>type 2</option>
-                                        <option>type 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-12 cust-apply">
-                                    <button type="submit" data-dismiss="modal">Select Type</button>
-                                </div>
-                            </div>
-                        </form>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Vendor order -->
-
-<div class="col-lg-9" *ngIf="showMyOrders">
-    <div id="multi-item-example6" class="carousel slide" data-ride="carousel">
-        <br />
-        <!--Slides 1-->
-        <div class="carousel-inner cust-inner" role="listbox">
-
-            <!--First slide-->
-            <div class="carousel-item active">
-
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 cust-vendor">
-                        <h3>Vendor Orders</h3>
+        <!-- manage user orders -->
+        <!-- Vendor Order Details filter2 -->
+        <div class="modal" id="filter2" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header c-modalheader">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="cust-close">&times;</span>
+                        </button>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <div class="cust-filter" data-toggle="modal" data-target="#filter">
-                            <i class="fa fa-filter" aria-hidden="true"></i> Filters
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="cust-date">
+                                <strong>Select Date</strong>
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputEmail4">From Date</label>
+                                            <input type="date" class="form-control" placeholder="From Date">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputPassword4">To Date</label>
+                                            <input type="date" class="form-control" placeholder="To Date">
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="inputState">Select Type</label>
+                                            <select id="inputState" class="form-control">
+                                                <option selected>Immediate</option>
+                                                <option>type 1</option>
+                                                <option>type 2</option>
+                                                <option>type 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 cust-apply">
+                                            <button type="submit" data-dismiss="modal">Select Type</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <form class="form-inline form-rt">
-                            <i class="fa fa-search item-search" aria-hidden="true"></i>
-                            <input class="form-control mr-sm-2 placeholder-padding" type="search" placeholder="Search Id"
-                                aria-label="Search" name="filter" [(ngModel)]="filter">
-                        </form>
-                    </div>
-                    <div class="table-responsive my-4">
-                        <table class="table cust-table">
-                            <thead class="thead-color">
-                                <tr>
-                                    <th scope="col">S.No</th>
-                                    <th scope="col">Order Id</th>
-                                    <th scope="col">Order Date & Time</th>
-                                    <th scope="col">Wholeseller Name</th>
-                                    <th scope="col">Total Amount</th>
-                                    <th scope="col">Order Status</th>
-                                </tr>
-                            </thead>
-                            <tbody class="cust-tbody">
-                                <tr class="cst-topad" *ngFor="let ord of orders | filter:filter;let i =index" (click)="showOrderDetailsEcom(ord.order_id)">
-                                    <th scope="row">{{i+1}}</th>
-                                    <td>
-                                        {{ord.order_id}}
-                                    </td>
-                                    <td>
-                                        {{ord.ordered_on}} </td>
-                                    <td>{{ord.wholesaler_id}}</td>
-                                    <td>BD.{{ord.billing_amount}}</td>
-                                    <td>{{ord.order_status}}</td>
-                                </tr>
-                                <!-- <tr>
+                </div>
+            </div>
+        </div>
+        <!-- Vendor order -->
+
+        <div class="col-lg-9" *ngIf="showMyOrders">
+            <div id="multi-item-example6" class="carousel slide" data-ride="carousel">
+                <br />
+                <!--Slides 1-->
+                <div class="carousel-inner cust-inner" role="listbox">
+
+                    <!--First slide-->
+                    <div class="carousel-item active">
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 cust-vendor">
+                                <h3>Vendor Orders</h3>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="cust-filter" data-toggle="modal" data-target="#filter">
+                                    <i class="fa fa-filter" aria-hidden="true"></i> Filters
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <form class="form-inline form-rt">
+                                    <i class="fa fa-search item-search" aria-hidden="true"></i>
+                                    <input class="form-control mr-sm-2 placeholder-padding" type="search" placeholder="Search Id"
+                                        aria-label="Search" name="filter" [(ngModel)]="filter">
+                                </form>
+                            </div>
+                            <div class="table-responsive my-4">
+                                <table class="table cust-table">
+                                    <thead class="thead-color">
+                                        <tr>
+                                            <th scope="col">S.No</th>
+                                            <th scope="col">Order Id</th>
+                                            <th scope="col">Order Date & Time</th>
+                                            <th scope="col">Wholeseller Name</th>
+                                            <th scope="col">Total Amount</th>
+                                            <th scope="col">Order Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="cust-tbody">
+                                        <tr class="cst-topad" *ngFor="let ord of orders | filter:filter;let i =index"
+                                            (click)="showOrderDetailsEcom(ord.order_id)">
+                                            <th scope="row">{{i+1}}</th>
+                                            <td>
+                                                {{ord.order_id}}
+                                            </td>
+                                            <td>
+                                                {{ord.ordered_on}} </td>
+                                            <td>{{ord.wholesaler_id}}</td>
+                                            <td>BD.{{ord.billing_amount}}</td>
+                                            <td>{{ord.order_status}}</td>
+                                        </tr>
+                                        <!-- <tr>
                                     {{this.count}}
                                 </tr> -->
-                                <!-- <tr (click)="showBukedOrderDetails()" class="cst-topad">
+                                        <!-- <tr (click)="showBukedOrderDetails()" class="cst-topad">
                                     <th scope="row">2</th>
                                     <td>
                                         3713643
@@ -1951,16 +1959,16 @@
                                     </td>
                                     <td>Delivered</td>
                                 </tr> -->
-                            </tbody>
-                        </table>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
+                    <!--/.First slide-->
 
-            </div>
-            <!--/.First slide-->
-
-            <!-- Second Slide -->
-            <!-- <div class="carousel-item">
+                    <!-- Second Slide -->
+                    <!-- <div class="carousel-item">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 cust-vendor">
                         <h3>Vendor Orders</h3>
@@ -2058,13 +2066,13 @@
                     </div>
                 </div>
             </div> -->
-            <!-- ./second slide -->
+                    <!-- ./second slide -->
 
-        </div>
-        <!--/.Slides-->
+                </div>
+                <!--/.Slides-->
 
-        <!--Controls-->
-        <!-- <div class="controls-top controls arrow-rt">
+                <!--Controls-->
+                <!-- <div class="controls-top controls arrow-rt">
             <a class="btn-floating btn-small slider-btn-left" href="#multi-item-example6" data-slide="prev">
                 <i class="fas fa-long-arrow-alt-left"></i>
             </a>
@@ -2072,141 +2080,141 @@
                 <i class="fas fa-long-arrow-alt-right"></i>
             </a>
         </div> -->
-        <!--/.Controls-->
-    </div>
-</div>
- <!-- manage detailed order details -->
- <div class="col-lg-9" *ngIf="showManageUserOrders">
-    <div>
-      <h3 class="profile-header">Manage User Orders</h3>
-    </div>
-    <div class="order-details">
-      <p>Order no : 1441367</p>
-    </div>
-    <div class="table-responsive">
-      <table class="table myorder-details">
-        <thead>
-          <tr>
-            <th scope="col" style="font-size:18px;">Product</th>
-            <th scope="col" style="font-size:18px;">Name</th>
-            <th scope="col" style="font-size:18px;">Brand</th>
-            <th scope="col" style="font-size:18px;">Quantity</th>
-            <th scope="col" style="font-size:18px;">Price</th>
-          </tr>
-        </thead>
-        <tbody class="table-data myorder-details">
-          <tr>
-            <td class="add-img">
-              <img src="assets/images/2.jpg">
-            </td>
-            <td>
-              <p>Light
-              </p>
-            </td>
-            <td>Brand 1</td>
-            <td>1</td>
-            <td>BD 34</td>
-          </tr>
-          <tr>
-            <td class="add-img">
-              <img src="assets/images/3.jpg">
-            </td>
-            <td>
-              <p>Laptop
-              </p>
-            </td>
-            <td>Brand 2</td>
-            <td>1</td>
-            <td>BD 47</td>
-          </tr>
-          <tr>
-            <td class="add-img">
-              <img src="assets/images/4.jpg">
-            </td>
-            <td>
-              <p>Personal Care
-              </p>
-            </td>
-            <td>Brand 3</td>
-            <td>1</td>
-            <td>BD 42</td>
-          </tr>
-          <tr>
-            <td>
-              Total
-            </td>
-            <td>
-            </td>
-            <td></td>
-            <td></td>
-            <td>
-              <strong>BD 122</strong>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="customer-detls">
-      <p>Customer Details</p>
-    </div>
-    <ul class="cust-dets">
-      <li>
-        <i class="fa fa-user" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Peter Mark</li>
-      <li>
-        <i class="fa fa-phone" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;98540 98540</li>
-      <li>
-        <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16-11-16/A/43/1,
-        Ashok
-        plaza, Near Masab Tank, Tolichowki, Mehadipatnam, Hyderabad 50038
-      </li>
-    </ul>
-    <div class="order-details">
-      <p>Order Details</p>
-    </div>
-    <div class="table-responsive">
-      <table class="table">
-        <tbody>
-          <tr>
-            <td style="font-size: 16px;">Order Type</td>
-            <td class="prod-price">
-              <strong>Immediate</strong>
-            </td>
-          </tr>
-          <tr>
-            <td style="font-size: 16px;">Order Date & Time</td>
-            <td class="prod-price">
-              <strong>25 July 2018, 3:41 PM</strong>
-            </td>
-          </tr>
-          <tr>
-            <td style="font-size: 16px;">Payment Method</td>
-            <td class="prod-price">
-              <strong>Payment Gateway</strong>
-            </td>
-          </tr>
-          <tr>
-            <td style="font-size: 16px;">Order Status</td>
-            <td class="prod-price">
-              <div>
-                <select class="cust-slct">
-                  <option>Processing</option>
-                  <option>Pending</option>
-                  <option>Delivered</option>
-                </select>
-              </div>
-              <div class="download-slip">
-                <a href="">Download Delivery slip</a>
-              </div>
-              <div class="">
-                <button type="submit" class="btn cust-savechanges">Save Changes</button>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <!-- ./manage order details -->
+                <!--/.Controls-->
+            </div>
+        </div>
+        <!-- manage detailed order details -->
+        <div class="col-lg-9" *ngIf="showManageUserOrders">
+            <div>
+                <h3 class="profile-header">Manage User Orders</h3>
+            </div>
+            <div class="order-details">
+                <p>Order no : 1441367</p>
+            </div>
+            <div class="table-responsive">
+                <table class="table myorder-details">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="font-size:18px;">Product</th>
+                            <th scope="col" style="font-size:18px;">Name</th>
+                            <th scope="col" style="font-size:18px;">Brand</th>
+                            <th scope="col" style="font-size:18px;">Quantity</th>
+                            <th scope="col" style="font-size:18px;">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-data myorder-details">
+                        <tr>
+                            <td class="add-img">
+                                <img src="assets/images/2.jpg">
+                            </td>
+                            <td>
+                                <p>Light
+                                </p>
+                            </td>
+                            <td>Brand 1</td>
+                            <td>1</td>
+                            <td>BD 34</td>
+                        </tr>
+                        <tr>
+                            <td class="add-img">
+                                <img src="assets/images/3.jpg">
+                            </td>
+                            <td>
+                                <p>Laptop
+                                </p>
+                            </td>
+                            <td>Brand 2</td>
+                            <td>1</td>
+                            <td>BD 47</td>
+                        </tr>
+                        <tr>
+                            <td class="add-img">
+                                <img src="assets/images/4.jpg">
+                            </td>
+                            <td>
+                                <p>Personal Care
+                                </p>
+                            </td>
+                            <td>Brand 3</td>
+                            <td>1</td>
+                            <td>BD 42</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Total
+                            </td>
+                            <td>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <strong>BD 122</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="customer-detls">
+                <p>Customer Details</p>
+            </div>
+            <ul class="cust-dets">
+                <li>
+                    <i class="fa fa-user" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Peter Mark</li>
+                <li>
+                    <i class="fa fa-phone" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;98540 98540</li>
+                <li>
+                    <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16-11-16/A/43/1,
+                    Ashok
+                    plaza, Near Masab Tank, Tolichowki, Mehadipatnam, Hyderabad 50038
+                </li>
+            </ul>
+            <div class="order-details">
+                <p>Order Details</p>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td style="font-size: 16px;">Order Type</td>
+                            <td class="prod-price">
+                                <strong>Immediate</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 16px;">Order Date & Time</td>
+                            <td class="prod-price">
+                                <strong>25 July 2018, 3:41 PM</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 16px;">Payment Method</td>
+                            <td class="prod-price">
+                                <strong>Payment Gateway</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 16px;">Order Status</td>
+                            <td class="prod-price">
+                                <div>
+                                    <select class="cust-slct">
+                                        <option>Processing</option>
+                                        <option>Pending</option>
+                                        <option>Delivered</option>
+                                    </select>
+                                </div>
+                                <div class="download-slip">
+                                    <a href="">Download Delivery slip</a>
+                                </div>
+                                <div class="">
+                                    <button type="submit" class="btn cust-savechanges">Save Changes</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- ./manage order details -->
 
     </div>
 </div>
@@ -2226,8 +2234,8 @@
                         <div class="col-sm-5">
                             <div class="add-popup">
                                 <!-- <div class="addProd"> -->
-                                <img [src]="reqProds.product_image" alt="electronics"/>
-                            <!-- </div> -->
+                                <img [src]="reqProds.product_image" alt="electronics" />
+                                <!-- </div> -->
                                 <p>
                                     <span class="pot">{{reqProds.product_name}}</span>
                                     <br />{{reqProds.brand}}</p>
@@ -2239,39 +2247,33 @@
                                     <div class="form-group row">
                                         <label for="price" class="col-sm-3 col-form-label">Price</label>
                                         <div class="col-sm-8">
-                                            
-                                                <input type="text" class="form-control" id="price" formControlName="deal_price"
-                                                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f2.deal_price.errors }">
-                                                <div *ngIf="submitted && f2.deal_price.errors" class="invalid-feedback">
-                                                    <div *ngIf="f2.deal_price.errors.required">Price is
-                                                        required</div>
-                                                </div>
-                                               
+                                            <input type="text" class="form-control" id="price" formControlName="deal_price"
+                                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f2.deal_price.errors }">
+                                            <div *ngIf="submitted && f2.deal_price.errors" class="invalid-feedback">
+                                                <div *ngIf="f2.deal_price.errors.required">Price is
+                                                    required</div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="discount" class="col-sm-3 col-form-label">Discount</label>
                                         <div class="col-sm-8">
-                                         
-                                                <input type="text" class="form-control" id="discount" formControlName="status"
-                                                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f2.status.errors }">
-                                                <div *ngIf="submitted && f2.status.errors" class="invalid-feedback">
-                                                    <div *ngIf="f2.status.errors.required">Discount is required</div>
-                                                </div>
-                                                
+                                            <input type="text" class="form-control" id="discount" formControlName="status"
+                                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f2.status.errors }">
+                                            <div *ngIf="submitted && f2.status.errors" class="invalid-feedback">
+                                                <div *ngIf="f2.status.errors.required">Discount is required</div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="status" class="col-sm-3 col-form-label">Status</label>
                                         <div class="col-sm-8">
-                                            
-                                                <input type="text" class="form-control" id="status" formControlName="discount"
-                                                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f2.discount.errors }">
-                                                <div *ngIf="submitted && f2.discount.errors" class="invalid-feedback">
-                                                    <div *ngIf="f2.discount.errors.required">Status is required</div>
-                                                </div>
-                                                <button type="submit" class="btn add-button pop-save" (click)="save(reqProds.product_id)">SAVE</button>
-                                             
+                                            <input type="text" class="form-control" id="status" formControlName="discount"
+                                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f2.discount.errors }">
+                                            <div *ngIf="submitted && f2.discount.errors" class="invalid-feedback">
+                                                <div *ngIf="f2.discount.errors.required">Status is required</div>
+                                            </div>
+                                            <button type="submit" class="btn add-button pop-save" (click)="save(reqProds.product_id)">SAVE</button>
                                         </div>
                                     </div>
                                 </form>
@@ -2388,5 +2390,5 @@
             </div>
         </div>
     </div>
-   
+
 </div>
