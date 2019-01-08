@@ -65,14 +65,14 @@
         <div class="col-lg-7" *ngIf="editUserProfile">
             <h3 class="profile-header">Edit Profile</h3>
             <br />
-            <form class="form-details">
+            <form class="form-details" #formCtrl="ngForm">
                 <div class="form-group row">
                     <label for="inputname1" class="col-sm-3 col-form-label">Name
                         <span class="float-right">:</span>
                     </label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control input-feild" id="inputname1" name="first_name"
-                            [(ngModel)]="profileData.first_name">
+                            [(ngModel)]="profileData.first_name" ngControl="first_name" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -81,7 +81,7 @@
                     </label>
                     <div class="col-sm-9">
                         <input type="email" class="form-control input-feild" id="inputEmail3" placeholder="tarunkumar321@gmail.com"
-                            name="email" [(ngModel)]="profileData.email">
+                            name="email" [(ngModel)]="profileData.email" ngControl="email" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -90,7 +90,7 @@
                     </label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control input-feild" id="inputphoneno1" placeholder="8586854500"
-                            [(ngModel)]="profileData.mobile_number" name="mobile_number">
+                            [(ngModel)]="profileData.mobile_number" name="mobile_number" ngControl="mobile_number" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -107,7 +107,7 @@
                     </label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control input-feild" id="inputhouseno" placeholder="Unispace Bussiness Center #143"
-                            [(ngModel)]="profileData.bussiness_area" name="bussiness_area">
+                            [(ngModel)]="profileData.bussiness_area" name="bussiness_area" ngControl="bussiness_area" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -122,7 +122,7 @@
                     </label>
                     <div class="col-sm-3 pad-lt">
                         <input type="text" class="form-control input-feild" id="inputcity" placeholder="Bangalore"
-                            [(ngModel)]="profileData.bussiness_city" name="bussiness_city">
+                            [(ngModel)]="profileData.bussiness_city" name="bussiness_city" ngControl="bussiness_city" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -133,7 +133,7 @@
                         <input type="text" class="form-control input-feild" id="inputpincode" placeholder="500038">
                         <div class="row justify-content-center">
                             <div class="col-sm-5 col-lg-5">
-                                <button type="button" class="btn save-btn" (click)="updateProfile()">Save</button>
+                                <button type="button" class="btn save-btn" [disabled]="!formCtrl.form.valid" (click)="updateProfile()">Save</button>
                             </div>
                             <div class="col-sm-2 col-lg-2"></div>
                             <div class="col-sm-5 col-lg-5">
@@ -240,7 +240,7 @@
         <!-- Edit Account Details -->
         <div class="col-lg-7 col-md-9 col-sm-12 col-12" *ngIf="editAccount">
             <h3 class="profile-header">Edit Account Details</h3>
-            <form class="form-details">
+            <form class="form-details" #formCtrl="ngForm">
                 <div class="form-group row">
                     <label for="inputname1" class="col-sm-4 col-md-4 col-form-label">
                         <strong>Account Name</strong>
@@ -248,7 +248,7 @@
                     </label>
                     <div class="col-sm-8 col-md-8">
                         <input type="text" class="form-control input-feild" id="inputname1" [(ngModel)]="accDet.account_holder_name"
-                            name="account_holder_name" placeholder="Vijay Kumar">
+                            name="account_holder_name" placeholder="Vijay Kumar" ngControl="account_holder_name" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -258,7 +258,7 @@
                     </label>
                     <div class="col-sm-8 col-md-8">
                         <input type="email" class="form-control input-feild" id="inputEmail3" [(ngModel)]="accDet.account_number"
-                            name="account_number" placeholder="09876547995432">
+                            name="account_number" placeholder="09876547995432" ngControl="account_holder_name" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -268,7 +268,7 @@
                     </label>
                     <div class="col-sm-8 col-md-8">
                         <input type="text" class="form-control input-feild" id="inputphoneno" [(ngModel)]="accDet.bank_name"
-                            name="bank_name" placeholder="Lorem Bank">
+                            name="bank_name" placeholder="Lorem Bank" ngControl="bank_name" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -278,7 +278,7 @@
                     </label>
                     <div class="col-sm-8 col-md-8">
                         <input type="text" class="form-control input-feild" id="inputhouseno" [(ngModel)]="accDet.ifsc_code"
-                            name="ifsc_code" placeholder="54500">
+                            name="ifsc_code" placeholder="54500" ngControl="ifsc_code" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -288,7 +288,7 @@
                     </label>
                     <div class="col-sm-4 col-md-4">
                         <input type="text" class="form-control input-feild" id="inputstate" [(ngModel)]="accDet.bank_area"
-                            name="bank_area" placeholder="Lorem">
+                            name="bank_area" placeholder="Lorem" ngControl="bank_area" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -298,7 +298,7 @@
                     </label>
                     <div class="col-sm-4 col-md-4">
                         <input type="text" class="form-control input-feild" id="inputcity" [(ngModel)]="accDet.bank_city"
-                            name="bank_city" placeholder="Lorem">
+                            name="bank_city" placeholder="Lorem" ngControl="bank_city" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -308,10 +308,10 @@
                     </label>
                     <div class="col-sm-8 col-md-8">
                         <input type="text" class="form-control input-feild" id="inputpincode" [(ngModel)]="accDet.bank_branch"
-                            name="bank_branch" placeholder="Lorem">
+                            name="bank_branch" placeholder="Lorem" ngControl="bank_branch" required>
                         <div class="row justify-content-center">
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <button type="button" class="btn save-btn" (click)="saveDetails()">Save</button>
+                                <button type="button" class="btn save-btn" [disabled]="!formCtrl.form.valid" (click)="saveDetails()">Save</button>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <button type="button" class="btn save-btn" (click)="cancelDetails()">Cancel</button>
@@ -630,9 +630,9 @@
                     <div class="addType">
                         <p>Choose nick name for this address</p>
                         <p class="addresses ">
-                            <a (click)="Type('Home')">Home</a>
-                            <a (click)="Type('Office')">Office</a>
-                            <a (click)="Type('Other')">Other</a>
+                            <a (click)="Type('Home')" [ngClass]="{'activeAdd':type=='Home'}">Home</a>
+                            <a (click)="Type('Office')" [ngClass]="{'activeAdd':type=='Office'}">Office</a>
+                            <a (click)="Type('Other')" [ngClass]="{'activeAdd':type=='Other'}">Other</a>
                         </p>
                     </div>
                 </div>
@@ -1355,9 +1355,9 @@
             <!-- <div class="search-notfound">
                     <button type="submit" class="btn" data-toggle="modal" data-target="#notfound">Item not found</button>
                 </div> -->
-            <div class="search-notfound">
+            <!-- <div class="search-notfound">
                 <button type="submit" class="btn" (click)="requestAdmin()">Item not found</button>
-            </div>
+            </div> -->
         </div>
         <!-- Add Products2 -->
 
