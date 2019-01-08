@@ -1,3 +1,38 @@
+.bg-image{
+    background-image: url(/assets/images/item-bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    text-align:center;
+}
+.expand-button{
+    display: none;
+    list-style: none;
+    padding:0px;
+    li{
+        display: inline-block;
+        margin: 1px 10px;
+        i{
+            color:#dfdfdf;
+        }
+        img{
+            width: 19px!important;
+            height:auto!important;  
+            margin-top: 0px;
+        }
+    }
+  }
+  .wrapper:hover .expand-button {
+    display: block;
+    position: absolute;
+    top: 4px;
+    background: #ffffff;
+    padding: 4px;
+    left: 22px;
+    border-radius: 24px;
+  }
 .deals-header{
     text-align:center;
     h4{
@@ -27,10 +62,11 @@
 }
 
 .carousel-multi-item img {
-    max-width: 83%;
-    height: auto;
+    max-width: 177px;
+    height: 148px;
     margin: auto;
     margin-top: 27px;
+    text-align: center;
 }
 
 h5 {

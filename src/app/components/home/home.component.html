@@ -58,9 +58,6 @@
 	<hr>
 </div>
 <div id="multi-item-example" class="carousel slide carousel-multi-item container " data-ride="carousel">
-
-
-
 	<br />
 	<!--Slides-->
 	<div class="carousel-inner deals" role="listbox">
@@ -69,16 +66,24 @@
 		<div class="carousel-item active dealsAct">
 
 			<div class="col-md-3" *ngFor="let data of skuArr">
-				<div class="card">
-					<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
-					<div class="card-block">
-						<h5 class="text-center">{{data.product_name}}</h5>
-						<p class="text-center">
-							BD {{data.selling_price}}
+				<div class="wrapper">
+					<div class="card">
+						<div class="bg-image">
+							<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
+						</div>
+						<div class="card-block">
+							<h5 class="text-center">{{data.product_name}}</h5>
+							<p class="text-center">
+								BD {{data.selling_price}}
 
-							<strike>BD {{data.actual_price}}</strike>
-						</p>
+								<strike>BD {{data.actual_price}}</strike>
+							</p>
+						</div>
 					</div>
+					<ul class="expand-button">
+						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
+					</ul>
 				</div>
 			</div>
 
@@ -310,15 +315,23 @@
 		<!--First slide-->
 		<div class="carousel-item active dealsAct">
 			<div class="col-md-3" *ngFor="let data of topArr">
-				<div class="card">
-					<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
-					<div class="card-block">
-						<h5 class="text-center">{{data.product_name}}</h5>
-						<p class="text-center">
-							BD {{data.selling_price}}
-							<strike>BD {{data.actual_price}}</strike>
-						</p>
+				<div class="wrapper">
+					<div class="card">
+						<div class="bg-image">
+							<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
+						</div>
+						<div class="card-block">
+							<h5 class="text-center">{{data.product_name}}</h5>
+							<p class="text-center">
+								BD {{data.selling_price}}
+								<strike>BD {{data.actual_price}}</strike>
+							</p>
+						</div>
 					</div>
+					<ul class="expand-button">
+						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
+					</ul>
 				</div>
 			</div>
 			<!-- 
@@ -520,9 +533,6 @@
 </div>
 <!-- clothing -->
 <div id="multi-item-example3" class="carousel slide carousel-multi-item container" data-ride="carousel">
-
-
-
 	<br />
 	<!--Slides-->
 	<div class="carousel-inner deals" role="listbox">
@@ -531,20 +541,26 @@
 		<div class="carousel-item active dealsAct">
 
 			<div class="col-md-3" *ngFor="let cloth of clothArr">
-				<div class="card">
-					<img class="img-fluid" [src]="cloth.image" alt="Card image cap" (click)="showProduxtDetails(cloth.product_id)">
-					<div class="card-block">
-						<h5 class="text-center">{{cloth.product_name}}
+				<div class="wrapper">
+					<div class="card">
+						<div class="bg-image">
+							<img class="img-fluid" [src]="cloth.image" alt="Card image cap" (click)="showProduxtDetails(cloth.product_id)">
+						</div>
+						<div class="card-block">
+							<h5 class="text-center">{{cloth.product_name}}
 
-						</h5>
-						<p class="text-center">
-							BD {{cloth.selling_price}}
+							</h5>
+							<p class="text-center">
+								BD {{cloth.selling_price}}
 
-							<strike>BD {{cloth.actual_price}}</strike>
-
-						</p>
-
+								<strike>BD {{cloth.actual_price}}</strike>
+							</p>
+						</div>
 					</div>
+					<ul class="expand-button">
+						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
+					</ul>
 				</div>
 			</div>
 
@@ -640,19 +656,25 @@
 		<div class="carousel-item active dealsAct">
 
 			<div class="col-md-3" *ngFor="let jewel of jewelArr">
-				<div class="card">
-					<img class="img-fluid" [src]="jewel.image" alt="Card image cap" (click)="showProduxtDetails(jewel.product_id)">
-					<div class="card-block">
-						<h5 class="text-center">{{jewel.product_name}}
-						</h5>
-						<p class="text-center">
-							BD {{jewel.selling_price}}
+				<div class="wrapper">
+					<div class="card">
+						<img class="img-fluid" [src]="jewel.image" alt="Card image cap" (click)="showProduxtDetails(jewel.product_id)">
+						<div class="card-block">
+							<h5 class="text-center">{{jewel.product_name}}
+							</h5>
+							<p class="text-center">
+								BD {{jewel.selling_price}}
 
-							<strike>BD {{jewel.actual_price}}</strike>
+								<strike>BD {{jewel.actual_price}}</strike>
 
-						</p>
+							</p>
 
+						</div>
 					</div>
+					<ul class="expand-button">
+						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
+					</ul>
 				</div>
 			</div>
 
@@ -870,20 +892,26 @@
 		<div class="carousel-item active dealsAct">
 
 			<div class="col-md-3" *ngFor="let data of ecomArr">
-				<div class="card">
-					<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
-					<div class="card-block">
-						<h5 class="text-center">{{data.product_name}}
-						</h5>
-						<p class="text-center">
-							BD {{data.selling_price}}
+				<div class="wrapper">
+					<div class="card">
+						<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
+						<div class="card-block">
+							<h5 class="text-center">{{data.product_name}}
+							</h5>
+							<p class="text-center">
+								BD {{data.selling_price}}
 
-							<strike>BD {{data.actual_price}}
-							</strike>
+								<strike>BD {{data.actual_price}}
+								</strike>
 
-						</p>
+							</p>
 
+						</div>
 					</div>
+					<ul class="expand-button">
+						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
+					</ul>
 				</div>
 			</div>
 
