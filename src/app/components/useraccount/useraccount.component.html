@@ -404,7 +404,7 @@
                 <div class="col-lg-2 form-check">
                     <div *ngIf="seleOpt==i">
                         <button class="icon-btn">
-                            <i class="fa fa-pencil" aria-hidden="true" (click)="showEditAdd(add.address_id)"></i>
+                            <i class="fa fa-pencil" aria-hidden="true" (click)="editAdd(add.address_id)"></i>
                         </button>
                         <button class="icon-btn1">
                             <i class="fa fa-trash" aria-hidden="true" (click)="delAdd(add.address_id)"></i>
@@ -2075,6 +2075,138 @@
         <!--/.Controls-->
     </div>
 </div>
+ <!-- manage detailed order details -->
+ <div class="col-lg-9" *ngIf="showManageUserOrders">
+    <div>
+      <h3 class="profile-header">Manage User Orders</h3>
+    </div>
+    <div class="order-details">
+      <p>Order no : 1441367</p>
+    </div>
+    <div class="table-responsive">
+      <table class="table myorder-details">
+        <thead>
+          <tr>
+            <th scope="col" style="font-size:18px;">Product</th>
+            <th scope="col" style="font-size:18px;">Name</th>
+            <th scope="col" style="font-size:18px;">Brand</th>
+            <th scope="col" style="font-size:18px;">Quantity</th>
+            <th scope="col" style="font-size:18px;">Price</th>
+          </tr>
+        </thead>
+        <tbody class="table-data myorder-details">
+          <tr>
+            <td class="add-img">
+              <img src="assets/images/2.jpg">
+            </td>
+            <td>
+              <p>Light
+              </p>
+            </td>
+            <td>Brand 1</td>
+            <td>1</td>
+            <td>BD 34</td>
+          </tr>
+          <tr>
+            <td class="add-img">
+              <img src="assets/images/3.jpg">
+            </td>
+            <td>
+              <p>Laptop
+              </p>
+            </td>
+            <td>Brand 2</td>
+            <td>1</td>
+            <td>BD 47</td>
+          </tr>
+          <tr>
+            <td class="add-img">
+              <img src="assets/images/4.jpg">
+            </td>
+            <td>
+              <p>Personal Care
+              </p>
+            </td>
+            <td>Brand 3</td>
+            <td>1</td>
+            <td>BD 42</td>
+          </tr>
+          <tr>
+            <td>
+              Total
+            </td>
+            <td>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <strong>BD 122</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="customer-detls">
+      <p>Customer Details</p>
+    </div>
+    <ul class="cust-dets">
+      <li>
+        <i class="fa fa-user" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Peter Mark</li>
+      <li>
+        <i class="fa fa-phone" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;98540 98540</li>
+      <li>
+        <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16-11-16/A/43/1,
+        Ashok
+        plaza, Near Masab Tank, Tolichowki, Mehadipatnam, Hyderabad 50038
+      </li>
+    </ul>
+    <div class="order-details">
+      <p>Order Details</p>
+    </div>
+    <div class="table-responsive">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td style="font-size: 16px;">Order Type</td>
+            <td class="prod-price">
+              <strong>Immediate</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size: 16px;">Order Date & Time</td>
+            <td class="prod-price">
+              <strong>25 July 2018, 3:41 PM</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size: 16px;">Payment Method</td>
+            <td class="prod-price">
+              <strong>Payment Gateway</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size: 16px;">Order Status</td>
+            <td class="prod-price">
+              <div>
+                <select class="cust-slct">
+                  <option>Processing</option>
+                  <option>Pending</option>
+                  <option>Delivered</option>
+                </select>
+              </div>
+              <div class="download-slip">
+                <a href="">Download Delivery slip</a>
+              </div>
+              <div class="">
+                <button type="submit" class="btn cust-savechanges">Save Changes</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- ./manage order details -->
 
     </div>
 </div>
@@ -2256,4 +2388,5 @@
             </div>
         </div>
     </div>
+   
 </div>
