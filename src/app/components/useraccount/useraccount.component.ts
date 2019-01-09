@@ -39,8 +39,7 @@ export class UseraccountComponent implements OnInit {
     productForm: FormGroup
     submitted = false;
    
-    fromDt;
-    toDt;
+    
     editDel = false;
     ngOnInit() {
         this.addressForm = this.formBuilder.group({
