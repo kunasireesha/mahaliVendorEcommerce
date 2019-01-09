@@ -45,20 +45,21 @@
 </main>
 <br />
 <!-- delas -->
-<div id="multi-item-example" class="carousel slide carousel-multi-item container" data-ride="carousel">
 
-	<div class="row">
-		<div class="col-sm-4"></div>
-		<div class="col-sm-4">
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
 			<h4 class="text-center">Deals of the Day
 				<span>
 					<a (click)="seeAll('deals')">See all</a>
 				</span>
 			</h4>
 		</div>
-		<div class="col-sm-4"></div>
-	</div>
 
+	</div>
+	<hr>
+</div>
+<div id="multi-item-example" class="carousel slide carousel-multi-item container " data-ride="carousel">
 	<br />
 	<!--Slides-->
 	<div class="carousel-inner deals" role="listbox">
@@ -67,16 +68,24 @@
 		<div class="carousel-item active dealsAct">
 
 			<div class="col-md-3" *ngFor="let data of skuArr">
-				<div class="card">
-					<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
-					<div class="card-block">
-						<h5 class="text-center">{{data.product_name}}</h5>
-						<p class="text-center">
-							BD {{data.selling_price}}
-							
-							<strike>BD {{data.actual_price}}</strike>
-						</p>
+				<div class="wrapper">
+					<div class="card">
+						<div class="bg-image">
+							<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
+						</div>
+						<div class="card-block">
+							<h5 class="text-center">{{data.product_name}}</h5>
+							<p class="text-center">
+								BD {{data.selling_price}}
+
+								<strike>BD {{data.actual_price}}</strike>
+							</p>
+						</div>
 					</div>
+					<ul class="expand-button">
+						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
+					</ul>
 				</div>
 			</div>
 
@@ -105,7 +114,7 @@
 					</div>
 				</div>
 			</div> -->
-<!-- 
+			<!-- 
 			<div class="col-md-3 hidden-sm-down">
 				<div class="card">
 					<img class="img-fluid" src="assets/images/4.jpg" alt="Card image cap">
@@ -259,9 +268,17 @@
 <!-- end deals -->
 
 <!-- featurs -->
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
+			<h4 class="text-center">Featured Brands
+			</h4>
+		</div>
+	</div>
+	<hr>
+</div>
 <div class="container fetures">
-	<h4 class="text-center">Featured Brands
-	</h4>
+
 	<br />
 	<div class="row">
 
@@ -277,13 +294,21 @@
 <br />
 
 <!-- offers -->
-<div id="multi-item-example1" class="carousel slide carousel-multi-item container" data-ride="carousel">
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
 
-	<h4 class="text-center">Top offers
-		<span>
-			<a (click)="seeAll('typeProd')">See all</a>
-		</span>
-	</h4>
+			<h4 class="text-center">Top offers
+				<span>
+					<a (click)="seeAll('typeProd')">See all</a>
+				</span>
+			</h4>
+
+		</div>
+	</div>
+	<hr>
+</div>
+<div id="multi-item-example1" class="carousel slide carousel-multi-item container" data-ride="carousel">
 
 	<br />
 	<!--Slides-->
@@ -292,18 +317,26 @@
 		<!--First slide-->
 		<div class="carousel-item active dealsAct">
 			<div class="col-md-3" *ngFor="let data of topArr">
-				<div class="card">
-					<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
-					<div class="card-block">
-						<h5 class="text-center">{{data.product_name}}</h5>
-						<p class="text-center">
-							BD {{data.selling_price}}
-							<strike>BD {{data.actual_price}}</strike>
-						</p>
+				<div class="wrapper">
+					<div class="card">
+						<div class="bg-image">
+							<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
+						</div>
+						<div class="card-block">
+							<h5 class="text-center">{{data.product_name}}</h5>
+							<p class="text-center">
+								BD {{data.selling_price}}
+								<strike>BD {{data.actual_price}}</strike>
+							</p>
+						</div>
 					</div>
+					<ul class="expand-button">
+						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
+					</ul>
 				</div>
 			</div>
-<!-- 
+			<!-- 
 			<div class="col-md-3 hidden-sm-down">
 				<div class="card">
 					<img class="img-fluid" src="assets/images/6.jpg" alt="Card image cap">
@@ -488,16 +521,20 @@
 <br />
 <br />
 <br />
-
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
+			<h4 class="text-center">Clothing & Accessories
+				<span>
+					<a (click)="seeAll('cloth')">See all</a>
+				</span>
+			</h4>
+		</div>
+	</div>
+	<hr>
+</div>
 <!-- clothing -->
 <div id="multi-item-example3" class="carousel slide carousel-multi-item container" data-ride="carousel">
-
-	<h4 class="text-center">Clothing & Accessories
-		<span>
-			<a (click)="seeAll('cloth')">See all</a>
-		</span>
-	</h4>
-
 	<br />
 	<!--Slides-->
 	<div class="carousel-inner deals" role="listbox">
@@ -506,20 +543,26 @@
 		<div class="carousel-item active dealsAct">
 
 			<div class="col-md-3" *ngFor="let cloth of clothArr">
-				<div class="card">
-					<img class="img-fluid" [src]="cloth.image" alt="Card image cap" (click)="showProduxtDetails(cloth.product_id)">
-					<div class="card-block">
-						<h5 class="text-center">{{cloth.product_name}}
+				<div class="wrapper">
+					<div class="card">
+						<div class="bg-image">
+							<img class="img-fluid" [src]="cloth.image" alt="Card image cap" (click)="showProduxtDetails(cloth.product_id)">
+						</div>
+						<div class="card-block">
+							<h5 class="text-center">{{cloth.product_name}}
 
-						</h5>
-						<p class="text-center">
-							BD {{cloth.selling_price}}
+							</h5>
+							<p class="text-center">
+								BD {{cloth.selling_price}}
 
-							<strike>BD {{cloth.actual_price}}</strike>
-
-						</p>
-
+								<strike>BD {{cloth.actual_price}}</strike>
+							</p>
+						</div>
 					</div>
+					<ul class="expand-button">
+						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
+					</ul>
 				</div>
 			</div>
 
@@ -573,7 +616,7 @@
 
 
 		</div>
-		
+
 
 	</div>
 	<!--/.Slides-->
@@ -593,15 +636,20 @@
 <!-- end clothing -->
 
 <!-- jewellery -->
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
+			<h4 class="text-center">Jewellery
+				<span>
+					<a (click)="seeAll('jewel')">See all</a>
+				</span>
+			</h4>
 
+		</div>
+	</div>
+	<hr>
+</div>
 <div id="multi-item-example4" class="carousel slide carousel-multi-item container" data-ride="carousel">
-
-	<h4 class="text-center">Jewellery
-		<span>
-			<a (click)="seeAll('jewel')">See all</a>
-		</span>
-	</h4>
-
 	<br />
 	<!--Slides-->
 	<div class="carousel-inner deals" role="listbox">
@@ -610,22 +658,28 @@
 		<div class="carousel-item active dealsAct">
 
 			<div class="col-md-3" *ngFor="let jewel of jewelArr">
-				<div class="card">
-					<img class="img-fluid" [src]="jewel.image" alt="Card image cap" (click)="showProduxtDetails(jewel.product_id)">
-					<div class="card-block">
-						<h5 class="text-center">{{jewel.product_name}}
-						</h5>
-						<p class="text-center">
-							BD {{jewel.selling_price}}
+				<div class="wrapper">
+					<div class="card">
+						<img class="img-fluid" [src]="jewel.image" alt="Card image cap" (click)="showProduxtDetails(jewel.product_id)">
+						<div class="card-block">
+							<h5 class="text-center">{{jewel.product_name}}
+							</h5>
+							<p class="text-center">
+								BD {{jewel.selling_price}}
 
-							<strike>BD {{jewel.actual_price}}</strike>
+								<strike>BD {{jewel.actual_price}}</strike>
 
-						</p>
+							</p>
 
+						</div>
 					</div>
+					<ul class="expand-button">
+						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
+					</ul>
 				</div>
 			</div>
-			
+
 
 
 
@@ -816,13 +870,21 @@
 <br />
 
 <!-- recently viewed -->
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
+			<h4 class="text-center">Recently Viewed
+				<span>
+					<a (click)="seeAll('recent')">See all</a>
+				</span>
+			</h4>
+		</div>
+	</div>
+	<hr>
+</div>
 <div id="multi-item-example5" class="carousel slide carousel-multi-item container" data-ride="carousel">
 
-	<h4 class="text-center">Recently Viewed
-		<span>
-			<a (click)="seeAll('recent')">See all</a>
-		</span>
-	</h4>
+
 
 	<br />
 	<!--Slides-->
@@ -832,20 +894,26 @@
 		<div class="carousel-item active dealsAct">
 
 			<div class="col-md-3" *ngFor="let data of ecomArr">
-				<div class="card">
-					<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
-					<div class="card-block">
-						<h5 class="text-center">{{data.product_name}}
-						</h5>
-						<p class="text-center">
-							BD {{data.selling_price}}
+				<div class="wrapper">
+					<div class="card">
+						<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
+						<div class="card-block">
+							<h5 class="text-center">{{data.product_name}}
+							</h5>
+							<p class="text-center">
+								BD {{data.selling_price}}
 
-							<strike>BD {{data.actual_price}}
-							</strike>
+								<strike>BD {{data.actual_price}}
+								</strike>
 
-						</p>
+							</p>
 
+						</div>
 					</div>
+					<ul class="expand-button">
+						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
+					</ul>
 				</div>
 			</div>
 
@@ -900,7 +968,7 @@
 
 		</div>
 		<!--/.First slide-->
-		
+
 	</div>
 	<!--/.Slides-->
 
@@ -919,13 +987,23 @@
 
 <!-- end recently viewed -->
 
+<div class="container-fluid deals-header">
+	<div class="row justify-content-center">
+		<div class="col-lg-4">
+			<h4 class="text-center">Recommended Products
+				<span>
+					<a (click)="seeAll('recent')">See all</a>
+				</span>
 
+			</h4>
+		</div>
+	</div>
+	<hr>
+</div>
 <!-- recommended products -->
 <div id="multi-item-example6" class="carousel slide carousel-multi-item container" data-ride="carousel">
 
-	<h4 class="text-center">Recommended Products
 
-	</h4>
 
 	<br />
 	<!--Slides-->
@@ -933,58 +1011,32 @@
 
 		<!--First slide-->
 		<div class="carousel-item active">
-				<div class="noData">
-						No records Found
-					  </div>
-<!-- 
-			<div class="col-md-6">
-				<div class="card">
-					<div class="row">
-						<div class="col-md-6">
-							<img class="img-fluid" src="assets/images/21.jpg" alt="Card image cap">
-						</div>
-						<div class="card-block col-md-6 recmded">
-							<h5 class="">Silver Ring
+			<!-- <div class="noData">
+				No records Found
+			</div> -->
+			<div class="col-md-3" *ngFor="let data of ecomArr">
+				<div class="wrapper">
+					<div class="card">
+						<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
+						<div class="card-block">
+							<h5 class="text-center">{{data.product_name}}
 							</h5>
-							<p class="">
-								Jewellery</p> -->
-							<!-- <a *ngFor="let item of starList; let i=index " (click)="setStar(i)">
-					<i class="fa" [ngClass]="{'fa-star-o':item,'fa-star':!item}"></i>
-				  </a> -->
-							<!-- <i *ngFor="let item of starList; let i=index " class="fa fa-star"></i>
-							<br />
-							<a href>View Product&nbsp;
-								<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-							</a>
+							<p class="text-center">
+								BD {{data.selling_price}}
+
+								<strike>BD {{data.actual_price}}
+								</strike>
+
+							</p>
+
 						</div>
 					</div>
-
+					<ul class="expand-button">
+						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
+					</ul>
 				</div>
-			</div> -->
-
-			<!-- <div class="col-md-6 hidden-sm-down">
-				<div class="card">
-					<div class="row">
-						<div class="col-md-6">
-							<img class="img-fluid" src="assets/images/22.jpg" alt="Card image cap">
-						</div>
-						<div class="card-block col-md-6 recmded">
-							<div class="card-block">
-								<h5 class="">Men's Belt</h5>
-								<p class="">
-									clothing & Accessories
-								</p>
-								<i *ngFor="let item of starList; let i=index " class="fa fa-star"></i>
-								<br />
-								<a href>View Product&nbsp;
-									<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
-
+			</div>
 
 
 

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { RegistrationComponent } from '../../components/registration/registration.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var jQuery: any;
+declare var $: any;
 // import { } from 'googlemaps';
 declare var google: any;
 @Component({
@@ -15,7 +16,8 @@ declare var google: any;
     styleUrls: ['./header.component.less']
 })
 export class HeaderComponent implements OnInit {
-    @Input() cartCount:number; 
+    @Input() cartCount:number;
+    @Input() billing:number; 
     registerForm: FormGroup;
     loginForm: FormGroup;
     submitted = false;
@@ -145,6 +147,7 @@ export class HeaderComponent implements OnInit {
         localStorage.removeItem('userId');
         localStorage.removeItem('phone');
         localStorage.removeItem('userName');
+        localStorage.removeItem('email');
         this.showRegistration = true;
         this.showLoginScreen = true;
         this.myAccount = false;
@@ -245,10 +248,12 @@ export class HeaderComponent implements OnInit {
     }
     subCatData = [];
     subId;
-    showSubCat(Id) {
+    selectedCat;
+    showSubCat(Id,index) {
         this.subId = Id;
         this.subCatData = [];
         this.showSubCats = true;
+        this.selectedCat = index;
         for (var i = 0; i < this.category.length; i++) {
             for (var j = 0; j < this.category[i].subcategory.length; j++) {
                 if (Id === this.category[i].subcategory[j].category_id) {
@@ -273,14 +278,15 @@ export class HeaderComponent implements OnInit {
     showProbyCat(catId, action, catName) {
         this.showSubCats = false;
         this.router.navigate(['/products'], { queryParams: { catId: catId, action: action, catName: catName } });
+        $("#itemdesc").modal("hide");
     }
     showProbySubCat(SubCatId, action, catName, subCat) {
         this.showSubCats = false;
         this.router.navigate(['/products'], { queryParams: { subId: SubCatId, action: action, catName: catName, subCat: subCat } });
+        $("#itemdesc").modal("hide");
     }
     cartDetails = [];
     cartData = [];
-    billing;
     getCart() {
         var inData = localStorage.getItem('userId');
         this.appService.getCart(inData).subscribe(res => {

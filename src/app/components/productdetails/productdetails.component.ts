@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 
 export class ProductdetailsComponent implements OnInit {
     product: ProductsData;
-    constructor(private route: ActivatedRoute, public productService: ProductService, private appService: appService,private router: Router) {
+    constructor(private route: ActivatedRoute, public productService: ProductService, private appService: appService, private router: Router) {
         this.route.queryParams.subscribe(params => {
             this.prodId = params.prodId;
         });
@@ -26,11 +26,10 @@ export class ProductdetailsComponent implements OnInit {
     prodId;
     ngOnInit() {
         this.product = this.productService.product;
-        console.log(this.product);
         this.sub = this.route
             .data
             .subscribe(v => console.log(v));
-            this.getProductById();
+        this.getProductById();
 
     }
     itemIncrease() {
@@ -71,9 +70,19 @@ export class ProductdetailsComponent implements OnInit {
     offer_price;
     actual_price;
     product_image;
+    prodImages = [];
     getProductById() {
         this.appService.getProductById(this.prodId).subscribe(res => {
-            this.prodsData = res.json().products;
+            // this.prodId = res.json().products.product_id;
+            this.prodsData = res.json().products.sku_details;
+            for (var j = 0; j < this.prodsData.length; j++) {
+                for (var k = 0; k < this.prodsData[j].images.length; k++) {
+                    this.prodImages.push(this.prodsData[j].images[k]);
+                    // console.log(this.prodImages);
+                }
+            }
+
+
             this.prodData = res.json().products.sku_details;
             this.offer_price = this.prodData[0].offer_price;
             this.actual_price = this.prodData[0].actual_price;
@@ -84,8 +93,11 @@ export class ProductdetailsComponent implements OnInit {
         }, err => {
 
         })
+        console.log(this.prodImages);
     }
-    changeSize(skId){
+
+
+    changeSize(skId) {
         for (var i = 0; i < this.prodData.length; i++) {
             if (parseInt(skId) === this.prodData[i].skid) {
                 this.offer_price = this.prodData[i].offer_price;
@@ -103,7 +115,7 @@ export class ProductdetailsComponent implements OnInit {
                 sku_id: this.skid
             }],
             "vendor_id": JSON.parse(localStorage.getItem('userId')),
-            "item_type":"ecommerce"
+            "item_type": "ecommerce"
         }
         this.appService.addtoCart(inData).subscribe(res => {
             this.getCart();
@@ -112,18 +124,24 @@ export class ProductdetailsComponent implements OnInit {
 
         })
     }
-    cartDetails=[];
-    cartCount=[];
+    cartDetails = [];
+    cartCount = [];
+    billing;
     getCart() {
         var inData = localStorage.getItem('userId');
         this.appService.getCart(inData).subscribe(res => {
             this.cartDetails = res.json().cart_details;
             this.cartCount = res.json().count;
+            this.billing = res.json().selling_Price_bill;
         }, err => {
 
         })
     }
     showProduxtDetails(prodId) {
         this.router.navigate(['/productdetails'], { queryParams: { prodId: prodId } });
+    }
+
+    showBigImage(image) {
+        this.product_image = image;
     }
 }

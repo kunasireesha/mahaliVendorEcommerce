@@ -28,6 +28,7 @@ export const AppSettings = {
     palceOrder:baseUrl+"place_order",
     orderSummary:baseUrl+"place_order/order_summary", 
     getAccDetails:baseUrl+"vendors/account_details",
+    getAddbyId:baseUrl+"delivery_address/address_id",
     updateAcc:baseUrl+"vendors/update_profile",
     dealOfDay:baseUrl+"products/e_commerce/dashboard",
     getJewel:baseUrl+"products/jewellery",

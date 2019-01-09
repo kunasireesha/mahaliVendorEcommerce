@@ -40,6 +40,7 @@ import { AddressComponent } from './components/address/address.component';
 import { FreshvegetablesComponent } from './components/freshvegetables/freshvegetables.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { ImageZoomModule } from 'angular2-image-zoom';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -78,6 +79,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         ReactiveFormsModule,
         BrowserAnimationsModule,
         Ng2SearchPipeModule,
+        ImageZoomModule,
         MDBBootstrapModule.forRoot(),
         TranslateModule.forRoot({
             loader: {
@@ -115,6 +117,7 @@ export function HttpLoaderFactory(http: HttpClient) {
             { path: 'myorders', component: UseraccountComponent, data: [{ page: 'orders' }] },
             { path: 'changePw', component: UseraccountComponent, data: [{ page: 'changePw' }] },
             { path: 'mysavedlist', component: MysavedlistComponent, data: [{ page: 'Mysavedlist' }] },
+            { path: 'accountData', component: UseraccountComponent, data: [{ page: 'accountData' }] },
             { path: 'aboutus', component: AboutusComponent, data: [{ page: 'Aboutus' }] },
             { path: 'addProduct', component: UseraccountComponent, data: [{ page: 'addProduct' }] },
             { path: 'myProduct', component: UseraccountComponent, data: [{ page: 'myproduct' }] },
