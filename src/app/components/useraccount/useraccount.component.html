@@ -1131,13 +1131,13 @@
                                         </tr>
                                     </thead>
                                     <tbody class="cust-tbody">
-                                        <tr>
+                                        <tr *ngFor="let reqProd of reqProds">
                                             <th scope="row" class="cust-1">1</th>
                                             <td class="add-img">
-                                                <img [src]="reqProds.product_image" alt="electronics">
+                                                <img [src]="reqProd.product_image" alt="electronics">
                                             </td>
-                                            <td class="cust-pot">{{reqProds.product_name}}</td>
-                                            <td class="cust-1">{{reqProds.brand}}</td>
+                                            <td class="cust-pot">{{reqProd.product_name}}</td>
+                                            <td class="cust-1">{{reqProd.brand}}</td>
                                             <td class="cust-1 text-right">
                                                 <button class="cust-add" data-toggle="modal" data-target="#addProd">ADD</button>
                                             </td>

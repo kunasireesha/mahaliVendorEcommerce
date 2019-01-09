@@ -50,14 +50,14 @@ export class ProductsComponent implements OnInit {
         this.catName = params.catName;
         this.seeAll = true;
         this.searchProd = false;
-        this.getCatProducts();
+        this.getCatProducts('');
       } else if (params.action === 'subCategory') {
         this.subId = params.subId;
         this.catName = params.catName;
         this.subCatName =params.subCat;
         this.seeAll = true;
         this.searchProd = false;
-        this.getSubProducts();
+        this.getSubProducts('');
       }
       
     })
@@ -154,11 +154,13 @@ export class ProductsComponent implements OnInit {
 
     })
   }
+  billing;
   getCart() {
     var inData = localStorage.getItem('userId');
     this.appService.getCart(inData).subscribe(res => {
       this.cartDetails = res.json().cart_details;
       this.cartCount = res.json().count;
+      this.billing = res.json().selling_Price_bill;
     }, err => {
 
     })
@@ -247,7 +249,8 @@ export class ProductsComponent implements OnInit {
     })
   }
   
-  getSubProducts() {
+  getSubProducts(subid) {
+    this.subId = (subid==='')?this.subId:subid;
     this.skuArr=[];
     this.appService.productBySubCatId(this.subId).subscribe(res => {
       this.prodData = res.json().products;
@@ -265,7 +268,8 @@ export class ProductsComponent implements OnInit {
 
     })
   }
-  getCatProducts() {
+  getCatProducts(id) {
+    this.catId= (id === '')? this.catId : id;
     this.skuArr=[];
     this.appService.productByCatId(this.catId).subscribe(res => {
       this.prodData = res.json().products;
