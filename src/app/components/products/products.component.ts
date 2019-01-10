@@ -45,7 +45,7 @@ export class ProductsComponent implements OnInit {
         this.getEcom();
         this.seeAll = true;
         this.searchProd = false;
-      }else if (params.action === 'category') {
+      } else if (params.action === 'category') {
         this.catId = params.catId;
         this.catName = params.catName;
         this.seeAll = true;
@@ -54,12 +54,12 @@ export class ProductsComponent implements OnInit {
       } else if (params.action === 'subCategory') {
         this.subId = params.subId;
         this.catName = params.catName;
-        this.subCatName =params.subCat;
+        this.subCatName = params.subCat;
         this.seeAll = true;
         this.searchProd = false;
         this.getSubProducts('');
       }
-      
+
     })
   }
   catId;
@@ -107,6 +107,7 @@ export class ProductsComponent implements OnInit {
   cartCount;
   noData;
   dealOfDay() {
+    this.skuArr =[];
     this.appService.dealOfDay().subscribe(res => {
       this.dealData = res.json().data.deals_of_the_day;
       this.topOfrs = res.json().data.top_offers;
@@ -167,6 +168,7 @@ export class ProductsComponent implements OnInit {
   }
 
   getJewel() {
+    this.skuArr =[];
     this.appService.getJewel().subscribe(res => {
       this.jewelData = res.json().data;
       for (var i = 0; i < this.jewelData.length; i++) {
@@ -184,6 +186,7 @@ export class ProductsComponent implements OnInit {
   clothsku = [];
   clothArr = [];
   getCloth() {
+    this.skuArr =[];
     this.appService.getCloth().subscribe(res => {
       this.clothData = res.json().data;
       for (var i = 0; i < this.clothData.length; i++) {
@@ -191,15 +194,15 @@ export class ProductsComponent implements OnInit {
         for (var j = 0; j < this.clothData[i].sku_details.length; j++) {
           this.clothData[i].sku_details[j].product_name = this.clothData[i].product_name;
           this.clothsku = this.clothData[i].sku_details[j];
-          this.skuArr.push(this.topsku);
+          this.skuArr.push(this.clothsku);
         }
 
       }
     })
   }
- 
+
   getEcom() {
-    this.skuArr=[];
+    this.skuArr = [];
     this.appService.ecomProducts().subscribe(res => {
       this.ecomProds = res.json().products;
       for (var i = 0; i < this.ecomProds.length; i++) {
@@ -232,11 +235,11 @@ export class ProductsComponent implements OnInit {
     this.showCategories = false;
     // this.showSubCategories = false;
   }
-  
-  prodData=[];
-  
+
+  prodData = [];
+
   getCategories() {
-    this.subCatData=[];
+    this.subCatData = [];
     this.appService.getCategories().subscribe(resp => {
       this.category = resp.json().categories;
       // this.showSubCat(this.subId);
@@ -248,10 +251,11 @@ export class ProductsComponent implements OnInit {
       }
     })
   }
-  
+
   getSubProducts(subid) {
-    this.subId = (subid==='')?this.subId:subid;
-    this.skuArr=[];
+    this.skuArr =[];
+    this.subId = (subid === '') ? this.subId : subid;
+    this.skuArr = [];
     this.appService.productBySubCatId(this.subId).subscribe(res => {
       this.prodData = res.json().products;
       this.skuData = [];
@@ -269,8 +273,9 @@ export class ProductsComponent implements OnInit {
     })
   }
   getCatProducts(id) {
-    this.catId= (id === '')? this.catId : id;
-    this.skuArr=[];
+    this.skuArr =[];
+    this.catId = (id === '') ? this.catId : id;
+    this.skuArr = [];
     this.appService.productByCatId(this.catId).subscribe(res => {
       this.prodData = res.json().products;
       for (var i = 0; i < this.prodData.length; i++) {

@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [cartCount]="cartCount" [billing]="billing"></app-header>
 <main role="main">
 
 	<!--Carousel Wrapper-->
@@ -81,7 +81,7 @@
 						</div>
 					</div>
 					<ul class="expand-button">
-						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a></li>
 						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
 					</ul>
 				</div>
@@ -329,7 +329,7 @@
 						</div>
 					</div>
 					<ul class="expand-button">
-						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a></li>
 						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
 					</ul>
 				</div>
@@ -544,7 +544,11 @@
 				<div class="wrapper">
 					<div class="card">
 						<div class="bg-image">
-							<img class="img-fluid" [src]="cloth.image" alt="Card image cap" (click)="showProduxtDetails(cloth.product_id)">
+							<img class="img-fluid" *ngIf="cloth.image==undefined || cloth.image==''" src="assets/images/prod-dummy.png" alt="Card image cap"
+							 (click)="showProduxtDetails(cloth.product_id)">
+
+							<img class="img-fluid" *ngIf="cloth.image!==undefined || cloth.image!==''" [src]="cloth.image" alt="Card image cap"
+							 (click)="showProduxtDetails(cloth.product_id)">
 						</div>
 						<div class="card-block">
 							<h5 class="text-center">{{cloth.product_name}}
@@ -558,7 +562,7 @@
 						</div>
 					</div>
 					<ul class="expand-button">
-						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a></li>
 						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
 					</ul>
 				</div>
@@ -672,7 +676,7 @@
 						</div>
 					</div>
 					<ul class="expand-button">
-						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(jewel.product_id,jewel.skid)"></i></a></li>
 						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
 					</ul>
 				</div>
@@ -909,7 +913,7 @@
 						</div>
 					</div>
 					<ul class="expand-button">
-						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a></li>
 						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
 					</ul>
 				</div>
@@ -1030,7 +1034,7 @@
 						</div>
 					</div>
 					<ul class="expand-button">
-						<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
+						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a></li>
 						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
 					</ul>
 				</div>

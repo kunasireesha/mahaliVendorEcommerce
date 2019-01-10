@@ -516,6 +516,7 @@ export class UseraccountComponent implements OnInit {
     get f1() { return this.addressForm.controls; }
 
     saveAddress() {
+        this.addressForm.value.address_type = this.type;
         this.submitted = true;
         // stop here if form is invalid
         if (this.addressForm.invalid) {

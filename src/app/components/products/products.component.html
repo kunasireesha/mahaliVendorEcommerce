@@ -23,7 +23,7 @@
 			  </div> -->
 
 			<div class="categories" *ngFor="let cat of category; let i = index">
-				<p [ngClass]="{'active':showCategories && i==selectedCat}" >
+				<p [ngClass]="{'active':showCategories && i==selectedCat}">
 					<a>
 						<i class="fa fa-plus" aria-hidden="true" *ngIf="!showCategories" (click)="showsubCat(i,cat.id)"></i>
 						<i class="fa fa-plus" aria-hidden="true" *ngIf="showCategories && i!==selectedCat" (click)="showsubCat(i,cat.id)"></i>
@@ -106,15 +106,15 @@
 				</div>
 			</div>
 
-    </div>
-    <div class="col-md-9 items">
-      <p>
-        <a routerLink="/">Home</a>&nbsp;&nbsp;>&nbsp;
-        <a>{{catName}}</a>
-        &nbsp;&nbsp;>&nbsp;<a *ngIf="subCatName">{{subCatName}}</a>
-      </p>
-      <div class="row" *ngIf="searchProd">
-        <!-- <div class="col-md-3 item" *ngFor="let data of serProducts">
+		</div>
+		<div class="col-md-9 items">
+			<p>
+				<a routerLink="/">Home</a>&nbsp;&nbsp;>&nbsp;
+				<a>{{catName}}</a>
+				&nbsp;&nbsp;>&nbsp;<a *ngIf="subCatName">{{subCatName}}</a>
+			</p>
+			<div class="row" *ngIf="searchProd">
+				<!-- <div class="col-md-3 item" *ngFor="let data of serProducts">
 					<div class="card" (click)="showProduxtDetails()">
 						<img class="img-fluid" src="assets/images/vivo.png" alt="Card image cap">
 						<div class="card-block">

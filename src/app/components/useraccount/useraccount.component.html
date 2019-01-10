@@ -8,7 +8,8 @@
                 <h6 class="account-header">MY ACCOUNT</h6>
                 <div class="li-data">
                     <li [ngClass]="{'active':showProfile || editUserProfile}" (click)="profile()">My Profile</li>
-                    <li [ngClass]="{'active': showAccountDetails|| editAccount}" (click)="accountDetails()">Account Detials</li>
+                    <li [ngClass]="{'active': showAccountDetails|| editAccount}" (click)="accountDetails()">Account
+                        Detials</li>
                     <li [ngClass]="{'active':showDeliveryAddress || showAddAddress|| showEditAddress}" (click)="deliveryAddress()">Delivery
                         Address</li>
                 </div>
@@ -46,7 +47,7 @@
                     <span>{{profileData?.bussiness_name}}</span>
                 </p>
                 <p>
-                    <i class="fa fa-map-marker" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;Unispace
+                    <i class="fa fa-map-marker" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;
                     {{profileData?.bussiness_area}}, {{profileData?.bussiness_address}},
                     <br /> {{profileData?.bussiness_city}}
                     <br /> {{profileData?.bussiness_country}}
@@ -90,7 +91,8 @@
                     </label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control input-feild" id="inputphoneno1" placeholder="8586854500"
-                            [(ngModel)]="profileData.mobile_number" name="mobile_number" ngControl="mobile_number" required>
+                            [(ngModel)]="profileData.mobile_number" name="mobile_number" ngControl="mobile_number"
+                            required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -98,7 +100,8 @@
                         <span class="float-right">:</span>
                     </label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control input-feild" id="inputphoneno" placeholder="my busineess" [(ngModel)]="profileData.bussiness_name" name="bussiness_name">
+                        <input type="text" class="form-control input-feild" id="inputphoneno" placeholder="my busineess"
+                            [(ngModel)]="profileData.bussiness_name" name="bussiness_name">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -107,7 +110,8 @@
                     </label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control input-feild" id="inputhouseno" placeholder="Unispace Bussiness Center #143"
-                            [(ngModel)]="profileData.bussiness_area" name="bussiness_area" ngControl="bussiness_area" required>
+                            [(ngModel)]="profileData.bussiness_area" name="bussiness_area" ngControl="bussiness_area"
+                            required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -122,7 +126,8 @@
                     </label>
                     <div class="col-sm-3 pad-lt">
                         <input type="text" class="form-control input-feild" id="inputcity" placeholder="Bangalore"
-                            [(ngModel)]="profileData.bussiness_city" name="bussiness_city" ngControl="bussiness_city" required>
+                            [(ngModel)]="profileData.bussiness_city" name="bussiness_city" ngControl="bussiness_city"
+                            required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -248,7 +253,8 @@
                     </label>
                     <div class="col-sm-8 col-md-8">
                         <input type="text" class="form-control input-feild" id="inputname1" [(ngModel)]="accDet.account_holder_name"
-                            name="account_holder_name" placeholder="Vijay Kumar" ngControl="account_holder_name" required>
+                            name="account_holder_name" placeholder="Vijay Kumar" ngControl="account_holder_name"
+                            required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -456,7 +462,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputhouseno" class="col-sm-2 col-form-label">House: No
+                    <label for="inputhouseno" class="col-sm-2 col-form-label">House No
                     </label>
                     <div class="col-sm-10">
 
@@ -1131,13 +1137,13 @@
                                         </tr>
                                     </thead>
                                     <tbody class="cust-tbody">
-                                        <tr *ngFor="let reqProd of reqProds">
+                                        <tr>
                                             <th scope="row" class="cust-1">1</th>
                                             <td class="add-img">
-                                                <img [src]="reqProd.product_image" alt="electronics">
+                                                <img [src]="reqProds.product_image" alt="electronics">
                                             </td>
-                                            <td class="cust-pot">{{reqProd.product_name}}</td>
-                                            <td class="cust-1">{{reqProd.brand}}</td>
+                                            <td class="cust-pot">{{reqProds.product_name}}</td>
+                                            <td class="cust-1">{{reqProds.brand}}</td>
                                             <td class="cust-1 text-right">
                                                 <button class="cust-add" data-toggle="modal" data-target="#addProd">ADD</button>
                                             </td>
