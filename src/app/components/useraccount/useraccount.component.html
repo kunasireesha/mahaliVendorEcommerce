@@ -50,7 +50,7 @@
                     <i class="fa fa-map-marker" aria-hidden="true" style="color:#801424; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;
                     {{profileData?.bussiness_area}}, {{profileData?.bussiness_address}},
                     <br /> {{profileData?.bussiness_city}}
-                    <br /> {{profileData?.bussiness_country}}
+                    <br /> {{profileData?.bussiness_country}}-{{profileData?.bussiness_pincode}}
                 </p>
             </div>
             <div class="row">
@@ -1120,7 +1120,8 @@
                                         <form class="form-inline form-rt">
                                             <i class="fa fa-search item-search" aria-hidden="true"></i>
                                             <input class="form-control mr-sm-2 placeholder-padding" type="search"
-                                                placeholder="Search by item name" aria-label="Search">
+                                                placeholder="Search by item name" aria-label="Search" [(ngModel)]="filter"
+                                                name="filter">
                                         </form>
                                     </div>
                                 </div>
@@ -1137,7 +1138,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="cust-tbody">
-                                        <tr>
+                                        <tr *ngFor="let reqProds of reqProds | filter:filter">
                                             <th scope="row" class="cust-1">1</th>
                                             <td class="add-img">
                                                 <img [src]="reqProds.product_image" alt="electronics">
@@ -1145,7 +1146,8 @@
                                             <td class="cust-pot">{{reqProds.product_name}}</td>
                                             <td class="cust-1">{{reqProds.brand}}</td>
                                             <td class="cust-1 text-right">
-                                                <button class="cust-add" data-toggle="modal" data-target="#addProd">ADD</button>
+                                                <button class="cust-add" data-toggle="modal" data-target="#addProd"
+                                                    (click)="getData(reqProds.product_image,reqProds.product_name,reqProds.brand)">ADD</button>
                                             </td>
                                         </tr>
                                         <!-- <tr>
@@ -2240,11 +2242,11 @@
                         <div class="col-sm-5">
                             <div class="add-popup">
                                 <!-- <div class="addProd"> -->
-                                <img [src]="reqProds.product_image" alt="electronics" />
+                                <img [src]="getImg" alt="electronics" />
                                 <!-- </div> -->
                                 <p>
-                                    <span class="pot">{{reqProds.product_name}}</span>
-                                    <br />{{reqProds.brand}}</p>
+                                    <span class="pot">{{prodName}}</span>
+                                    <br />{{brName}}</p>
                             </div>
                         </div>
                         <div class="col-sm-7">
@@ -2253,31 +2255,49 @@
                                     <div class="form-group row">
                                         <label for="price" class="col-sm-3 col-form-label">Price</label>
                                         <div class="col-sm-8">
+
                                             <input type="text" class="form-control" id="price" formControlName="deal_price"
-                                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f2.deal_price.errors }">
-                                            <div *ngIf="submitted && f2.deal_price.errors" class="invalid-feedback">
-                                                <div *ngIf="f2.deal_price.errors.required">Price is
-                                                    required</div>
+                                                class="form-control" [ngClass]="{ 'is-invalid': deal_price_errors }">
+                                            <div *ngIf="deal_price_errors" class="invalid-feedback">
+                                                <div *ngIf="deal_price_errors">Price is required
+                                                </div>
                                             </div>
+
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="discount" class="col-sm-3 col-form-label">Discount</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="discount" formControlName="status"
-                                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f2.status.errors }">
-                                            <div *ngIf="submitted && f2.status.errors" class="invalid-feedback">
-                                                <div *ngIf="f2.status.errors.required">Discount is required</div>
+
+                                            <input type="text" class="form-control" id="discount" formControlName="discount"
+                                                class="form-control" [ngClass]="{ 'is-invalid': discount_error }">
+                                            <div *ngIf="discount_error" class="invalid-feedback">
+                                                <div *ngIf="discount_error">Discount is required</div>
                                             </div>
+
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <!-- <div class="form-group row">
                                         <label for="status" class="col-sm-3 col-form-label">Status</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" id="status" formControlName="discount"
                                                 class="form-control" [ngClass]="{ 'is-invalid': submitted && f2.discount.errors }">
                                             <div *ngIf="submitted && f2.discount.errors" class="invalid-feedback">
                                                 <div *ngIf="f2.discount.errors.required">Status is required</div>
+                                            </div>
+                                            <button type="submit" class="btn add-button pop-save" (click)="save(reqProds.product_id)">SAVE</button>
+                                        </div>
+                                    </div> -->
+                                    <div class="form-group row">
+                                        <label for="sel1" class="col-sm-3 col-form-label">Status:</label>
+                                        <div class="col-sm-8">
+                                            <select class="form-control" id="sel1" formControlName="status" (change)="onSelect($event.target.value)"
+                                                [ngClass]="{ 'is-invalid': status_errors }">
+                                                <option *ngFor="let status of status" [ngValue]="status">{{status}}</option>
+                                                <!-- <option>Unavailable</option> -->
+                                            </select>
+                                            <div *ngIf="status_errors" class="invalid-feedback">
+                                                <div *ngIf="status_errors">Status is required</div>
                                             </div>
                                             <button type="submit" class="btn add-button pop-save" (click)="save(reqProds.product_id)">SAVE</button>
                                         </div>

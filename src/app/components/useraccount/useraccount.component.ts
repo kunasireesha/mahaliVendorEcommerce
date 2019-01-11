@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { appService } from './../../services/mahaliServices/mahali.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+declare var $: any;
 
 @Component({
     selector: 'app-useraccount',
@@ -28,7 +29,7 @@ export class UseraccountComponent implements OnInit {
             this.getOrders();
         } else if (this.page === 'changePw') {
             this.showChangePassword = true;
-        }else if (this.page === 'accountData') {
+        } else if (this.page === 'accountData') {
             this.showAccountDetails = true;
             this.accountDetails();
         }
@@ -38,8 +39,11 @@ export class UseraccountComponent implements OnInit {
     resetForm: FormGroup;
     productForm: FormGroup
     submitted = false;
-   
-    
+    deal_price_errors = false;
+    quantity_errors = false;
+    discount_error = false;
+    status_errors = false;
+
     editDel = false;
     ngOnInit() {
         this.addressForm = this.formBuilder.group({
@@ -61,7 +65,7 @@ export class UseraccountComponent implements OnInit {
             status: ['', Validators.required],
             discount: ['', Validators.required],
             vendor_id: localStorage.userId,
-            product_id: this.productId
+            // product_id: this.productId
         });
         // this.editAddForm = this.formBuilder.group({
         //     full_name:['', Validators.required]
@@ -86,7 +90,7 @@ export class UseraccountComponent implements OnInit {
     showMyProducts = false;
     showRequestAdmin = false;
     showEditAddress = false;
-    showManageUserOrders=false;
+    showManageUserOrders = false;
     profile() {
         this.showNotifications = false;
         this.showOrderDetails = false;
@@ -105,7 +109,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
-        this.showManageUserOrders=false;
+        this.showManageUserOrders = false;
         this.getProfile();
     }
 
@@ -127,7 +131,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
-        this.showManageUserOrders=false;
+        this.showManageUserOrders = false;
     }
 
     deliveryAddress() {
@@ -148,7 +152,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
-        this.showManageUserOrders=false;
+        this.showManageUserOrders = false;
         this.getAdd();
     }
     addAddress() {
@@ -169,7 +173,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
-        this.showManageUserOrders=false;
+        this.showManageUserOrders = false;
     }
 
     // wishList() {
@@ -206,7 +210,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
-        this.showManageUserOrders=false;
+        this.showManageUserOrders = false;
     }
 
     myOrder() {
@@ -227,7 +231,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
-        this.showManageUserOrders=false;
+        this.showManageUserOrders = false;
         this.getOrders();
     }
 
@@ -266,7 +270,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
-        this.showManageUserOrders=false;
+        this.showManageUserOrders = false;
         this.ordDetails(ordId);
     }
     accountDetails() {
@@ -308,7 +312,7 @@ export class UseraccountComponent implements OnInit {
         this.showOfferZone = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
-        this.showManageUserOrders=false;
+        this.showManageUserOrders = false;
     }
     cancelAdd() {
         this.showDeliveryAddress = true;
@@ -337,7 +341,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
-        this.showManageUserOrders=false;
+        this.showManageUserOrders = false;
         this.getCategories();
     }
     showAddProducts2(Id) {
@@ -361,7 +365,7 @@ export class UseraccountComponent implements OnInit {
         this.showMyProducts = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
-        this.showManageUserOrders=false;
+        this.showManageUserOrders = false;
         this.getProducts(Id);
     }
     offerZone() {
@@ -383,7 +387,7 @@ export class UseraccountComponent implements OnInit {
         this.showRequestAdmin = false;
         this.showMyProducts = false;
         this.showEditAddress = false;
-        this.showManageUserOrders=false;
+        this.showManageUserOrders = false;
     }
     myProducts() {
         this.showNotifications = false;
@@ -403,7 +407,7 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showRequestAdmin = false;
         this.showEditAddress = false;
-        this.showManageUserOrders=false;
+        this.showManageUserOrders = false;
     }
     requestAdmin() {
         this.showNotifications = false;
@@ -423,7 +427,7 @@ export class UseraccountComponent implements OnInit {
         this.editAccount = false;
         this.showRequestAdmin = true;
         this.showEditAddress = false;
-        this.showManageUserOrders=false;
+        this.showManageUserOrders = false;
     }
     showEditAdd(addId) {
         this.showNotifications = false;
@@ -445,7 +449,7 @@ export class UseraccountComponent implements OnInit {
         this.showEditAddress = true;
         this.editAdd(addId);
     }
-    showVendorOrderDetails(){
+    showVendorOrderDetails() {
         this.showNotifications = false;
         this.showOrderDetails = false;
         this.showMyOrders = false;
@@ -498,7 +502,8 @@ export class UseraccountComponent implements OnInit {
             mobile_number: this.profileData.mobile_number,
             bussiness_area: this.profileData.bussiness_area,
             bussiness_city: this.profileData.bussiness_city,
-            bussiness_name:this.profileData.bussiness_name
+            bussiness_name: this.profileData.bussiness_name,
+            bussiness_pincode: this.profileData.bussiness_pincode
 
         }
         this.appService.updateProfile(inDate).subscribe(response => {
@@ -636,6 +641,20 @@ export class UseraccountComponent implements OnInit {
     get f2() { return this.productForm.controls; }
     productId;
     save(prodId) {
+        this.productForm.value.product_id = prodId;
+        if (this.productForm.value.deal_price === '') {
+            this.deal_price_errors = true;
+            return;
+        } else if (this.productForm.value.discount === '') {
+            this.discount_error = true;
+            this.deal_price_errors = false;
+            return;
+        } else if (this.productForm.value.status === '') {
+            this.status_errors = true;
+            this.discount_error = false;
+            this.deal_price_errors = false;
+            return;
+        }
         this.productId = prodId;
         this.submitted = true;
         // stop here if form is invalid
@@ -643,19 +662,21 @@ export class UseraccountComponent implements OnInit {
             return;
         }
         this.appService.update(this.productForm.value).subscribe(resp => {
+            this.status_errors = false;
             swal("Your order under process for Approvel", "", "success");
-
+            this.productForm.reset();
+            $('#addProd').modal('hide');
         })
 
     }
     editAddData = {
-        full_name:'',
-        mobile_number:'',
-        house_no:'',
-        landmark:'',
-        city:'',
-        state:'',
-        pin_code:'',
+        full_name: '',
+        mobile_number: '',
+        house_no: '',
+        landmark: '',
+        city: '',
+        state: '',
+        pin_code: '',
 
     };
     // get f3() { return this.editAddForm.controls; }
@@ -666,8 +687,16 @@ export class UseraccountComponent implements OnInit {
 
         })
     }
+    getImg;
+    prodName;
+    brName;
+    getData(img, prodName, brName) {
+        this.getImg = img;
+        this.prodName = prodName;
+        this.brName = brName;
+    }
     UpdateAdd(addId) {
-        var indata ={
+        var indata = {
             "full_name": this.editAddData.full_name,
             "mobile_number": this.editAddData.mobile_number,
             "house_no": this.editAddData.house_no,
@@ -677,8 +706,8 @@ export class UseraccountComponent implements OnInit {
             "pin_code": this.editAddData.pin_code,
             "address_type": this.type
         }
-        this.appService.updateAddData(indata,addId).subscribe(resp => {
-            swal(resp.json().message,"","success");
+        this.appService.updateAddData(indata, addId).subscribe(resp => {
+            swal(resp.json().message, "", "success");
             this.getAdd();
             this.cancelAdd();
         }, err => {
@@ -688,6 +717,10 @@ export class UseraccountComponent implements OnInit {
     fromDt;
     toDt;
     type;
+    status = ["Available", "Unavilable"];
+    onSelect(status) {
+        this.status = status;
+    }
     Type(type) {
         this.type = type;
     }
@@ -703,27 +736,27 @@ export class UseraccountComponent implements OnInit {
 
         })
     }
-    cartData=[];
+    cartData = [];
     cartCount;
     billing;
     getCart() {
         var inData = localStorage.getItem('userId');
         this.appService.getCart(inData).subscribe(res => {
-          this.cartData = res.json().cart_details;
-          for (var i = 0; i < this.cartData.length; i++) {
-            this.cartData[i].products.skuValue = this.cartData[i].products.sku_details[0].size;
-            this.cartData[i].products.skid = this.cartData[i].products.sku_details[0].skid;
-            this.cartData[i].products.selling_price = this.cartData[i].products.sku_details[0].selling_price;
-            this.cartData[i].prodName = this.cartData[i].products.product_name;
-            this.cartData[i].products.img = this.cartData[i].products.sku_details[0].image;
-          }
-          this.cartCount = res.json().count;
-          this.billing = res.json().selling_Price_bill;
-    
+            this.cartData = res.json().cart_details;
+            for (var i = 0; i < this.cartData.length; i++) {
+                this.cartData[i].products.skuValue = this.cartData[i].products.sku_details[0].size;
+                this.cartData[i].products.skid = this.cartData[i].products.sku_details[0].skid;
+                this.cartData[i].products.selling_price = this.cartData[i].products.sku_details[0].selling_price;
+                this.cartData[i].prodName = this.cartData[i].products.product_name;
+                this.cartData[i].products.img = this.cartData[i].products.sku_details[0].image;
+            }
+            this.cartCount = res.json().count;
+            this.billing = res.json().selling_Price_bill;
+
         }, err => {
-    
+
         })
-      }
+    }
 
 
 }

@@ -107,7 +107,7 @@ export class ProductsComponent implements OnInit {
   cartCount;
   noData;
   dealOfDay() {
-    this.skuArr =[];
+    this.skuArr = [];
     this.appService.dealOfDay().subscribe(res => {
       this.dealData = res.json().data.deals_of_the_day;
       this.topOfrs = res.json().data.top_offers;
@@ -168,7 +168,7 @@ export class ProductsComponent implements OnInit {
   }
 
   getJewel() {
-    this.skuArr =[];
+    this.skuArr = [];
     this.appService.getJewel().subscribe(res => {
       this.jewelData = res.json().data;
       for (var i = 0; i < this.jewelData.length; i++) {
@@ -186,7 +186,7 @@ export class ProductsComponent implements OnInit {
   clothsku = [];
   clothArr = [];
   getCloth() {
-    this.skuArr =[];
+    this.skuArr = [];
     this.appService.getCloth().subscribe(res => {
       this.clothData = res.json().data;
       for (var i = 0; i < this.clothData.length; i++) {
@@ -253,7 +253,7 @@ export class ProductsComponent implements OnInit {
   }
 
   getSubProducts(subid) {
-    this.skuArr =[];
+    this.skuArr = [];
     this.subId = (subid === '') ? this.subId : subid;
     this.skuArr = [];
     this.appService.productBySubCatId(this.subId).subscribe(res => {
@@ -273,7 +273,7 @@ export class ProductsComponent implements OnInit {
     })
   }
   getCatProducts(id) {
-    this.skuArr =[];
+    this.skuArr = [];
     this.catId = (id === '') ? this.catId : id;
     this.skuArr = [];
     this.appService.productByCatId(this.catId).subscribe(res => {

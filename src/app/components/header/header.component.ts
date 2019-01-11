@@ -1,6 +1,6 @@
 import { appService } from './../../services/mahaliServices/mahali.service';
 import { UseraccountComponent } from './../useraccount/useraccount.component';
-import { Component, OnInit, ViewChild,Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatDialog, MatDialogConfig } from "@angular/material";
 import { LoginComponent } from '../../components/login/login.component';
 import { Router } from '@angular/router';
@@ -16,8 +16,8 @@ declare var google: any;
     styleUrls: ['./header.component.less']
 })
 export class HeaderComponent implements OnInit {
-    @Input() cartCount:number;
-    @Input() billing:number; 
+    @Input() cartCount: number;
+    @Input() billing: number;
     registerForm: FormGroup;
     loginForm: FormGroup;
     submitted = false;
@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
     showOpacity = false;
     forgotSubmitted = false;
 
-    constructor(public dialog: MatDialog, private router: Router, public appService: appService, private formBuilder: FormBuilder) { 
+    constructor(public dialog: MatDialog, private router: Router, public appService: appService, private formBuilder: FormBuilder) {
         if (localStorage.token === undefined) {
             this.showRegistration = true;
             this.showLoginScreen = true;
@@ -53,7 +53,7 @@ export class HeaderComponent implements OnInit {
     item = {
         quantity: 1
     }
-    
+
     userMobile;
     userName;
     location
@@ -249,9 +249,9 @@ export class HeaderComponent implements OnInit {
     subCatData = [];
     subId;
     selectedCat;
-    showSubCat(Id,index) {
-        this.subId = Id;
+    showSubCat(Id, index) {
         this.subCatData = [];
+        this.subId = Id;
         this.showSubCats = true;
         this.selectedCat = index;
         for (var i = 0; i < this.category.length; i++) {
@@ -342,7 +342,7 @@ export class HeaderComponent implements OnInit {
     // }
     // }
 
-    hidesub(){
+    hidesub() {
         this.showSubCats = false;
     }
 }
