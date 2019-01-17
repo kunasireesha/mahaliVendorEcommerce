@@ -39,6 +39,8 @@ export const AppSettings = {
     ordById: baseUrl + "place_order/order_products",
     reqProducts: baseUrl + "place_order/request_products/vendor",
     updateProd: baseUrl + "place_order/pricing",
-    filterVendor: baseUrl + "products/filter/vendor"
+    filterVendor: baseUrl + "products/filter/vendor",
+    getAddedData: baseUrl + "vendor_products",
+    delProd: baseUrl + "vendor_products/product"
 }
 

@@ -1712,7 +1712,7 @@
                     <form class="form-inline form-rt">
                         <i class="fa fa-search item-search" aria-hidden="true"></i>
                         <input class="form-control mr-sm-2 placeholder-padding" type="search" placeholder="Search by item name"
-                            aria-label="Search">
+                            aria-label="Search" [(ngModel)]="filter" name="filter2">
                     </form>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-12">
@@ -1729,27 +1729,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr *ngFor="let data of prodArr|filter:filter;let i = index">
                                     <th scope="row" class="cst-padtp">
-                                        <strong>1</strong>
+                                        <strong>{{i+1}}</strong>
                                     </th>
-                                    <td class="addProd">
-                                        <img src="assets/images/5.jpg" alt="Electronics">
+                                    <td class="add-img">
+                                        <img [src]="data.product_image" alt="Potatoes">
                                     </td>
                                     <td class="cst-padtp2">
-                                        <strong>Watch</strong>
+                                        <strong>{{data.quantity}}</strong>
                                     </td>
                                     <td class="cst-padtp">
-                                        <strong>BD 45</strong>
+                                        <strong>BD {{data.deal_price}}</strong>
                                     </td>
                                     <td class="cst-padtp">
-                                        <strong>Brand 1</strong>
+                                        <strong>{{data.brand}}</strong>
                                     </td>
                                     <td class="cst-padtp">
-                                        <i class="fa fa-trash-o cust-delete" aria-hidden="true"></i>
+                                        <i class="fa fa-trash-o cust-delete" aria-hidden="true" (click)="deleteProd(data.product_id)"></i>
                                     </td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <th scope="row" class="cst-padtp">
                                         <strong>2</strong>
                                     </th>
@@ -1788,7 +1788,7 @@
                                     <td class="cst-padtp">
                                         <i class="fa fa-trash-o cust-delete" aria-hidden="true"></i>
                                     </td>
-                                </tr>
+                                </tr> -->
                                 <!-- <tr>
                             <th scope="row" class="cst-padtp">
                                 <strong>4</strong>

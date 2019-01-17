@@ -18,8 +18,6 @@ export class UseraccountComponent implements OnInit {
         if (this.page === 'profile') {
             this.showProfile = true;
             this.getProfile();
-        } else if (this.page === 'myproduct') {
-            this.showMyProducts = true;
         } else if (this.page === 'addProduct') {
             this.showAddProducts = true;
             this.addProducts();
@@ -29,6 +27,10 @@ export class UseraccountComponent implements OnInit {
             this.getOrders();
         } else if (this.page === 'changePw') {
             this.showChangePassword = true;
+        }
+        else if (this.page === 'myproduct') {
+            this.showMyProducts = true;
+            this.getAddedData();
         } else if (this.page === 'accountData') {
             this.showAccountDetails = true;
             this.accountDetails();
@@ -46,6 +48,7 @@ export class UseraccountComponent implements OnInit {
 
     editDel = false;
     ngOnInit() {
+        this.getAddedData();
         this.addressForm = this.formBuilder.group({
             full_name: ['', Validators.required],
             mobile_number: ['', Validators.required],
@@ -752,6 +755,32 @@ export class UseraccountComponent implements OnInit {
             }
             this.cartCount = res.json().count;
             this.billing = res.json().selling_Price_bill;
+
+        }, err => {
+
+        })
+    }
+    getVenData = [];
+    venProducts = [];
+    prodArr = [];
+    getAddedData() {
+        this.appService.getAddedData().subscribe(res => {
+            this.getVenData = res.json().vendor_products;
+            for (var i = 0; i < this.getVenData.length; i++) {
+                this.venProducts = this.getVenData[i].product_details;
+                this.prodArr.push(this.venProducts);
+            }
+            // console.log(this.venProducts);
+        }, err => {
+
+        })
+    }
+    deleteProd(proId) {
+        this.appService.delProd(proId).subscribe(resp => {
+            if (resp.json().status === 200) {
+                swal(resp.json().message, "", "success");
+                this.getAddedData();
+            }
 
         }, err => {
 
