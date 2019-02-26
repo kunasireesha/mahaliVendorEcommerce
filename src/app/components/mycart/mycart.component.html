@@ -22,11 +22,11 @@
 							<div class="col-md-3">
 								<div class="sort">
 									<select (change)="changeData($event.target.value)">
-										<option value="{{item.products.skid}}">{{item.products.skuValue}} - BD  {{item.products.selling_price}}</option>
+										<option value="{{item.products.skid}}">{{item.products.skuValue}} - BD {{item.products.selling_price}}</option>
 									</select>
 								</div>
 							</div>
-							<div class="col-md-4 cust-ltrt" >
+							<div class="col-md-4 cust-ltrt">
 								<p>Price:{{item.products.selling_price}} &nbsp;&nbsp;
 									<i class="fa fa-times-circle cust-circle" aria-hidden="true" (click)="delCart(item.cart_id)"></i>
 								</p>
@@ -98,23 +98,23 @@
 						<i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp;Add new delivery address</a>
 					<!-- delivery address -->
 					<div *ngIf="showAddresses">
-					<div class="row del-address"  *ngFor="let data of getAddData">
-						<div class="col-md-6">
-							<br />
-							<div>
-								<h6>{{data.address_type}}</h6>
-								<p>{{data.house_no}}, {{data.landmark}},
-									<br /> {{data.state}}
-									<br /> {{data.pin_code}}
-								</p>
-								<p>Ph : {{data.mobile_number}}</p>
+						<div class="row del-address" *ngFor="let data of getAddData">
+							<div class="col-md-6">
+								<br />
+								<div>
+									<h6>{{data.address_type}}</h6>
+									<p>{{data.house_no}}, {{data.landmark}},
+										<br /> {{data.state}}
+										<br /> {{data.pin_code}}
+									</p>
+									<p>Ph : {{data.mobile_number}}</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<button class="btn btn-maroon" (click)="shipmentType(data.address_id)">Proceed To Pay</button>
 							</div>
 						</div>
-						<div class="col-md-6">
-							<button class="btn btn-maroon" (click)="shipmentType(data.address_id)">Proceed To Pay</button>
-						</div>
 					</div>
-				</div>
 					<!-- <div class="row del-address" *ngIf="showAddresses">
 						<div class="col-md-6">
 							<br />
@@ -194,7 +194,7 @@
 										<span>:</span>
 									</label>
 									<div class="col-sm-8 col-md-8 ">
-										<input type="text " class="form-control " [(ngModel)]="addData.landmark" name="landmark" >
+										<input type="text " class="form-control " [(ngModel)]="addData.landmark" name="landmark">
 									</div>
 
 								</div>
@@ -218,7 +218,7 @@
 										<label class="custom-control-label " for="defaultUnchecked5 ">Set this as my default address</label>
 									</div>
 								</div>
-								<br/>
+								<br />
 								<div class="form-group row ">
 									<div class="col-sm-12 submit text-right ">
 										<button class="btn btn-maroon submit " type="submit " (click)="saveAddress()">Submit</button>
@@ -358,16 +358,16 @@
 			<div class="row justify-content-center">
 				<div class="col-md-9 payment sec">
 					<h5 class="payment">Select Payment Option</h5>
-				
+
 					<div class="row" *ngFor="let pay of payOptions;let i= index">
 						<div class="col-md-12">
-								<i class="far fa-circle" (click)="selePayOptn(i,pay.id)" *ngIf="seleOpt!==i"></i>
-								<i class="far fa-dot-circle" *ngIf="seleOpt==i"></i> &nbsp; &nbsp;
-								{{pay.payment_option}}
-								</div>
+							<i class="far fa-circle" (click)="selePayOptn(i,pay.id)" *ngIf="seleOpt!==i"></i>
+							<i class="far fa-dot-circle" *ngIf="seleOpt==i"></i> &nbsp; &nbsp;
+							{{pay.payment_option}}
+						</div>
 						<hr>
 					</div>
-					
+
 					<!-- <div class="row ">
 						<div class="col-md-12">
 							<div class="custom-control custom-radio mahali-radio">

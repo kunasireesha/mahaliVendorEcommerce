@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
     constructor(public dialog: MatDialog, private router: Router, public appService: appService, private formBuilder: FormBuilder) {
         if (localStorage.token === undefined) {
             this.showRegistration = true;
-            this.showLoginScreen = true;
+            this.showLoginScreen = true; 
             this.myAccount = false;
         } else {
             this.showRegistration = false;
@@ -290,13 +290,19 @@ export class HeaderComponent implements OnInit {
     getCart() {
         var inData = localStorage.getItem('userId');
         this.appService.getCart(inData).subscribe(res => {
-            this.cartData = res.json().cart_details;
-            for (var i = 0; i < this.cartData.length; i++) {
-                this.cartData[i].products.skuValue = this.cartData[i].products.sku_details[0].size;
-                this.cartData[i].products.skid = this.cartData[i].products.sku_details[0].skid;
-                this.cartData[i].products.selling_price = this.cartData[i].products.sku_details[0].selling_price;
-                this.cartData[i].prodName = this.cartData[i].products.product_name;
-                this.cartData[i].products.img = this.cartData[i].products.sku_details[0].image;
+            if (res.json().count === 0) {
+                this.cartCount = res.json().count;
+                this.billing = 0;
+                return;
+            }else {
+                this.cartData = res.json().cart_details;
+                for (var i = 0; i < this.cartData.length; i++) {
+                    this.cartData[i].products.skuValue = this.cartData[i].products.sku_details[0].size;
+                    this.cartData[i].products.skid = this.cartData[i].products.sku_details[0].skid;
+                    this.cartData[i].products.selling_price = this.cartData[i].products.sku_details[0].selling_price;
+                    this.cartData[i].prodName = this.cartData[i].products.product_name;
+                    this.cartData[i].products.img = this.cartData[i].products.sku_details[0].image;
+                }
             }
             this.cartCount = res.json().count;
             this.billing = res.json().selling_Price_bill;

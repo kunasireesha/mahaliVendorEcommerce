@@ -13,7 +13,8 @@
 		<!--Slides-->
 		<div class="carousel-inner" role="listbox">
 			<!--First slide-->
-			<div class="carousel-item banner-slider" *ngFor="let data of bannerData;let i=index" [ngClass]="{'active':i==0}">
+			<div class="carousel-item banner-slider" *ngFor="let data of bannerData;let i=index"
+				[ngClass]="{'active':i==0}">
 				<img class="d-block w-100" [src]="data.website_banner" alt="First slide">
 			</div>
 			<!--/First slide-->
@@ -71,7 +72,8 @@
 				<div class="wrapper">
 					<div class="card">
 						<div class="bg-image">
-							<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
+							<img class="img-fluid" [src]="data.image" alt="Card image cap"
+								(click)="showProduxtDetails(data.product_id)">
 						</div>
 						<div class="card-block">
 							<h5 class="text-center">{{data.product_name}}</h5>
@@ -83,7 +85,8 @@
 						</div>
 					</div>
 					<ul class="expand-button">
-						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a></li>
+						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a>
+						</li>
 						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
 					</ul>
 				</div>
@@ -320,7 +323,8 @@
 				<div class="wrapper">
 					<div class="card">
 						<div class="bg-image">
-							<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
+							<img class="img-fluid" [src]="data.image" alt="Card image cap"
+								(click)="showProduxtDetails(data.product_id)">
 						</div>
 						<div class="card-block">
 							<h5 class="text-center">{{data.product_name}}</h5>
@@ -331,7 +335,8 @@
 						</div>
 					</div>
 					<ul class="expand-button">
-						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a></li>
+						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a>
+						</li>
 						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
 					</ul>
 				</div>
@@ -546,11 +551,12 @@
 				<div class="wrapper">
 					<div class="card">
 						<div class="bg-image">
-							<img class="img-fluid" *ngIf="cloth.image==undefined || cloth.image==''" src="assets/images/prod-dummy.png" alt="Card image cap"
-							 (click)="showProduxtDetails(cloth.product_id)">
+							<img class="img-fluid" *ngIf="cloth.image==undefined || cloth.image==''"
+								src="assets/images/prod-dummy.png" alt="Card image cap"
+								(click)="showProduxtDetails(cloth.product_id)">
 
-							<img class="img-fluid" *ngIf="cloth.image!==undefined || cloth.image!==''" [src]="cloth.image" alt="Card image cap"
-							 (click)="showProduxtDetails(cloth.product_id)">
+							<img class="img-fluid" *ngIf="cloth.image!==undefined || cloth.image!==''"
+								[src]="cloth.image" alt="Card image cap" (click)="showProduxtDetails(cloth.product_id)">
 						</div>
 						<div class="card-block">
 							<h5 class="text-center">{{cloth.product_name}}
@@ -564,7 +570,8 @@
 						</div>
 					</div>
 					<ul class="expand-button">
-						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a></li>
+						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a>
+						</li>
 						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
 					</ul>
 				</div>
@@ -664,7 +671,8 @@
 			<div class="col-md-3" *ngFor="let jewel of jewelArr">
 				<div class="wrapper">
 					<div class="card">
-						<img class="img-fluid" [src]="jewel.image" alt="Card image cap" (click)="showProduxtDetails(jewel.product_id)">
+						<img class="img-fluid" [src]="jewel.image" alt="Card image cap"
+							(click)="showProduxtDetails(jewel.product_id)">
 						<div class="card-block">
 							<h5 class="text-center">{{jewel.product_name}}
 							</h5>
@@ -678,7 +686,8 @@
 						</div>
 					</div>
 					<ul class="expand-button">
-						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(jewel.product_id,jewel.skid)"></i></a></li>
+						<li><a><i class="fas fa-shopping-basket"
+									(click)="addtoCart(jewel.product_id,jewel.skid)"></i></a></li>
 						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
 					</ul>
 				</div>
@@ -900,7 +909,8 @@
 			<div class="col-md-3" *ngFor="let data of ecomArr">
 				<div class="wrapper">
 					<div class="card">
-						<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
+						<img class="img-fluid" [src]="data.image" alt="Card image cap"
+							(click)="showProduxtDetails(data.product_id)">
 						<div class="card-block">
 							<h5 class="text-center">{{data.product_name}}
 							</h5>
@@ -915,7 +925,8 @@
 						</div>
 					</div>
 					<ul class="expand-button">
-						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a></li>
+						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a>
+						</li>
 						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
 					</ul>
 				</div>
@@ -1021,7 +1032,8 @@
 			<div class="col-md-3" *ngFor="let data of ecomArr">
 				<div class="wrapper">
 					<div class="card">
-						<img class="img-fluid" [src]="data.image" alt="Card image cap" (click)="showProduxtDetails(data.product_id)">
+						<img class="img-fluid" [src]="data.image" alt="Card image cap"
+							(click)="showProduxtDetails(data.product_id)">
 						<div class="card-block">
 							<h5 class="text-center">{{data.product_name}}
 							</h5>
@@ -1036,7 +1048,8 @@
 						</div>
 					</div>
 					<ul class="expand-button">
-						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a></li>
+						<li><a><i class="fas fa-shopping-basket" (click)="addtoCart(data.product_id,data.skid)"></i></a>
+						</li>
 						<li><a href="#"><img src="assets/images/maximize.png"></a></li>
 					</ul>
 				</div>
