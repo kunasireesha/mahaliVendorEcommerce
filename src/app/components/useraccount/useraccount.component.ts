@@ -64,10 +64,11 @@ export class UseraccountComponent implements OnInit {
             new_password: ['', [Validators.required, Validators.minLength(6)]],
         });
         this.productForm = this.formBuilder.group({
-            deal_price: ['', Validators.required],
-            status: ['', Validators.required],
-            discount: ['', Validators.required],
-            vendor_id: localStorage.userId,
+            price: [''],
+            // quantity: [''],
+            discount: [''],
+            // product_status: ['']
+            // vendor_id: localStorage.userId,
             // product_id: this.productId
         });
         // this.editAddForm = this.formBuilder.group({
@@ -643,8 +644,10 @@ export class UseraccountComponent implements OnInit {
     }
     get f2() { return this.productForm.controls; }
     productId;
-    save(prodId) {
-        this.productForm.value.product_id = prodId;
+    vend_prod_id;
+    save(Img) {
+        this.productForm.value.status = 1;
+        this.productForm.value.image = Img;
         if (this.productForm.value.deal_price === '') {
             this.deal_price_errors = true;
             return;
@@ -658,13 +661,13 @@ export class UseraccountComponent implements OnInit {
             this.deal_price_errors = false;
             return;
         }
-        this.productId = prodId;
+        // this.productId = prodId;
         this.submitted = true;
         // stop here if form is invalid
         if (this.productForm.invalid) {
             return;
         }
-        this.appService.update(this.productForm.value).subscribe(resp => {
+        this.appService.update(this.productForm.value, this.vend_prod_id).subscribe(resp => {
             this.status_errors = false;
             swal("Your order under process for Approvel", "", "success");
             this.productForm.reset();
@@ -693,10 +696,11 @@ export class UseraccountComponent implements OnInit {
     getImg;
     prodName;
     brName;
-    getData(img, prodName, brName) {
+    getData(img, prodName, brName, venProdId) {
         this.getImg = img;
         this.prodName = prodName;
         this.brName = brName;
+        this.vend_prod_id = venProdId;
     }
     UpdateAdd(addId) {
         var indata = {

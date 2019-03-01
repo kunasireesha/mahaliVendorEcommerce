@@ -38,6 +38,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { StoreComponent } from './components/store/store.component';
 import { AddressComponent } from './components/address/address.component';
 import { FreshvegetablesComponent } from './components/freshvegetables/freshvegetables.component';
+import { SafePipeModule } from 'safe-pipe';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ImageZoomModule } from 'angular2-image-zoom';
@@ -80,6 +81,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         BrowserAnimationsModule,
         Ng2SearchPipeModule,
         ImageZoomModule,
+        SafePipeModule,
         MDBBootstrapModule.forRoot(),
         TranslateModule.forRoot({
             loader: {

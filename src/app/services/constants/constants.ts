@@ -4,7 +4,7 @@ export const AppSettings = {
     registrationUrl: baseUrl + 'vendors/registration',
     loginUrl: baseUrl + 'vendors/login',
     changePwdUrl: baseUrl + 'vendors/changepassword',
-    categoriesUrl: baseUrl + 'ecommerce/categories',
+    categoriesUrl: baseUrl + 'categories/ecommers',
     productUrl: baseUrl + 'products',
     loginDetailsbyEmail: baseUrl + 'vendors/',
     getWholeSellersUrl: baseUrl + 'wholesalers',
@@ -38,9 +38,11 @@ export const AppSettings = {
     getPlaceOrd: baseUrl + "place_order/vendor_orders/ecommerce/vendor_id",
     ordById: baseUrl + "place_order/order_products",
     reqProducts: baseUrl + "place_order/request_products/vendor",
-    updateProd: baseUrl + "place_order/pricing",
+    updateProd: baseUrl + "vendor/products",
     filterVendor: baseUrl + "products/filter/vendor",
     getAddedData: baseUrl + "vendor_products",
-    delProd: baseUrl + "vendor_products/product"
+    delProd: baseUrl + "vendor_products/product",
+    getFooter: baseUrl + "footer_table/getfooter/"
+
 }
 

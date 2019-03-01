@@ -44,6 +44,7 @@
     "popper.js": "^1.12.9",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.2.1",
+    "safe-pipe": "^0.3.0",
     "sweetalert": "^2.1.0",
     "underscore": "^1.9.0",
     "zone.js": "^0.8.26"

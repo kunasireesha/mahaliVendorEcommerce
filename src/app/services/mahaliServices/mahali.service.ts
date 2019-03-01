@@ -119,7 +119,10 @@ export class appService {
         return this.http.get(AppSettings.paymentType, { headers: headers });
     }
     palceOrder(params) {
-        const headers = new Headers({ 'Content-Type': "application/JSON" });
+        const headers = new Headers({
+            'Content-Type': "application/JSON",
+            'x-access-token': (localStorage.token),
+        });
         return this.http.post(AppSettings.palceOrder, params, { headers: headers });
     }
     orderSummary(ordId) {
@@ -170,10 +173,10 @@ export class appService {
         const headers = new Headers({ 'Content-Type': "application/JSON" });
         return this.http.get(AppSettings.ordById + "/" + params, { headers: headers });
     }
-    update(params) {
+    update(params, venId) {
         const headers = new Headers({ 'Content-Type': "application/JSON" });
         this.vendor_id = localStorage.userId;
-        return this.http.put(AppSettings.updateProd + "/" + this.vendor_id + "/" + params, { headers: headers });
+        return this.http.put(AppSettings.updateProd + "/" + venId, params, { headers: headers });
     }
     getAdd(params) {
         const headers = new Headers({ 'Content-Type': "application/JSON" });
@@ -198,6 +201,10 @@ export class appService {
     delProd(params) {
         const headers = new Headers({ 'Content-Type': "application/JSON" });
         return this.http.delete(AppSettings.delProd + "/" + params, { headers: headers });
+    }
+    getFooter(params) {
+        const headers = new Headers({ 'Content-Type': "application/JSON" });
+        return this.http.post(AppSettings.getFooter, params, { headers: headers });
     }
 }
 

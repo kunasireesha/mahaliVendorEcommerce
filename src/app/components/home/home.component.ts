@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
         this.getWholeSellers();
         this.getBanners();
         this.dealOfDay();
-        this.getJewel();
-        this.getCloth();
+        // this.getJewel();
+        // this.getCloth();
         this.getEcom();
     }
     showAllProducts = true;
@@ -75,8 +75,8 @@ export class HomeComponent implements OnInit {
         this.getWholeSellers();
         this.getBanners();
         this.dealOfDay();
-        this.getJewel();
-        this.getCloth();
+        // this.getJewel();
+        // this.getCloth();
         this.getEcom();
     }
     starList: boolean[] = [true, true, true, true, true];       // create a list which contains status of 5 stars
