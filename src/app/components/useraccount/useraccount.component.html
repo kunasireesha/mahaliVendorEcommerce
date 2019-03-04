@@ -21,7 +21,7 @@
                 </div>
                 <h6 class="account-header">MANAGE ORDERS</h6>
                 <div class="li-data">
-                    <li [ngClass]="{'active':showMyOrders || showOrderDetails}" (click)="myOrder()">Vendor Orders</li>
+                    <li [ngClass]="{'active':showMyOrders || showOrderDetails}" (click)="myOrder()">My Orders</li>
                     <li [ngClass]="{'active':showOfferZone}" (click)="offerZone()">Manage User Order</li>
                 </div>
             </ul>
@@ -1389,7 +1389,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="cust-tbody">
-                                        <tr (click)="showVendorOrderDetails()">
+                                        <!-- <tr (click)="showVendorOrderDetails()">
                                             <th scope="row">1</th>
                                             <td>
                                                 1441367
@@ -1456,7 +1456,9 @@
                                                 Rs.266.00
                                             </td>
                                             <td>Delivered</td>
-                                        </tr>
+                                        </tr> -->
+                                    <tr><td class="text-centre">No Data</td></tr>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -1757,7 +1759,7 @@
 
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 cust-vendor">
-                                <h3>Vendor Orders</h3>
+                                <h3>My Orders</h3>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3">
                                 <div class="cust-filter" data-toggle="modal" data-target="#filter">

@@ -252,7 +252,9 @@ export class HomeComponent implements OnInit {
             this.getCart();
             this.cartDetails = res.json().selling_price_total;
             this.cartCount = res.json().count;
-            swal(res.json().message, "", "success");
+            // swal(res.json().message, "", "success");
+            swal("Success", "", "success");
+
         }, err => {
 
         })
